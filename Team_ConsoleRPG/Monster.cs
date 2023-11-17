@@ -57,7 +57,7 @@ namespace ConsoleRPG
             Player.player.ticket++;                     //특수 재화인 티켓 습득 
             Console.WriteLine("회사로 출근합니다!");
             Console.WriteLine($"출근합니다! 플레이어 정보: 체력({Player.player.Health}), 공격력({Player.player.Attack}), 방어력({Player.player.Defend})");
-            Console.WriteLine($"회사정보 : 이름({companys[idx].Name}), 체력({companys[idx].Health}), 공격력({companys[idx].Attack}), 방어력({Player.player.Defend})");
+            Console.WriteLine($"회사정보 : 이름({companys[idx].Name}), 체력({companys[idx].Health}), 공격력({companys[idx].Attack}), 방어력({companys[idx].Defend})");
             Console.WriteLine("----------------------------------------------------");      //플레이어와 몬스터 정보 출력 후 전투 시작
 
             while (!Player.player.IsDead && !companys[idx].IsDead) // 플레이어나 몬스터가 죽을 때까지 반복
