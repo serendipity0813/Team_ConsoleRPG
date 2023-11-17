@@ -5,3 +5,11 @@ C:\Users\junyoung\source\repos\unity\Team_ConsoleRPG\Team_ConsoleRPG\obj\Debug\T
 C:\Users\junyoung\source\repos\unity\Team_ConsoleRPG\Team_ConsoleRPG\obj\Debug\Team_ConsoleRPG.csproj.CoreCompileInputs.cache
 C:\Users\junyoung\source\repos\unity\Team_ConsoleRPG\Team_ConsoleRPG\obj\Debug\Team_ConsoleRPG.exe
 C:\Users\junyoung\source\repos\unity\Team_ConsoleRPG\Team_ConsoleRPG\obj\Debug\Team_ConsoleRPG.pdb
+C:\Users\DongHyun\Documents\csharpProject\Team_ConsoleRPG\Team_ConsoleRPG\obj\Debug\Team_ConsoleRPG.csproj.AssemblyReference.cache
+C:\Users\DongHyun\Documents\csharpProject\Team_ConsoleRPG\Team_ConsoleRPG\obj\Debug\Team_ConsoleRPG.csproj.SuggestedBindingRedirects.cache
+C:\Users\DongHyun\Documents\csharpProject\Team_ConsoleRPG\Team_ConsoleRPG\obj\Debug\Team_ConsoleRPG.csproj.CoreCompileInputs.cache
+C:\Users\DongHyun\Documents\csharpProject\Team_ConsoleRPG\Team_ConsoleRPG\obj\Debug\Team_ConsoleRPG.exe
+C:\Users\DongHyun\Documents\csharpProject\Team_ConsoleRPG\Team_ConsoleRPG\obj\Debug\Team_ConsoleRPG.pdb
+C:\Users\DongHyun\Documents\csharpProject\Team_ConsoleRPG\Team_ConsoleRPG\bin\Debug\Team_ConsoleRPG.exe.config
+C:\Users\DongHyun\Documents\csharpProject\Team_ConsoleRPG\Team_ConsoleRPG\bin\Debug\Team_ConsoleRPG.exe
+C:\Users\DongHyun\Documents\csharpProject\Team_ConsoleRPG\Team_ConsoleRPG\bin\Debug\Team_ConsoleRPG.pdb

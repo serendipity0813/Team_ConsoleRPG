@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using static ConsoleRPG.ConsoleRPG;
 
 
@@ -6,7 +7,8 @@ namespace ConsoleRPG
 {
     internal class GameManager      //게임 기능적인 부분을 관리하는 클래스
     {
-
+        public static List<Monster> companys;
+        public static List<Item> items;
 
         //Display 함수 모음    
 
@@ -59,16 +61,16 @@ namespace ConsoleRPG
 
             Console.WriteLine("나의 정보를 표시합니다.");         //플레이어의 이름, 직업 등등 수치 출력 및 추가수치도 따로 표시
             Console.WriteLine();
-            Console.WriteLine($"이름 : {Player.player.Name}");
-            Console.WriteLine($"직업 : {Player.player.Job}");
-            Console.WriteLine($"레벨 : {Player.player.Level}");
-            int bonusHealth = Player.GetBonusHealth();
-            Console.WriteLine($"체력 : {Player.player.Health} ( + {bonusHealth})");
-            int bonusAttack = Player.GetBonusAttack();
-            Console.WriteLine($"공격력 : {Player.player.Attack} ( + {bonusAttack})");
-            int bonusDefend = Player.GetBonusDefend();
-            Console.WriteLine($"방어력 : {Player.player.Defend} ( + {bonusDefend})");
-            Console.WriteLine($"가진돈 : {Player.player.Money}");
+            Console.WriteLine($"이름 : {Player.GetInst.Name}");
+            Console.WriteLine($"직업 : {Player.GetInst.Job}");
+            Console.WriteLine($"레벨 : {Player.GetInst.Level}");
+            int bonusHealth = Player.GetInst.GetBonusHealth();
+            Console.WriteLine($"체력 : {Player.GetInst.Health} ( + {bonusHealth})");
+            int bonusAttack = Player.GetInst.GetBonusAttack();
+            Console.WriteLine($"공격력 : {Player.GetInst.Attack} ( + {bonusAttack})");
+            int bonusDefend = Player.GetInst.GetBonusDefend();
+            Console.WriteLine($"방어력 : {Player.GetInst.Defend} ( + {bonusDefend})");
+            Console.WriteLine($"가진돈 : {Player.GetInst.Money}");
             Console.WriteLine();
             Console.WriteLine("나가기 : 0");
 
@@ -131,7 +133,7 @@ namespace ConsoleRPG
         {
             Console.Clear();
 
-            Console.WriteLine($"현재 보유금액 : {Player.player.Money}");
+            Console.WriteLine($"현재 보유금액 : {Player.GetInst.Money}");
             Console.WriteLine("필요한 물품을 사기 위해 핸드폰을 킨다. 어떤 사이트에 들어갈까?");
             Console.WriteLine();
             Console.WriteLine("1. 다나와에 들어가서 키보드(무기) 를 구입한다.");
@@ -176,7 +178,7 @@ namespace ConsoleRPG
         {
             Console.Clear();
 
-            Console.WriteLine($"현재 보유금액 : {Player.player.Money}");
+            Console.WriteLine($"현재 보유금액 : {Player.GetInst.Money}");
             Console.WriteLine("구입하려는 키보드를 선택하세요.");
             Console.WriteLine();
             for (int i = 1; i < 6; i++)     //아이템 고유번호 1~5번까지 아이템 데이터 출력
@@ -223,7 +225,7 @@ namespace ConsoleRPG
         {
             Console.Clear();
 
-            Console.WriteLine($"현재 보유금액 : {Player.player.Money}");
+            Console.WriteLine($"현재 보유금액 : {Player.GetInst.Money}");
             Console.WriteLine("구입하려는 마우스를 선택하세요.");
             Console.WriteLine();
             for (int i = 6; i < 11; i++)                //보조무기 아이템 데이터 출력
@@ -274,7 +276,7 @@ namespace ConsoleRPG
         {
             Console.Clear();
 
-            Console.WriteLine($"현재 보유금액 : {Player.player.Money}");
+            Console.WriteLine($"현재 보유금액 : {Player.GetInst.Money}");
             Console.WriteLine("구입하려는 옷을 선택하세요.");
             Console.WriteLine();
             for (int i = 11; i < 16; i++)
@@ -324,7 +326,7 @@ namespace ConsoleRPG
         {
             Console.Clear();
 
-            Console.WriteLine($"현재 보유금액 : {Player.player.Money}");
+            Console.WriteLine($"현재 보유금액 : {Player.GetInst.Money}");
             Console.WriteLine("구입하려는 이어폰을 선택하세요.");
             Console.WriteLine();
             for (int i = 16; i < 21; i++)
@@ -374,7 +376,7 @@ namespace ConsoleRPG
         {
             Console.Clear();
 
-            Console.WriteLine($"현재 보유금액 : {Player.player.Money}");
+            Console.WriteLine($"현재 보유금액 : {Player.GetInst.Money}");
             Console.WriteLine("구입하려는 꿀템을 선택하세요.");
             Console.WriteLine();
             for (int i = 21; i < 26; i++)
@@ -463,9 +465,9 @@ namespace ConsoleRPG
         {
             Console.Clear();
             Console.WriteLine("ticket을 5개 소비하고 만나고자 하는 지인을 선택하세요");
-            Console.WriteLine($"보유티켓 : {Player.player.ticket}");
+            Console.WriteLine($"보유티켓 : {Player.GetInst.ticket}");
 
-            if (Player.player.ticket < 5)          //커뮤니티 진행은 티켓이 5개 소비되므로 5개 이하 소지시 로비로 돌아가도록 설정
+            if (Player.GetInst.ticket < 5)          //커뮤니티 진행은 티켓이 5개 소비되므로 5개 이하 소지시 로비로 돌아가도록 설정
             {
                 Console.WriteLine("티켓이 부족합니다. 엔터를 누르면 집으로 돌아갑니다.");
                 Console.ReadKey();
@@ -494,7 +496,7 @@ namespace ConsoleRPG
                         DisplayHome();
                         break;
                     case 1:      //티켓을 소비하고 아이템 획득 및 자동장착
-                        Player.player.ticket -= 5;
+                        Player.GetInst.ticket -= 5;
                         Console.WriteLine("사랑하는 부모님과 식사를 하며 응원과 지지를 받습니다.");
                         Console.WriteLine("전설의 기운 획득 - 모든 스텟 +10");
                         Item.EquipItem(num);
@@ -503,7 +505,7 @@ namespace ConsoleRPG
                         DisplayHome();
                         break;
                     case 2:
-                        Player.player.ticket -= 5;
+                        Player.GetInst.ticket -= 5;
                         Console.WriteLine("학창시절 친구와 술 한잔 하며 좋은 기운을 받습니다.");
                         Console.WriteLine("힘의 기운 획득 - 공격력 +10");
                         Item.EquipItem(num);
@@ -512,7 +514,7 @@ namespace ConsoleRPG
                         DisplayHome();
                         break;
                     case 3:
-                        Player.player.ticket -= 5;
+                        Player.GetInst.ticket -= 5;
                         Console.WriteLine("직장 동료와 만나 친해지며 사이가 돈독해집니다.");
                         Console.WriteLine("방어의 기운 획득 - 방어 +10");
                         Item.EquipItem(num);
@@ -521,7 +523,7 @@ namespace ConsoleRPG
                         DisplayHome();
                         break;
                     case 4:
-                        Player.player.ticket -= 5;
+                        Player.GetInst.ticket -= 5;
                         Console.WriteLine("대학시절 동기를 만나 최신동향 정보와 꿀팁을 공유합니다.");
                         Console.WriteLine("체력의 기운 획득 - 체력 +10");
                         Item.EquipItem(num);
@@ -530,7 +532,7 @@ namespace ConsoleRPG
                         DisplayHome();
                         break;
                     case 5:
-                        Player.player.ticket -= 5;
+                        Player.GetInst.ticket -= 5;
                         Console.WriteLine("랜덤채팅에서 이상한 사람을 만나 큰일날 뻔 했지만 겨우 도망쳤습니다.");
                         Console.WriteLine("나태의 기운 획득 - 모든 스텟 -10");
                         Item.EquipItem(num);
@@ -597,7 +599,66 @@ namespace ConsoleRPG
 
         }
 
+        public static void DataSetting() {
 
+            //ItemSetting();
+            MonsterSetting();
+        }
+
+        //public static void ItemSetting() {
+        //    items = new List<Item>();
+
+        //    items.Add(new Item(0, " ", " ", 1, 1, 1, 1, false, false));
+
+        //    items.Add(new Item(1, "물려받은 키보드", "weapon", 20, 0, 0, 10, false, false));
+        //    items.Add(new Item(2, "다이소 키보드", "weapon", 40, 0, 0, 50, false, false));
+        //    items.Add(new Item(3, "보급형 기계식 키보드", "weapon", 60, 0, 0, 250, false, false));
+        //    items.Add(new Item(4, "전문 브랜드 기계식 키보드", "weapon", 80, 0, 0, 1250, false, false));
+        //    items.Add(new Item(5, "장인의 맞춤제작 키보드", "weapon", 100, 0, 0, 6250, false, false));
+
+        //    items.Add(new Item(6, "다이소 마우스", "subweapon", 10, 5, 0, 10, false, false));
+        //    items.Add(new Item(7, "무선 마우스", "subweapon", 20, 10, 0, 50, false, false));
+        //    items.Add(new Item(8, "무선 버티컬 마우스", "subweapon", 30, 15, 0, 250, false, false));
+        //    items.Add(new Item(9, "전문 브랜드 마우스", "subweapon", 40, 20, 0, 1250, false, false));
+        //    items.Add(new Item(10, "장인의 맞춤제작 마우스", "subweapon", 50, 25, 0, 6250, false, false));
+
+        //    items.Add(new Item(11, "후드티&츄리닝 세트", "armor", 0, 0, 100, 10, false, false));
+        //    items.Add(new Item(12, "장인 맞춤제작 정장", "armor", 0, 0, 200, 50, false, false));
+        //    items.Add(new Item(13, "물려받은 정장", "armor", 0, 0, 300, 250, false, false));
+        //    items.Add(new Item(14, "깔끔한 댄디룩 스타일", "armor", 0, 0, 400, 1250, false, false));
+        //    items.Add(new Item(15, "아이언맨 슈트", "armor", 0, 0, 500, 6250, false, false));
+
+        //    items.Add(new Item(16, "귀마개", "shield", 0, 8, 0, 10, false, false));
+        //    items.Add(new Item(17, "유선 이어폰", "shield", 0, 16, 0, 50, false, false));
+        //    items.Add(new Item(18, "저가형 무선 이어폰", "shield", 0, 24, 0, 250, false, false));
+        //    items.Add(new Item(19, "고급 브랜드 무선 이어폰", "shield", 0, 32, 0, 1250, false, false));
+        //    items.Add(new Item(20, "최상급 브랜드 고오급 해드셋 ", "shield", 0, 40, 0, 6250, false, false));
+
+        //    items.Add(new Item(21, "손목보호대", "accessory", 0, 2, 50, 10, false, false));
+        //    items.Add(new Item(22, "등받이 쿠션", "accessory", 0, 4, 100, 50, false, false));
+        //    items.Add(new Item(23, "웹캠", "accessory", 0, 6, 150, 250, false, false));
+        //    items.Add(new Item(24, "더블 모니터", "accessory", 0, 8, 200, 1250, false, false));
+        //    items.Add(new Item(25, "전문 브랜드 맞춤 의자", "weapon", 0, 10, 250, 6250, false, false));
+
+        //    items.Add(new Item(26, "전설의 기운", "energy", 10, 10, 10, 0, false, false));
+        //    items.Add(new Item(27, "힘의 기운", "energy", 10, 0, 0, 0, false, false));
+        //    items.Add(new Item(28, "방어의 기운", "energy", 0, 10, 0, 0, false, false));
+        //    items.Add(new Item(29, "체력의 기운", "energy", 0, 0, 10, 0, false, false));
+        //    items.Add(new Item(30, "나태의 기운", "energy", -10, -10, -10, 0, false, false));
+
+        //}
+
+        public static void MonsterSetting() {
+            companys = new List<Monster>();
+
+            companys.Add(new Monster(" ", 1, 1, 1, 1));
+            companys.Add(new Monster("아르바이트", 100, 10, 5, 10));
+            companys.Add(new Monster("중소기업", 250, 40, 15, 50));
+            companys.Add(new Monster("중견기업", 400, 70, 25, 250));
+            companys.Add(new Monster("대기업", 550, 100, 35, 1250));
+            companys.Add(new Monster("글로벌기업", 700, 130, 45, 6250));
+            companys.Add(new Monster("스파르타코딩클럽", 1000, 180, 60, 50000));
+        }
     }
 
 
