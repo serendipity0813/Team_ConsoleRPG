@@ -47,7 +47,7 @@ namespace ConsoleRPG
 
         public static void PlayerDataSetting()
         {
-            player = new Player("Unity", "개발자", 1, 100, 10, 5, 10);      //캐릭터 초기값 세팅
+            player = new Player("Unity", "개발자", 1, 100, 10, 5, 100000);      //캐릭터 초기값 세팅
         }
 
         public void TakeDamage(int damage)      //던전 진행시 몬스터에게 데미지를 받는 메소드

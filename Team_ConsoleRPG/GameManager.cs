@@ -465,7 +465,7 @@ namespace ConsoleRPG
             Console.WriteLine("ticket을 5개 소비하고 만나고자 하는 지인을 선택하세요");
             Console.WriteLine($"보유티켓 : {Player.player.ticket}");
 
-            if (Player.player.ticket <= 5)          //커뮤니티 진행은 티켓이 5개 소비되므로 5개 이하 소지시 로비로 돌아가도록 설정
+            if (Player.player.ticket < 5)          //커뮤니티 진행은 티켓이 5개 소비되므로 5개 이하 소지시 로비로 돌아가도록 설정
             {
                 Console.WriteLine("티켓이 부족합니다. 엔터를 누르면 집으로 돌아갑니다.");
                 Console.ReadKey();
