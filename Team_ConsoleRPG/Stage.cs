@@ -32,7 +32,7 @@ namespace ConsoleRPG
                     break;
 
                 default:
-                    if (Player.player.Level < input)        //입장 레벨(== stage) 보다 낮은 경우 경고문 출력 후 화면 다시 호출
+                    if (Player.GetInst.Level < input)        //입장 레벨(== stage) 보다 낮은 경우 경고문 출력 후 화면 다시 호출
                     {
                         Console.WriteLine($"LV{input} 이상부터 입장 가능합니다.");        
                         DisplayStage();
@@ -52,7 +52,7 @@ namespace ConsoleRPG
         public void MakeMonster(int input) 
         {
             Console.WriteLine("몬스터를 생성합니다.");
-            Console.WriteLine($"출근합니다! 플레이어 정보: 체력({Player.player.Health}), 공격력({Player.player.Attack}), 방어력({Player.player.Defend})");
+            Console.WriteLine($"출근합니다! 플레이어 정보: 체력({Player.GetInst.Health}), 공격력({Player.GetInst.Attack}), 방어력({Player.GetInst.Defend})");
 
             Random random = new Random();
             int count = random.Next(1, input/2+1);
@@ -65,7 +65,7 @@ namespace ConsoleRPG
 
             for (int j = 0; j < count;j++)
             {
-                Console.WriteLine($"회사정보 : 이름({Monster.companys[j].Name}), 체력({Monster.companys[j].Health}), 공격력({Monster.companys[j].Attack}), 방어력({Monster.companys[j].Defend})");
+                Console.WriteLine($"회사정보 : 이름({GameManager.companys[j].Name}), 체력({GameManager.companys[j].Health}), 공격력({GameManager.companys[j].Attack}), 방어력({GameManager.companys[j].Defend})");
             }
 
 
