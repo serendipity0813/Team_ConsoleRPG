@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Diagnostics.Eventing.Reader;
-using System.Runtime.Serialization;
 using static ConsoleRPG.ConsoleRPG;
 
 
@@ -84,91 +82,68 @@ namespace ConsoleRPG
 
         public static void EquipItem(int idx)       //아이템 장착 메소드
         {
-            if (idx > Item.items.Length || idx < 0)
+            if (items[idx].Have != true)
             {
-                Console.WriteLine("올바른 값을 입력해주시기 바랍니다.");
+                Console.WriteLine("가지고 있는 아이템을 선택해주세요.");
             }
-
             else
             {
-                if (items[idx].Have != true)
+                if (items[idx].Equip)       //이미 장착중인 아이템의 경우 출력
                 {
-                    Console.WriteLine("가지고 있는 아이템을 선택해주세요.");
+                    Console.WriteLine("이미 장착중인 아이템입니다.");
                 }
-                else
+                int remain = idx % 5;                                       //아이템이 5단위로 타입이 나뉘기 때문에 5로 나눠 나머지 확인
+                int start = idx - remain + 1;                               //해당 아이템 타입의 첫 번째 아이템 변수를 찾아 START에 저장 
+                for (int i = start; i <start + 5; i++)                     //해당 아이템 부터 5개의 아이템(같은 타입 아이템)의 장착 여부를 FALSE로 전환 - 단일장착을 위해
                 {
-                    if (items[idx].Equip)       //이미 장착중인 아이템의 경우 출력
-                    {
-                        Console.WriteLine("이미 장착중인 아이템입니다.");
-                    }
-                    int remain = idx % 5;                                       //아이템이 5단위로 타입이 나뉘기 때문에 5로 나눠 나머지 확인
-                    if (remain == 0)
-                        remain += 5;
-                    int start = idx - remain + 1;                               //해당 아이템 타입의 첫 번째 아이템 변수를 찾아 START에 저장 
-                    for (int i = start; i < start + 5; i++)                     //해당 아이템 부터 5개의 아이템(같은 타입 아이템)의 장착 여부를 FALSE로 전환 - 단일장착을 위해
-                    {
-                        items[i].Equip = false;
-                    }
-                    items[idx].Equip = !items[idx].Equip;                       //선택한 아이템을 장착하며 아이템 효과를 캐릭터 속성에 추가 합산하여 적용
-                    Player.player.Attack += items[idx].Attack;
-                    Player.player.Defend += items[idx].Defend;
-                    Player.player.Health += items[idx].Health;
+                    items[i].Equip = false;
                 }
-
+                items[idx].Equip = !items[idx].Equip;                       //선택한 아이템을 장착하며 아이템 효과를 캐릭터 속성에 추가 합산하여 적용
+                Player.player.Attack += items[idx].Attack;
+                Player.player.Defend += items[idx].Defend;
+                Player.player.Health += items[idx].Health;
             }
-          
+            
         }
         public static void BuyItem(int input)               //아이템 구매 메소드
         {
-            if (input > Item.items.Length || input < 0)
+            if (items[input].Have == true)      //아이템을 이미 가지고 있는 경우 아이템샵 씬 다시 호출
             {
-                Console.WriteLine("올바른 값을 입력해주시기 바랍니다.");
+                Console.WriteLine("이미 가지고 있는 물건입니다.");
+                Console.ReadKey();
+                GameManager.DisplayShop();
             }
+
+            else if (Player.player.Money < items[input].Price)      //아이템 가격보다 보유 금액이 부족한 경우 아이템샵 씬 다시 호출
+            {
+                Console.WriteLine("잔액이 부족합니다.");
+                Console.ReadKey();
+                GameManager.DisplayShop();
+            }
+
             else
             {
-                if (items[input].Have == true)      //아이템을 이미 가지고 있는 경우 아이템샵 씬 다시 호출
-                {
-                    Console.WriteLine("이미 가지고 있는 물건입니다.");
-                    Console.ReadKey();
-                    GameManager.DisplayShop();
-                }
-
-                else if (Player.player.Money < items[input].Price)      //아이템 가격보다 보유 금액이 부족한 경우 아이템샵 씬 다시 호출
-                {
-                    Console.WriteLine("잔액이 부족합니다.");
-                    Console.ReadKey();
-                    GameManager.DisplayShop();
-                }
-
-                else
-                {
-                    Player.player.Money -= items[input].Price;          //아이템 금액만큼 보유금액 차감 후 아이템 보유 bool값을 true로 전환
-                    items[input].Have = true;
-                    Console.WriteLine($"{items[input].Price} 을 지불하고 {items[input].Name} 을 구입하였습니다.");
-                    Console.WriteLine("Enter를 누르면 상점으로 돌아갑니다.");
-                    Console.ReadKey();
-                    GameManager.DisplayShop();
-                }
+                Player.player.Money -= items[input].Price;          //아이템 금액만큼 보유금액 차감 후 아이템 보유 bool값을 true로 전환
+                items[input].Have = true;
+                Console.WriteLine($"{items[input].Price} 을 지불하고 {items[input].Name} 을 구입하였습니다.");
+                Console.WriteLine("Enter를 누르면 상점으로 돌아갑니다.");
+                Console.ReadKey();
+                GameManager.DisplayShop();
             }
-           
         }
         public static void SellItem(int idx)        //아이템 판매 메소드
         {
-            if(idx > Item.items.Length || idx < 0)
-                Console.WriteLine("가지고 있지 않은 아이템은 판매할 수 없습니다.");
-            else
+            if (Item.items[idx].Have == true)
             {
-                if (Item.items[idx].Have == true)
-                {
-                    int sellmoney;
-                    sellmoney = Item.items[idx].Price / 10 * 8;      //판매금액을 아이템 가격의 80%로 계산하여 저장
-                    Player.player.Money += sellmoney;           //판매 금액만큼 플레이어 보유 금액 추가합산
-                    Item.items[idx].Have = !Item.items[idx].Have;
-                    if (Item.items[idx].Equip)
-                        Item.items[idx].Equip = !Item.items[idx].Equip;       //아이템을 장착하고 있었다면 해제하고 아이템 소지 bool값을 false로 전환
-                }
+                int sellmoney;
+                sellmoney = Item.items[idx].Price / 10 * 8;      //판매금액을 아이템 가격의 80%로 계산하여 저장
+                Player.player.Money += sellmoney;           //판매 금액만큼 플레이어 보유 금액 추가합산
+                Item.items[idx].Have = !Item.items[idx].Have;
+                if (Item.items[idx].Equip)
+                    Item.items[idx].Equip = !Item.items[idx].Equip;       //아이템을 장착하고 있었다면 해제하고 아이템 소지 bool값을 false로 전환
             }
-           
+            else
+                Console.WriteLine("가지고 있지 않은 아이템은 판매할 수 없습니다.");
         }
         public static void AddItem(Item item)               //아이템 추가 메소드
         {
@@ -180,7 +155,7 @@ namespace ConsoleRPG
 
         public static void ItemDataSetting()        //아이템 배열 선언 후 아이템 클래스 객체 생성 후 배열에 저장
         {
-            Item.items = new Item[31];
+            Item.items = new Item[35];
 
             Item.AddItem(new Item(0, " ", " ", 1, 1, 1, 1, false, false));
 
@@ -219,6 +194,10 @@ namespace ConsoleRPG
             Item.AddItem(new Item(28, "방어의 기운", "energy", 0, 10, 0, 0, false, false));
             Item.AddItem(new Item(29, "체력의 기운", "energy", 0, 0, 10, 0, false, false));
             Item.AddItem(new Item(30, "나태의 기운", "energy", -10, -10, -10, 0, false, false));
+
+            Item.AddItem(new Item(31, " ", " ", 0, 0, 0, 0, false, false));
+            Item.AddItem(new Item(32, " ", " ", 0, 0, 0, 0, false, false));
+            Item.AddItem(new Item(33, " ", " ", 0, 0, 0, 0, false, false));
 
 
 
