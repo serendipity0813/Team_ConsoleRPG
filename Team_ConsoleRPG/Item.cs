@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Diagnostics.Eventing.Reader;
+using System.Globalization;
 using System.Runtime.Serialization;
+using System.Text;
+using System.Xml.Linq;
 using static ConsoleRPG.ConsoleRPG;
 
 
@@ -25,7 +28,7 @@ namespace ConsoleRPG
         public int Number { get; }
         public bool Equip { get; set; }     //장착여부 메소드로 수정 가능
         public bool Have { get; set; }      //아이템 구매, 판매 메소드로 수정 가능
-        public string Name { get; }
+        public string Name { get; private set; }
         public string Type { get; }
         public int Attack { get; }
         public int Defend { get; }
@@ -52,6 +55,9 @@ namespace ConsoleRPG
 
         public void PrintItemData()     //아이템 데이터 출력 함수 
         {
+            int maxNameLength = 30;
+            int maxPrice = 15;
+
             if (Equip)
             {
                 Console.ForegroundColor = ConsoleColor.Cyan;        //아이템 장착시 출력
@@ -70,15 +76,36 @@ namespace ConsoleRPG
             }
             else
                 Console.Write("   ");                   //아이템 이름, 가격 등 출력 후 아이템 효과중 0이 아닌 효과 출력
-            Console.Write($"이름 : {Name}");
+            //int test = CountKoreanCharacters(Name);
+            //int test2 = Name.Length;
+            int padLen = maxNameLength - Encoding.Default.GetBytes(Name).Length;
+            string itemName = Name + new string(' ', padLen);
+            Console.Write($"이름 : {itemName}");
             Console.Write(" | ");
-            if (Price != 0) Console.Write($"가격 : {Price}");
+            string priceTex = $"가격 : {Price}";
+            padLen = maxPrice - Encoding.Default.GetBytes(priceTex).Length;
+            priceTex = priceTex + new string(' ', padLen);
+            if (Price != 0) Console.Write(priceTex);
             Console.Write(" | ");
-            if (Attack != 0) Console.Write($"Atk {(Attack >= 0 ? "+" : "")}{Attack} ");
-            if (Defend != 0) Console.Write($"Def {(Defend >= 0 ? "+" : "")}{Defend} ");
-            if (Health != 0) Console.Write($"Hp {(Health >= 0 ? "+" : "")}{Health}");
+            if (Attack != 0) Console.Write($"Atk {(Attack >= 0 ? "+" : "")}{Attack, -10} ");
+            if (Defend != 0) Console.Write($"Def {(Defend >= 0 ? "+" : "")}{Defend, -10} ");
+            if (Health != 0) Console.Write($"Hp {(Health >= 0 ? "+" : "")}{Health, -10}");
             Console.WriteLine();
 
+        }
+
+        static int CountKoreanCharacters(string input) {
+            int count = 0;
+            byte[] bytes = Encoding.UTF8.GetBytes(input);
+
+            for (int i = 0; i < bytes.Length; i++) {
+                // UTF-8에서 한글은 3바이트로 표현되므로, 0xE0으로 시작하는 바이트를 한 글자로 간주
+                if (bytes[i] >= 0xE0) {
+                    count++;
+                    i += 2; // 3바이트를 차지하므로 인덱스를 2만큼 증가
+                }
+            }
+            return count;
         }
 
 
@@ -110,9 +137,9 @@ namespace ConsoleRPG
                         items[i].Equip = false;
                     }
                     items[idx].Equip = !items[idx].Equip;                       //선택한 아이템을 장착하며 아이템 효과를 캐릭터 속성에 추가 합산하여 적용
-                    Player.player.Attack += items[idx].Attack;
-                    Player.player.Defend += items[idx].Defend;
-                    Player.player.Health += items[idx].Health;
+                    Player.GetInst.Attack += items[idx].Attack;
+                    Player.GetInst.Defend += items[idx].Defend;
+                    Player.GetInst.Health += items[idx].Health;
                 }
 
             }
@@ -133,7 +160,7 @@ namespace ConsoleRPG
                     GameManager.DisplayShop();
                 }
 
-                else if (Player.player.Money < items[input].Price)      //아이템 가격보다 보유 금액이 부족한 경우 아이템샵 씬 다시 호출
+                else if (Player.GetInst.Money < items[input].Price)      //아이템 가격보다 보유 금액이 부족한 경우 아이템샵 씬 다시 호출
                 {
                     Console.WriteLine("잔액이 부족합니다.");
                     Console.ReadKey();
@@ -142,7 +169,7 @@ namespace ConsoleRPG
 
                 else
                 {
-                    Player.player.Money -= items[input].Price;          //아이템 금액만큼 보유금액 차감 후 아이템 보유 bool값을 true로 전환
+                    Player.GetInst.Money -= items[input].Price;          //아이템 금액만큼 보유금액 차감 후 아이템 보유 bool값을 true로 전환
                     items[input].Have = true;
                     Console.WriteLine($"{items[input].Price} 을 지불하고 {items[input].Name} 을 구입하였습니다.");
                     Console.WriteLine("Enter를 누르면 상점으로 돌아갑니다.");
@@ -162,7 +189,7 @@ namespace ConsoleRPG
                 {
                     int sellmoney;
                     sellmoney = Item.items[idx].Price / 10 * 8;      //판매금액을 아이템 가격의 80%로 계산하여 저장
-                    Player.player.Money += sellmoney;           //판매 금액만큼 플레이어 보유 금액 추가합산
+                    Player.GetInst.Money += sellmoney;           //판매 금액만큼 플레이어 보유 금액 추가합산
                     Item.items[idx].Have = !Item.items[idx].Have;
                     if (Item.items[idx].Equip)
                         Item.items[idx].Equip = !Item.items[idx].Equip;       //아이템을 장착하고 있었다면 해제하고 아이템 소지 bool값을 false로 전환
