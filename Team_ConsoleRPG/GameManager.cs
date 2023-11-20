@@ -383,8 +383,6 @@ namespace ConsoleRPG
                         Player.GetInst.ticket -= 5;
                         Console.WriteLine("사랑하는 부모님과 식사를 하며 응원과 지지를 받습니다.");
                         Console.WriteLine("전설의 기운 획득 - 모든 스텟 +10");
-                        Item.EquipItem(num);
-                        DataManager.Items[num].Have = true;
                         Console.ReadKey();
                         DisplayHome();
                         break;
@@ -392,8 +390,6 @@ namespace ConsoleRPG
                         Player.GetInst.ticket -= 5;
                         Console.WriteLine("학창시절 친구와 술 한잔 하며 좋은 기운을 받습니다.");
                         Console.WriteLine("힘의 기운 획득 - 공격력 +10");
-                        Item.EquipItem(num);
-                        DataManager.Items[num].Have = true;
                         Console.ReadKey();
                         DisplayHome();
                         break;
@@ -401,8 +397,6 @@ namespace ConsoleRPG
                         Player.GetInst.ticket -= 5;
                         Console.WriteLine("직장 동료와 만나 친해지며 사이가 돈독해집니다.");
                         Console.WriteLine("방어의 기운 획득 - 방어 +10");
-                        Item.EquipItem(num);
-                        DataManager.Items[num].Have = true;
                         Console.ReadKey();
                         DisplayHome();
                         break;
@@ -410,8 +404,6 @@ namespace ConsoleRPG
                         Player.GetInst.ticket -= 5;
                         Console.WriteLine("대학시절 동기를 만나 최신동향 정보와 꿀팁을 공유합니다.");
                         Console.WriteLine("체력의 기운 획득 - 체력 +10");
-                        Item.EquipItem(num);
-                        DataManager.Items[num].Have = true;
                         Console.ReadKey();
                         DisplayHome();
                         break;
@@ -419,8 +411,6 @@ namespace ConsoleRPG
                         Player.GetInst.ticket -= 5;
                         Console.WriteLine("랜덤채팅에서 이상한 사람을 만나 큰일날 뻔 했지만 겨우 도망쳤습니다.");
                         Console.WriteLine("나태의 기운 획득 - 모든 스텟 -10");
-                        Item.EquipItem(num);
-                        DataManager.Items[num].Have = true;
                         Console.ReadKey();
                         DisplayHome();
                         break;
@@ -429,6 +419,10 @@ namespace ConsoleRPG
                         break;
 
                 }
+
+                Player.GetInst.inventory.Add(DataManager.Items[num]);
+                DataManager.Items[num].Have = true;
+                Player.GetInst.EquipItem(DataManager.Items[num]);
             }
         }
 
