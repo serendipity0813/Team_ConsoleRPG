@@ -8,7 +8,7 @@ namespace ConsoleRPG
     public class MonsterMaker
     {
         public static List<Monster> company;
-        public static Monster[] monsters = new Monster[5];
+        public static List<Monster> monsters;
 
         public static void MonsterSetting()
         {
@@ -67,7 +67,7 @@ namespace ConsoleRPG
 
         }
 
-        public static int MakeMonster(int stage) 
+        public static void MakeMonster(int stage) 
         {
             Console.WriteLine("몬스터를 생성합니다.");
 
@@ -83,8 +83,6 @@ namespace ConsoleRPG
             {
                 MonsterMaker.monsters[i] = MonsterMaker.company[monsterNumber.Next(start, end)];
             }
-
-            return count;
             
         }
 
