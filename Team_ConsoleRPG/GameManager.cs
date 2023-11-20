@@ -43,7 +43,7 @@ namespace ConsoleRPG
                     DisplayCommunity();
                     break;
                 case 5:
-                    DisplayCompany();
+                    Stage.DisplayStage();
                     break;
                 case 6:
                     Player.GetInst.Save();
@@ -426,33 +426,6 @@ namespace ConsoleRPG
             }
         }
 
-        public static void DisplayCompany()     //던전선택 화면 출력
-        {
-            Console.Clear();
-            Console.WriteLine("출근하려는 회사를 선택하세요.");
-            Console.WriteLine("1. 아르바이트 : 1티어 아이템 1개 이상 장착 권장");
-            Console.WriteLine("2. 중소기업 : 모든 1티어 아이템 장착 권장");
-            Console.WriteLine("3. 중견기업 : 모든 2티어 아이템 장착 권장");
-            Console.WriteLine("4. 대기업 : 모든 3티어 아이템 장착 권장");
-            Console.WriteLine("5. 글로벌기업 : 모든 4티어 아이템 장착 권장");
-            Console.WriteLine("6. 히든 : 모든 최상위 아이템 장착 권장");
-            Console.WriteLine();
-            Console.WriteLine("0. 오늘은 집에서 쉬도록 하자!");
-
-            int input = CheckInput(0, 6);
-
-            switch (input)
-            {
-                case 0:
-                    DisplayHome();
-                    break;
-                default:
-                    Monster.Work(input);        //선택한 번호를 input으로 받아서 던전진행 함수 호출
-                    break;
-
-            }
-
-        }
 
         public static int CheckInput(int min, int max)      //입력 숫자를 판단하는 함수
         {

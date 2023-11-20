@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 
-namespace Team_ConsoleRPG 
+namespace ConsoleRPG 
 {
     public static class DataManager 
     {
