@@ -4,7 +4,7 @@
     "Equip": false,
     "Have": false,
     "Name": " ",
-    "Type": 7,
+    "Type": 8,
     "Attack": 1,
     "Defend": 1,
     "Health": 1,
@@ -339,5 +339,5 @@
     "Defend": -10,
     "Health": -10,
     "Price": 0
-  }
+  },
 ]
