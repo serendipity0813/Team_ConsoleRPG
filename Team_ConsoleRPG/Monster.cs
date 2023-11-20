@@ -27,30 +27,30 @@ namespace ConsoleRPG {
         {
             Console.Clear();
             int Pmaxhp = Player.GetInst.Health;          //던전 진행 후 체력을 원상태로 전환하기 위해 기존 체력값 저장
-            int Mmaxhp = GameManager.companys[idx].Health;
+            int Mmaxhp = DataManager.Companys[idx].Health;
             Player.GetInst.ticket++;                     //특수 재화인 티켓 습득 
             Console.WriteLine("회사로 출근합니다!");
             Console.WriteLine($"출근합니다! 플레이어 정보: 체력({Player.GetInst.Health}), 공격력({Player.GetInst.Attack}), 방어력({Player.GetInst.Defend})");
-            Console.WriteLine($"회사정보 : 이름({GameManager.companys[idx].Name}), 체력({GameManager.companys[idx].Health}), 공격력({GameManager.companys[idx].Attack}), 방어력({Player.GetInst.Defend})");
+            Console.WriteLine($"회사정보 : 이름({DataManager.Companys[idx].Name}), 체력({DataManager.Companys[idx].Health}), 공격력({DataManager.Companys[idx].Attack}), 방어력({Player.GetInst.Defend})");
             Console.WriteLine("----------------------------------------------------");      //플레이어와 몬스터 정보 출력 후 전투 시작
 
-            while (!Player.GetInst.IsDead && !GameManager.companys[idx].IsDead) // 플레이어나 몬스터가 죽을 때까지 반복
+            while (!Player.GetInst.IsDead && !DataManager.Companys[idx].IsDead) // 플레이어나 몬스터가 죽을 때까지 반복
             {
                 // 플레이어의 턴
                 Console.WriteLine($"{Player.GetInst.Name}의 턴!");
-                GameManager.companys[idx].TakeDamage(Player.GetInst.Attack);     //플레이어의 턴이므로 몬스터 데미지 받음
+                DataManager.Companys[idx].TakeDamage(Player.GetInst.Attack);     //플레이어의 턴이므로 몬스터 데미지 받음
                 Console.WriteLine();
                 Thread.Sleep(1000);     //잠시 멈추는 시간
 
-                if (GameManager.companys[idx].IsDead)       //몬스터 체력이 0이하가 된 경우
+                if (DataManager.Companys[idx].IsDead)       //몬스터 체력이 0이하가 된 경우
                 {
                     Player.GetInst.Health = Pmaxhp;      //플레이어 체력 복구
-                    GameManager.companys[idx].Health = Mmaxhp;      //몬스터 체력 복구
+                    DataManager.Companys[idx].Health = Mmaxhp;      //몬스터 체력 복구
 
-                    Player.GetInst.Money += GameManager.companys[idx].Money;     //몬스터의 money값 만큼 플레이어 머니 추가
+                    Player.GetInst.Money += DataManager.Companys[idx].Money;     //몬스터의 money값 만큼 플레이어 머니 추가
                     Player.GetInst.exp += idx;       //경험치 획득
                     Console.WriteLine($"{idx} 만큼 경험치를 획득합니다");
-                    Console.WriteLine($"무사히 퇴근합니다. {GameManager.companys[idx].Money}만큼 보수를 획득하고 ticket을 1개 획득합니다.");
+                    Console.WriteLine($"무사히 퇴근합니다. {DataManager.Companys[idx].Money}만큼 보수를 획득하고 ticket을 1개 획득합니다.");
 
                     if (Player.GetInst.exp >= Player.GetInst.Level * 10)      //플레이어가 레벨*10 만큼 경험치 획득시 레벨업 
                     {
@@ -66,15 +66,15 @@ namespace ConsoleRPG {
                 }
 
                 // 몬스터의 턴
-                Console.WriteLine($"{GameManager.companys[idx].Name}의 턴!");
-                Player.GetInst.TakeDamage(GameManager.companys[idx].Attack);
+                Console.WriteLine($"{DataManager.Companys[idx].Name}의 턴!");
+                Player.GetInst.TakeDamage(DataManager.Companys[idx].Attack);
                 Console.WriteLine();
                 Thread.Sleep(1000);
 
                 if (Player.GetInst.IsDead)       //플레이어 사망시 몬스터, 플레이어 체력 회복 후 로비 화면으로 이동
                 {
                     Player.GetInst.Health = Pmaxhp;
-                    GameManager.companys[idx].Health = Mmaxhp;
+                    DataManager.Companys[idx].Health = Mmaxhp;
                     Console.WriteLine($"퇴사하고 집으로 돌아갑니다.");
                     break;
                 }

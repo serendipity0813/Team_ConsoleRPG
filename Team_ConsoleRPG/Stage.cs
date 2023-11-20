@@ -1,4 +1,5 @@
 ﻿using System;
+using Team_ConsoleRPG;
 using static ConsoleRPG.ConsoleRPG;
 
 
@@ -65,7 +66,7 @@ namespace ConsoleRPG
 
             for (int j = 0; j < count;j++)
             {
-                Console.WriteLine($"회사정보 : 이름({GameManager.companys[j].Name}), 체력({GameManager.companys[j].Health}), 공격력({GameManager.companys[j].Attack}), 방어력({GameManager.companys[j].Defend})");
+                Console.WriteLine($"회사정보 : 이름({DataManager.Companys[j].Name}), 체력({DataManager.Companys[j].Health}), 공격력({DataManager.Companys[j].Attack}), 방어력({DataManager.Companys[j].Defend})");
             }
 
 

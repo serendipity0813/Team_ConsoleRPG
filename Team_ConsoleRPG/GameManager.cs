@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Team_ConsoleRPG;
 using static ConsoleRPG.ConsoleRPG;
 
 
@@ -7,9 +8,6 @@ namespace ConsoleRPG
 {
     internal class GameManager      //게임 기능적인 부분을 관리하는 클래스
     {
-        public static List<Monster> companys;
-        public static List<Item> items;
-
         //Display 함수 모음    
 
         public static void DisplayHome()        //메인 로비화면 출력
@@ -25,9 +23,10 @@ namespace ConsoleRPG
             Console.WriteLine("3. 인터넷 쇼핑");
             Console.WriteLine("4. 지인 만나기");
             Console.WriteLine("5. 회사로 출근");
+            Console.WriteLine("6. 저장하고 종료");
             Console.WriteLine();
 
-            int input = CheckInput(1, 5);       //입력하는 숫자에 따라 화면 출력
+            int input = CheckInput(1, 6);       //입력하는 숫자에 따라 화면 출력
 
             switch (input)
             {
@@ -46,9 +45,12 @@ namespace ConsoleRPG
                 case 5:
                     DisplayCompany();
                     break;
+                case 6:
+                    Player.GetInst.Save();
+                    break;
                 default:
                     Console.WriteLine("잘못된 입력입니다.");
-                    CheckInput(1, 5);
+                    CheckInput(1, 6);
                     break;
 
             }
@@ -92,13 +94,24 @@ namespace ConsoleRPG
             Console.WriteLine();
             Console.WriteLine("[아이템 목록]");
             Console.WriteLine();
-            for (int i = 1; i < Item.ItemCnt; i++)      //모든 아이템을 확인하며 HAVE 값이 TRUE라면 아이템 데이터 출력
+            //for (int i = 1; i < DataManager.Items.Count; i++)      //모든 아이템을 확인하며 HAVE 값이 TRUE라면 아이템 데이터 출력
+            //{
+            //    if (DataManager.Items[i].Have == true) {
+            //        if (DataManager.Items[i].ID >= 10)
+            //            Console.Write($"{DataManager.Items[i].ID}. ");
+            //        else
+            //            Console.Write($" {DataManager.Items[i].ID}. ");
+            //        DataManager.Items[i].PrintItemData();
+            //    }
+            //}
+            List<Item> inven = Player.GetInst.inventory;
+            for (int i = 0; i < inven.Count; i++) 
             {
-                if (Item.items[i].Have == true)
-                {
-                    Console.Write($"{Item.items[i].Number}. ");
-                    Item.items[i].PrintItemData();
-                }
+                if (i >= 10)
+                    Console.Write($"{i + 1}. ");
+                else
+                    Console.Write($" {i + 1}. ");
+                inven[i].PrintItemData();
             }
 
             Console.WriteLine(" ");             //추가로 진행할 수 있는 기능 출력
@@ -181,46 +194,20 @@ namespace ConsoleRPG
             Console.WriteLine($"현재 보유금액 : {Player.GetInst.Money}");
             Console.WriteLine("구입하려는 키보드를 선택하세요.");
             Console.WriteLine();
-            for (int i = 1; i < 6; i++)     //아이템 고유번호 1~5번까지 아이템 데이터 출력
+            List<Item> items = DataManager.GetItemsByType(ItemType.Weapon);
+            for (int i = 0; i < items.Count; i++)     //아이템 고유번호 1~5번까지 아이템 데이터 출력
             {
-                Console.Write("{0}. ", i);
-                Item.items[i].PrintItemData();
+                Console.Write("{0}. ", i + 1);
+                items[i].PrintItemData();
             }
             Console.WriteLine("0. 다음을 기약하며 핸드폰을 끈다.");
             Console.WriteLine();
             Console.WriteLine("구매를 원하는 키보드의 번호를 입력하세요.");
 
 
-            int input = CheckInput(0, 5);       //아이템 구매시 선택한 번호를 idx로 받아 아이템 구매 메소드 실행
-
-            switch (input)
-            {
-                case 0:
-                    DisplayHome();
-                    break;
-                case 1:
-                    Item.BuyItem(input);
-                    break;
-                case 2:
-                    Item.BuyItem(input);
-                    break;
-                case 3:
-                    Item.BuyItem(input);
-                    break;
-                case 4:
-                    Item.BuyItem(input);
-                    break;
-                case 5:
-                    Item.BuyItem(input);
-                    break;
-                default:
-                    Console.WriteLine("잘못된 입력입니다.");
-                    break;
-
-            }
-
-
+            BuyItem(items);
         }
+
         public static void DisplaySubweaponShop()       //보조무기 상점화면 출력
         {
             Console.Clear();
@@ -228,50 +215,20 @@ namespace ConsoleRPG
             Console.WriteLine($"현재 보유금액 : {Player.GetInst.Money}");
             Console.WriteLine("구입하려는 마우스를 선택하세요.");
             Console.WriteLine();
-            for (int i = 6; i < 11; i++)                //보조무기 아이템 데이터 출력
+            List<Item> items = DataManager.GetItemsByType(ItemType.SubWeapon);
+            for (int i = 0; i < items.Count; i++)                //보조무기 아이템 데이터 출력
             {
-                Console.Write("{0}. ", i - 5);
-                Item.items[i].PrintItemData();
+                Console.Write("{0}. ", i + 1);
+                items[i].PrintItemData();
             }
             Console.WriteLine("0. 다음을 기약하며 핸드폰을 끈다.");
             Console.WriteLine();
             Console.WriteLine("구매를 원하는 마우스의 번호를 입력하세요.");
 
 
-            int input = CheckInput(0, 5);
-
-            switch (input)          //선택한 번호 +5를 인덱스로 받아 아이템 구매 메소드 출력 - 보조무기는 6부터 시작하기 때문
-            {
-                case 0:
-                    DisplayHome();
-                    break;
-                case 1:
-                    input += 5;
-                    Item.BuyItem(input);
-                    break;
-                case 2:
-                    input += 5;
-                    Item.BuyItem(input);
-                    break;
-                case 3:
-                    input += 5;
-                    Item.BuyItem(input);
-                    break;
-                case 4:
-                    input += 5;
-                    Item.BuyItem(input);
-                    break;
-                case 5:
-                    input += 5;
-                    Item.BuyItem(input);
-                    break;
-                default:
-                    Console.WriteLine("잘못된 입력입니다.");
-                    break;
-
-            }
-
+            BuyItem(items);
         }
+
         public static void DisplayArmorShop()       //갑옷 상점 출력, 기능은 다른 상점과 동일함
         {
             Console.Clear();
@@ -279,49 +236,20 @@ namespace ConsoleRPG
             Console.WriteLine($"현재 보유금액 : {Player.GetInst.Money}");
             Console.WriteLine("구입하려는 옷을 선택하세요.");
             Console.WriteLine();
-            for (int i = 11; i < 16; i++)
+            List<Item> items = DataManager.GetItemsByType(ItemType.Armor);
+            for (int i = 0; i < items.Count; i++)
             {
-                Console.Write("{0}. ", i - 10);
-                Item.items[i].PrintItemData();
+                Console.Write("{0}. ", i + 1);
+                items[i].PrintItemData();
             }
             Console.WriteLine("0. 다음을 기약하며 핸드폰을 끈다.");
             Console.WriteLine();
             Console.WriteLine("구매를 원하는 옷의 번호를 입력하세요.");
 
 
-            int input = CheckInput(0, 5);
-
-            switch (input)
-            {
-                case 0:
-                    DisplayHome();
-                    break;
-                case 1:
-                    input += 10;
-                    Item.BuyItem(input);
-                    break;
-                case 2:
-                    input += 10;
-                    Item.BuyItem(input);
-                    break;
-                case 3:
-                    input += 10;
-                    Item.BuyItem(input);
-                    break;
-                case 4:
-                    input += 10;
-                    Item.BuyItem(input);
-                    break;
-                case 5:
-                    input += 10;
-                    Item.BuyItem(input);
-                    break;
-                default:
-                    Console.WriteLine("잘못된 입력입니다.");
-                    break;
-
-            }
+            BuyItem(items);
         }
+
         public static void DisplayShieldShop()      //방어구 상점 출력, 기능 동일
         {
             Console.Clear();
@@ -329,49 +257,20 @@ namespace ConsoleRPG
             Console.WriteLine($"현재 보유금액 : {Player.GetInst.Money}");
             Console.WriteLine("구입하려는 이어폰을 선택하세요.");
             Console.WriteLine();
-            for (int i = 16; i < 21; i++)
+            List<Item> items = DataManager.GetItemsByType(ItemType.Shield);
+            for (int i = 0; i < items.Count; i++)
             {
-                Console.Write("{0}. ", i - 15);
-                Item.items[i].PrintItemData();
+                Console.Write("{0}. ", i + 1);
+                items[i].PrintItemData();
             }
             Console.WriteLine("0. 다음을 기약하며 핸드폰을 끈다.");
             Console.WriteLine();
             Console.WriteLine("구매를 원하는 이어폰의 번호를 입력하세요.");
 
 
-            int input = CheckInput(0, 5);
-
-            switch (input)
-            {
-                case 0:
-                    DisplayHome();
-                    break;
-                case 1:
-                    input += 15;
-                    Item.BuyItem(input);
-                    break;
-                case 2:
-                    input += 15;
-                    Item.BuyItem(input);
-                    break;
-                case 3:
-                    input += 15;
-                    Item.BuyItem(input);
-                    break;
-                case 4:
-                    input += 15;
-                    Item.BuyItem(input);
-                    break;
-                case 5:
-                    input += 15;
-                    Item.BuyItem(input);
-                    break;
-                default:
-                    Console.WriteLine("잘못된 입력입니다.");
-                    break;
-
-            }
+            BuyItem(items);
         }
+
         public static void DisplayAccessoryShop()       //장신구 상점 출력, 기능은 동일
         {
             Console.Clear();
@@ -379,47 +278,31 @@ namespace ConsoleRPG
             Console.WriteLine($"현재 보유금액 : {Player.GetInst.Money}");
             Console.WriteLine("구입하려는 꿀템을 선택하세요.");
             Console.WriteLine();
-            for (int i = 21; i < 26; i++)
+            List<Item> items = DataManager.GetItemsByType(ItemType.Accessory);
+            for (int i = 0; i < items.Count; i++)
             {
-                Console.Write("{0}. ", i - 20);
-                Item.items[i].PrintItemData();
+                Console.Write("{0}. ", i + 1);
+                items[i].PrintItemData();
             }
             Console.WriteLine("0. 다음을 기약하며 핸드폰을 끈다.");
             Console.WriteLine();
             Console.WriteLine("구매를 원하는 꿀템의 번호를 입력하세요.");
 
 
-            int input = CheckInput(0, 5);
+            BuyItem(items);
+        }
 
-            switch (input)
-            {
+        public static void BuyItem(List<Item> items) 
+        {
+            int input = CheckInput(0, items.Count);
+
+            switch (input) {
                 case 0:
                     DisplayHome();
                     break;
-                case 1:
-                    input += 20;
-                    Item.BuyItem(input);
-                    break;
-                case 2:
-                    input += 20;
-                    Item.BuyItem(input);
-                    break;
-                case 3:
-                    input += 20;
-                    Item.BuyItem(input);
-                    break;
-                case 4:
-                    input += 20;
-                    Item.BuyItem(input);
-                    break;
-                case 5:
-                    input += 20;
-                    Item.BuyItem(input);
-                    break;
                 default:
-                    Console.WriteLine("잘못된 입력입니다.");
+                    Player.GetInst.BuyItem(items[input - 1]);
                     break;
-
             }
         }
 
@@ -428,7 +311,7 @@ namespace ConsoleRPG
             Console.WriteLine("장착하려는 아이템의 번호를 입력해주세요.");
             Console.WriteLine("");
             Console.WriteLine("0. 나가기");
-            int input = CheckInput(0, Item.ItemCnt);        //장착을 원하는 아이템 선택시 선택 숫자를 idx로 받아 아이템 장착 메소드 출력
+            int input = CheckInput(0, Player.GetInst.inventory.Count);        //장착을 원하는 아이템 선택시 선택 숫자를 idx로 받아 아이템 장착 메소드 출력
 
             switch (input)
             {
@@ -436,7 +319,8 @@ namespace ConsoleRPG
                     DisplayHome();
                     break;
                 default:
-                    Item.EquipItem(input);
+                    //Item.EquipItem(input);
+                    Player.GetInst.EquipItem(Player.GetInst.inventory[input - 1]);
                     DisplayInventory();
                     break;
             }
@@ -447,7 +331,7 @@ namespace ConsoleRPG
             Console.WriteLine("판매하려는 아이템의 번호를 입력해주세요.");
             Console.WriteLine("");
             Console.WriteLine("0. 나가기");
-            int input = CheckInput(0, Item.ItemCnt);        //판매를 원하는 아이템 선택시 번호를 idx로 받아 아이템 판매 메소드 출력
+            int input = CheckInput(0, Player.GetInst.inventory.Count);        //판매를 원하는 아이템 선택시 번호를 idx로 받아 아이템 판매 메소드 출력
 
             switch (input)
             {
@@ -455,7 +339,7 @@ namespace ConsoleRPG
                     DisplayHome();
                     break;
                 default:
-                    Item.SellItem(input);
+                    Player.SellItem(Player.GetInst.inventory[input - 1]);
                     DisplayInventory();
                     break;
             }
@@ -500,7 +384,7 @@ namespace ConsoleRPG
                         Console.WriteLine("사랑하는 부모님과 식사를 하며 응원과 지지를 받습니다.");
                         Console.WriteLine("전설의 기운 획득 - 모든 스텟 +10");
                         Item.EquipItem(num);
-                        Item.items[num].Have = true;
+                        DataManager.Items[num].Have = true;
                         Console.ReadKey();
                         DisplayHome();
                         break;
@@ -509,7 +393,7 @@ namespace ConsoleRPG
                         Console.WriteLine("학창시절 친구와 술 한잔 하며 좋은 기운을 받습니다.");
                         Console.WriteLine("힘의 기운 획득 - 공격력 +10");
                         Item.EquipItem(num);
-                        Item.items[num].Have = true;
+                        DataManager.Items[num].Have = true;
                         Console.ReadKey();
                         DisplayHome();
                         break;
@@ -518,7 +402,7 @@ namespace ConsoleRPG
                         Console.WriteLine("직장 동료와 만나 친해지며 사이가 돈독해집니다.");
                         Console.WriteLine("방어의 기운 획득 - 방어 +10");
                         Item.EquipItem(num);
-                        Item.items[num].Have = true;
+                        DataManager.Items[num].Have = true;
                         Console.ReadKey();
                         DisplayHome();
                         break;
@@ -527,7 +411,7 @@ namespace ConsoleRPG
                         Console.WriteLine("대학시절 동기를 만나 최신동향 정보와 꿀팁을 공유합니다.");
                         Console.WriteLine("체력의 기운 획득 - 체력 +10");
                         Item.EquipItem(num);
-                        Item.items[num].Have = true;
+                        DataManager.Items[num].Have = true;
                         Console.ReadKey();
                         DisplayHome();
                         break;
@@ -536,7 +420,7 @@ namespace ConsoleRPG
                         Console.WriteLine("랜덤채팅에서 이상한 사람을 만나 큰일날 뻔 했지만 겨우 도망쳤습니다.");
                         Console.WriteLine("나태의 기운 획득 - 모든 스텟 -10");
                         Item.EquipItem(num);
-                        Item.items[num].Have = true;
+                        DataManager.Items[num].Have = true;
                         Console.ReadKey();
                         DisplayHome();
                         break;
@@ -597,67 +481,6 @@ namespace ConsoleRPG
             }
 
 
-        }
-
-        public static void DataSetting() {
-
-            //ItemSetting();
-            MonsterSetting();
-        }
-
-        //public static void ItemSetting() {
-        //    items = new List<Item>();
-
-        //    items.Add(new Item(0, " ", " ", 1, 1, 1, 1, false, false));
-
-        //    items.Add(new Item(1, "물려받은 키보드", "weapon", 20, 0, 0, 10, false, false));
-        //    items.Add(new Item(2, "다이소 키보드", "weapon", 40, 0, 0, 50, false, false));
-        //    items.Add(new Item(3, "보급형 기계식 키보드", "weapon", 60, 0, 0, 250, false, false));
-        //    items.Add(new Item(4, "전문 브랜드 기계식 키보드", "weapon", 80, 0, 0, 1250, false, false));
-        //    items.Add(new Item(5, "장인의 맞춤제작 키보드", "weapon", 100, 0, 0, 6250, false, false));
-
-        //    items.Add(new Item(6, "다이소 마우스", "subweapon", 10, 5, 0, 10, false, false));
-        //    items.Add(new Item(7, "무선 마우스", "subweapon", 20, 10, 0, 50, false, false));
-        //    items.Add(new Item(8, "무선 버티컬 마우스", "subweapon", 30, 15, 0, 250, false, false));
-        //    items.Add(new Item(9, "전문 브랜드 마우스", "subweapon", 40, 20, 0, 1250, false, false));
-        //    items.Add(new Item(10, "장인의 맞춤제작 마우스", "subweapon", 50, 25, 0, 6250, false, false));
-
-        //    items.Add(new Item(11, "후드티&츄리닝 세트", "armor", 0, 0, 100, 10, false, false));
-        //    items.Add(new Item(12, "장인 맞춤제작 정장", "armor", 0, 0, 200, 50, false, false));
-        //    items.Add(new Item(13, "물려받은 정장", "armor", 0, 0, 300, 250, false, false));
-        //    items.Add(new Item(14, "깔끔한 댄디룩 스타일", "armor", 0, 0, 400, 1250, false, false));
-        //    items.Add(new Item(15, "아이언맨 슈트", "armor", 0, 0, 500, 6250, false, false));
-
-        //    items.Add(new Item(16, "귀마개", "shield", 0, 8, 0, 10, false, false));
-        //    items.Add(new Item(17, "유선 이어폰", "shield", 0, 16, 0, 50, false, false));
-        //    items.Add(new Item(18, "저가형 무선 이어폰", "shield", 0, 24, 0, 250, false, false));
-        //    items.Add(new Item(19, "고급 브랜드 무선 이어폰", "shield", 0, 32, 0, 1250, false, false));
-        //    items.Add(new Item(20, "최상급 브랜드 고오급 해드셋 ", "shield", 0, 40, 0, 6250, false, false));
-
-        //    items.Add(new Item(21, "손목보호대", "accessory", 0, 2, 50, 10, false, false));
-        //    items.Add(new Item(22, "등받이 쿠션", "accessory", 0, 4, 100, 50, false, false));
-        //    items.Add(new Item(23, "웹캠", "accessory", 0, 6, 150, 250, false, false));
-        //    items.Add(new Item(24, "더블 모니터", "accessory", 0, 8, 200, 1250, false, false));
-        //    items.Add(new Item(25, "전문 브랜드 맞춤 의자", "weapon", 0, 10, 250, 6250, false, false));
-
-        //    items.Add(new Item(26, "전설의 기운", "energy", 10, 10, 10, 0, false, false));
-        //    items.Add(new Item(27, "힘의 기운", "energy", 10, 0, 0, 0, false, false));
-        //    items.Add(new Item(28, "방어의 기운", "energy", 0, 10, 0, 0, false, false));
-        //    items.Add(new Item(29, "체력의 기운", "energy", 0, 0, 10, 0, false, false));
-        //    items.Add(new Item(30, "나태의 기운", "energy", -10, -10, -10, 0, false, false));
-
-        //}
-
-        public static void MonsterSetting() {
-            companys = new List<Monster>();
-
-            companys.Add(new Monster(" ", 1, 1, 1, 1));
-            companys.Add(new Monster("아르바이트", 100, 10, 5, 10));
-            companys.Add(new Monster("중소기업", 250, 40, 15, 50));
-            companys.Add(new Monster("중견기업", 400, 70, 25, 250));
-            companys.Add(new Monster("대기업", 550, 100, 35, 1250));
-            companys.Add(new Monster("글로벌기업", 700, 130, 45, 6250));
-            companys.Add(new Monster("스파르타코딩클럽", 1000, 180, 60, 50000));
         }
     }
 
