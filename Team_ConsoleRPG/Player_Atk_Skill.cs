@@ -21,20 +21,17 @@ namespace ConsoleRPG
             }
             else 
             {
+                if (CriticalAtk()) // 기본공격 크리티컬
+                {
+                    Console.WriteLine($"크리티컬! [데미지 : {damage}]");
+                    damage = (int)(damage * 1.6);
+                }
+                else
+                {
+                    Console.WriteLine($"[데미지 : {damage}]");
+                }
                 monster.HP -= damage;
-            }
-
-
-            if (CriticalAtk()) // 기본공격 크리티컬
-            {
-                Console.WriteLine($"크리티컬! [데미지 : {damage}]");
-                damage = (int)(damage * 1.6);
-            }
-            else
-            {
-                Console.WriteLine($"[데미지 : {damage}]");
-            }
-            monster.HP -= damage;
+            }           
 
 
             if (monster.HP <= 0) // 몬스터 체력0, 사망
