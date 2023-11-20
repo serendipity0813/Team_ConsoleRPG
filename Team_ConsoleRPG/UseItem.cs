@@ -92,7 +92,7 @@ namespace Team_ConsoleRPG
                 Console.ReadKey();
                 GameManager.DisplayShop();
             }
-            else if (Player.player.Money < useitems[input].Price)      //아이템 가격보다 보유 금액이 부족한 경우 아이템샵 씬 다시 호출
+            else if (Player.GetInst.Money < useitems[input].Price)      //아이템 가격보다 보유 금액이 부족한 경우 아이템샵 씬 다시 호출
             {
                 Console.WriteLine("잔액이 부족합니다.");
                 Console.ReadKey();
@@ -100,7 +100,7 @@ namespace Team_ConsoleRPG
             }
             else
             {
-                Player.player.Money -= useitems[input].Price;          //아이템 금액만큼 보유금액 차감 후 아이템 보유 bool값을 true로 전환
+                Player.GetInst.Money -= useitems[input].Price;          //아이템 금액만큼 보유금액 차감 후 아이템 보유 bool값을 true로 전환
                 useitems[input].Have += 1;
                 Console.WriteLine($"{useitems[input].Price} 을 지불하고 {useitems[input].Name} 을 구입하였습니다.");
                 Console.WriteLine("Enter를 누르면 상점으로 돌아갑니다.");

@@ -59,7 +59,8 @@ namespace ConsoleRPG
             int sum = 0;
             for (int i = 0; i < equipItems.Count; i++)
             {
-                sum += equipItems[i].Attack;
+                if (equipItems[i] != null)
+                    sum += equipItems[i].Attack;
             }
             return sum;
         }
@@ -69,7 +70,8 @@ namespace ConsoleRPG
             int sum = 0;
             for (int i = 0; i < equipItems.Count; i++)
             {
-                sum += equipItems[i].Defend;
+                if (equipItems[i] != null)
+                    sum += equipItems[i].Defend;
             }
             return sum;
         }
@@ -79,9 +81,9 @@ namespace ConsoleRPG
             int sum = 0;
             for (int i = 0; i < equipItems.Count; i++)
             {
-                sum += equipItems[i].Health;
+                if (equipItems[i] != null)
+                    sum += equipItems[i].Health;
             }
-
             return sum;
         }
 
