@@ -20,6 +20,8 @@ using static ConsoleRPG.ConsoleRPG;
                 while (battle) // 플레이어가 죽거나 모든 몬스터가 죽을 때까지 반복
                 {
                     BattleInfo(count);
+
+
                     Console.WriteLine($"{Player.GetInst.Name}의 턴!");
 
                 for(int i = 0; i < count; i++)
@@ -39,7 +41,7 @@ using static ConsoleRPG.ConsoleRPG;
                         if (DataManager.monsters[i].IsDead == false)
                         {
                             Console.WriteLine($"{DataManager.monsters[i].Name}의 턴!");
-                            Player.GetInst.TakeDamage(DataManager.monsters[i].Attack);
+                            MonsterSkill.Attack(DataManager.monsters[i].Attack);
                             Console.WriteLine();
                             Thread.Sleep(1000);
                         }

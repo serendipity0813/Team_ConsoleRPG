@@ -7,10 +7,11 @@ namespace ConsoleRPG
 {
     internal class MonsterSkill
     {
-        Random random = new Random();
 
-        public void Attack(float damage)      //전투 진행시 몬스터가 데미지를 받는 메소드
+        public static int Attack(int damage)      //전투 진행시 몬스터가 데미지를 받는 메소드
         {
+            Random random = new Random();
+
             int percent = random.Next(1, 100);      //1~100 중 랜덤숫자 생성
             if(percent <= 15)                       // 15이하 숫자인 경우(15% 확률)
             {
@@ -27,21 +28,9 @@ namespace ConsoleRPG
                 Player.GetInst.Health -= (int)(damage - Player.GetInst.Defend);          //기본 공격 연산 적용
             }
 
-            //플레이어 사망여부 체크
-            if (Player.GetInst.IsDead)
-            {
-                Console.WriteLine($"{Player.GetInst.Name}이(가) 죽었습니다.");     
-            }
-            else
-            {
-                Console.WriteLine($"{Player.GetInst.Name}이(가) {damage - Player.GetInst.Defend}의 데미지를 받았습니다. 남은 체력: {Player.GetInst.Health}");
-
-            }
+            return damage;
 
         }
-
-
-
 
     }
 }
