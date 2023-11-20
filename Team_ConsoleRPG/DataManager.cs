@@ -13,7 +13,8 @@ namespace Team_ConsoleRPG
         public static readonly string PLAYER = "PlayerInfo";
 
         public static List<Item> Items { get; private set; }
-        public static List<Monster> Companys { get; private set; }
+        public static List<Monster> Company { get; private set; }
+        public static List<Monster> monsters { get; private set; }
 
         public static string GetProjectPath() 
         {
@@ -60,7 +61,7 @@ namespace Team_ConsoleRPG
             //SaveData(Companys, MONSTER);
 
             Items = LoadData<List<Item>>(ITEM);
-            Companys = LoadData<List<Monster>>(MONSTER);
+            Company = LoadData<List<Monster>>(MONSTER);
         }
 
         public static void ItemSetting() 
@@ -102,15 +103,60 @@ namespace Team_ConsoleRPG
 
         public static void MonsterSetting() 
         {
-            Companys = new List<Monster>();
+            Company = new List<Monster>();
+            monsters = new List<Monster>();
 
-            Companys.Add(new Monster(" ", 1, 1, 1, 1));
-            Companys.Add(new Monster("아르바이트", 100, 10, 5, 10));
-            Companys.Add(new Monster("중소기업", 250, 40, 15, 50));
-            Companys.Add(new Monster("중견기업", 400, 70, 25, 250));
-            Companys.Add(new Monster("대기업", 550, 100, 35, 1250));
-            Companys.Add(new Monster("글로벌기업", 700, 130, 45, 6250));
-            Companys.Add(new Monster("스파르타코딩클럽", 1000, 180, 60, 50000));
+            Company.Add(new Monster(1, "0", 1, 1, 1, 1));
+            Company.Add(new Monster(1, "1", 100, 10, 5, 10));
+            Company.Add(new Monster(1, "2", 1, 1, 1, 1));
+            Company.Add(new Monster(1, "3", 1, 1, 1, 1));
+            Company.Add(new Monster(1, "4", 1, 1, 1, 1));
+            Company.Add(new Monster(1, "5", 1, 1, 1, 1));
+            Company.Add(new Monster(1, "6", 1, 1, 1, 1));
+            Company.Add(new Monster(1, "7", 1, 1, 1, 1));
+            Company.Add(new Monster(1, "8", 1, 1, 1, 1));
+            Company.Add(new Monster(1, "9", 1, 1, 1, 1));
+            Company.Add(new Monster(2, "10", 1, 1, 1, 1));
+            Company.Add(new Monster(2, "11", 250, 40, 15, 50));
+            Company.Add(new Monster(2,"12", 1, 1, 1, 1));
+            Company.Add(new Monster(2,"13", 1, 1, 1, 1));
+            Company.Add(new Monster(2,"14", 1, 1, 1, 1));
+            Company.Add(new Monster(2,"15", 1, 1, 1, 1));
+            Company.Add(new Monster(2,"16", 1, 1, 1, 1));
+            Company.Add(new Monster(2,"17", 1, 1, 1, 1));
+            Company.Add(new Monster(2,"18", 1, 1, 1, 1));
+            Company.Add(new Monster(2,"19", 1, 1, 1, 1));
+            Company.Add(new Monster(3,"20", 1, 1, 1, 1));
+            Company.Add(new Monster(3,"21", 400, 70, 25, 250));
+            Company.Add(new Monster(3,"22", 1, 1, 1, 1));
+            Company.Add(new Monster(3,"23", 1, 1, 1, 1));
+            Company.Add(new Monster(3,"24", 1, 1, 1, 1));
+            Company.Add(new Monster(3,"25", 1, 1, 1, 1));
+            Company.Add(new Monster(3,"26", 1, 1, 1, 1));
+            Company.Add(new Monster(3,"27", 1, 1, 1, 1));
+            Company.Add(new Monster(3,"28", 1, 1, 1, 1));
+            Company.Add(new Monster(3,"29", 1, 1, 1, 1));
+            Company.Add(new Monster(4,"30", 1, 1, 1, 1));
+            Company.Add(new Monster(4,"31", 550, 100, 35, 1250));
+            Company.Add(new Monster(4,"32", 1, 1, 1, 1));
+            Company.Add(new Monster(4,"33", 1, 1, 1, 1));
+            Company.Add(new Monster(4,"34", 1, 1, 1, 1));
+            Company.Add(new Monster(4,"35", 1, 1, 1, 1));
+            Company.Add(new Monster(4,"36", 1, 1, 1, 1));
+            Company.Add(new Monster(4,"37", 1, 1, 1, 1));
+            Company.Add(new Monster(4,"38", 1, 1, 1, 1));
+            Company.Add(new Monster(4,"39", 1, 1, 1, 1));
+            Company.Add(new Monster(5,"40", 1, 1, 1, 1));
+            Company.Add(new Monster(5,"41", 700, 130, 45, 6250));
+            Company.Add(new Monster(5,"42", 1, 1, 1, 1));
+            Company.Add(new Monster(5,"43", 1, 1, 1, 1));
+            Company.Add(new Monster(5,"44", 1, 1, 1, 1));
+            Company.Add(new Monster(5,"45", 1, 1, 1, 1));
+            Company.Add(new Monster(5,"46", 1, 1, 1, 1));
+            Company.Add(new Monster(5,"47", 1, 1, 1, 1));
+            Company.Add(new Monster(5,"48", 1, 1, 1, 1));
+            Company.Add(new Monster(5,"49", 1, 1, 1, 1));
+            Company.Add(new Monster(6,"50", 1000, 180, 60, 50000));
         }
     }
 }
