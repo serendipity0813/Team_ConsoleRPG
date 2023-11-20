@@ -1,0 +1,58 @@
+[
+  {
+    "Name": " ",
+    "Health": 1,
+    "Attack": 1,
+    "Defend": 1,
+    "Money": 1,
+    "IsDead": false
+  },
+  {
+    "Name": "아르바이트",
+    "Health": 100,
+    "Attack": 10,
+    "Defend": 5,
+    "Money": 10,
+    "IsDead": false
+  },
+  {
+    "Name": "중소기업",
+    "Health": 250,
+    "Attack": 40,
+    "Defend": 15,
+    "Money": 50,
+    "IsDead": false
+  },
+  {
+    "Name": "중견기업",
+    "Health": 400,
+    "Attack": 70,
+    "Defend": 25,
+    "Money": 250,
+    "IsDead": false
+  },
+  {
+    "Name": "대기업",
+    "Health": 550,
+    "Attack": 100,
+    "Defend": 35,
+    "Money": 1250,
+    "IsDead": false
+  },
+  {
+    "Name": "글로벌기업",
+    "Health": 700,
+    "Attack": 130,
+    "Defend": 45,
+    "Money": 6250,
+    "IsDead": false
+  },
+  {
+    "Name": "스파르타코딩클럽",
+    "Health": 1000,
+    "Attack": 180,
+    "Defend": 60,
+    "Money": 50000,
+    "IsDead": false
+  }
+]
