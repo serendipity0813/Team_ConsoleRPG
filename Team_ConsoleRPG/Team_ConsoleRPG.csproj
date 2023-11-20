@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dungeon.cs" />
     <Compile Include="MonsterSkill.cs" />
     <Compile Include="MonsterMaker.cs" />
     <Compile Include="Stage.cs" />
