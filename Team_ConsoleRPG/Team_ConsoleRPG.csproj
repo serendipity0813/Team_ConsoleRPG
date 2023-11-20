@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Battle2.cs" />
+    <Compile Include="Reward.cs" />
     <Compile Include="DataManager.cs" />
     <Compile Include="MonsterSkill.cs" />
     <Compile Include="Battle1.cs" />

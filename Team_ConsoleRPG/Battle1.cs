@@ -41,7 +41,7 @@ using static ConsoleRPG.ConsoleRPG;
                         if (DataManager.monsters[i].IsDead == false)
                         {
                             Console.WriteLine($"{DataManager.monsters[i].Name}의 턴!");
-                            MonsterSkill.Attack(DataManager.monsters[i].Attack);
+                            MonsterSkill.Attack(DataManager.monsters[i].Attack, DataManager.monsters[i].Level, DataManager.monsters[i].Name);
                             Console.WriteLine();
                             Thread.Sleep(1000);
                         }
