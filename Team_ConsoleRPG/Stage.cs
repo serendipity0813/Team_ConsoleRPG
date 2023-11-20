@@ -36,7 +36,7 @@ namespace ConsoleRPG
                     }
                     else
                     {
-                        MonsterMaker.MakeMonster(input);
+                        Monster.MakeMonster(input);
                         break;
                     }
 
