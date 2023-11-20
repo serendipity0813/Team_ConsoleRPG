@@ -30,7 +30,8 @@ namespace ConsoleRPG
                 default:
                     if (Player.GetInst.Level < input)        //입장 레벨(== stage) 보다 낮은 경우 경고문 출력 후 화면 다시 호출
                     {
-                        Console.WriteLine($"LV{input} 이상부터 입장 가능합니다.");        
+                        Console.WriteLine($"LV{input} 이상부터 입장 가능합니다.");
+                        Console.ReadKey();
                         DisplayStage();
                         break;
                     }

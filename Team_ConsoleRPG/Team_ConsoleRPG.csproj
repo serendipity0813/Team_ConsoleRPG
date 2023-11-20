@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Battle2.cs" />
+    <Compile Include="Quest.cs" />
     <Compile Include="Reward.cs" />
     <Compile Include="DataManager.cs" />
     <Compile Include="MonsterSkill.cs" />

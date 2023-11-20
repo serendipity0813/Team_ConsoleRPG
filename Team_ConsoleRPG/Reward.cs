@@ -40,7 +40,7 @@ namespace ConsoleRPG
                 Console.WriteLine($"{money}만큼 돈을 획득합니다.");
                 Console.WriteLine();
 
-                if(Player.GetInst.exp > Player.GetInst.Level * 5)
+                if(Player.GetInst.exp > Player.GetInst.Level * Player.GetInst.Level * 5)
                 {
                     Console.WriteLine();
                     Console.WriteLine("LEVEL UP! - 공격력, 방어력, 체력이 일정수치 상승합니다.");

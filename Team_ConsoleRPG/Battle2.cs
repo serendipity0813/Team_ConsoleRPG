@@ -84,6 +84,7 @@ namespace ConsoleRPG
             }
             Console.WriteLine("----------------------------------------------------");      //플레이어와 몬스터 정보 출력 후 전투 시작
 
+
         }
 
         public static void MakeMonster(int stage)
@@ -91,14 +92,15 @@ namespace ConsoleRPG
             Console.WriteLine("몬스터를 생성합니다.");
 
             Random random = new Random();
+            Random random2 = new Random();
 
             int start = stage * 10 - 10;
-            int end = stage * 10 - 1;
-            int count = random.Next(1, 3);
+            int end = stage * 10;
+            int count = random.Next(1, stage+1);
 
             for (int i = 0; i < count; i++)
             {
-                DataManager.monsters[i] = DataManager.Company[random.Next(start, end)];
+                DataManager.monsters.Add(DataManager.Company[random2.Next(start, end)]);
             }
 
         }

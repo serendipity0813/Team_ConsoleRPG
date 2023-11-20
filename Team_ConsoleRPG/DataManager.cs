@@ -55,7 +55,7 @@ namespace ConsoleRPG
         public static void DataSetting() 
         {
             //ItemSetting();
-            //MonsterSetting();
+            MonsterSetting();
 
             //SaveData(Items, ITEM);
             //SaveData(Companys, MONSTER);
