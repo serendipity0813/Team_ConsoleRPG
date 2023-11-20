@@ -16,3 +16,6 @@ C:\Users\DongHyun\Documents\csharpProject\Team_ConsoleRPG\Team_ConsoleRPG\bin\De
 C:\Users\DongHyun\Documents\csharpProject\Team_ConsoleRPG\Team_ConsoleRPG\bin\Debug\Newtonsoft.Json.dll
 C:\Users\DongHyun\Documents\csharpProject\Team_ConsoleRPG\Team_ConsoleRPG\bin\Debug\Newtonsoft.Json.xml
 C:\Users\DongHyun\Documents\csharpProject\Team_ConsoleRPG\Team_ConsoleRPG\obj\Debug\Team_ConsoleRPG.csproj.CopyComplete
+C:\Users\junyoung\source\repos\unity\Team_ConsoleRPG\Team_ConsoleRPG\bin\Debug\Newtonsoft.Json.dll
+C:\Users\junyoung\source\repos\unity\Team_ConsoleRPG\Team_ConsoleRPG\bin\Debug\Newtonsoft.Json.xml
+C:\Users\junyoung\source\repos\unity\Team_ConsoleRPG\Team_ConsoleRPG\obj\Debug\Team_ConsoleRPG.csproj.CopyComplete

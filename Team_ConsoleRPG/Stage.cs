@@ -6,7 +6,7 @@ namespace ConsoleRPG
 {
     public class Stage
     {
-        public void DisplayStage()     //난이도 선택 화면 출력
+        public static void DisplayStage()     //난이도 선택 화면 출력
         {
             Console.Clear();
             Console.WriteLine("Stage를 선택하세요.");
@@ -37,6 +37,7 @@ namespace ConsoleRPG
                     else
                     {
                         Monster.MakeMonster(input);
+                        Battle1.Fight();
                         break;
                     }
 
