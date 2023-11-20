@@ -423,7 +423,59 @@ namespace ConsoleRPG
             }
         }
 
-        public static void DisplayItemEquip()       //아이템 장착관리 선택시 출력되는 화면
+        public static void DisplayDrinkShop()       //장신구 상점 출력, 기능은 동일
+        {
+            Console.Clear();
+
+            Console.WriteLine($"현재 보유금액 : {Player.GetInst.Money}");
+            Console.WriteLine("구입하려는 꿀템을 선택하세요.");
+            Console.WriteLine();
+            for (int i = 21; i < 26; i++)
+            {
+                Console.Write("{0}. ", i - 20);
+                Item.items[i].PrintItemData();
+            }
+            Console.WriteLine("0. 다음을 기약하며 핸드폰을 끈다.");
+            Console.WriteLine();
+            Console.WriteLine("구매를 원하는 꿀템의 번호를 입력하세요.");
+
+
+            int input = CheckInput(0, 5);
+
+            switch (input)
+            {
+                case 0:
+                    DisplayHome();
+                    break;
+                case 1:
+                    input += 20;
+                    Item.BuyItem(input);
+                    break;
+                case 2:
+                    input += 20;
+                    Item.BuyItem(input);
+                    break;
+                case 3:
+                    input += 20;
+                    Item.BuyItem(input);
+                    break;
+                case 4:
+                    input += 20;
+                    Item.BuyItem(input);
+                    break;
+                case 5:
+                    input += 20;
+                    Item.BuyItem(input);
+                    break;
+                default:
+                    Console.WriteLine("잘못된 입력입니다.");
+                    break;
+
+            }
+
+
+
+            public static void DisplayItemEquip()       //아이템 장착관리 선택시 출력되는 화면
         {
             Console.WriteLine("장착하려는 아이템의 번호를 입력해주세요.");
             Console.WriteLine("");
