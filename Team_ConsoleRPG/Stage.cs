@@ -46,7 +46,40 @@ namespace ConsoleRPG
 
         }
 
-      
+        public static void DisplayReward(bool win)
+        {
+            Console.Clear();
+
+            Console.WriteLine();
+            Console.Write(" [전투결과] : ");
+
+
+            if (win == true)
+            {
+                Console.WriteLine("Player Win!");
+                Console.WriteLine();
+                Console.WriteLine();
+                Console.WriteLine($"{Player.GetInst.Name}가 전투에서 승리하였습니다!");
+                Console.WriteLine();
+                //경험치 획득 및 레벨업 관련 함수 호출
+                //돈, 아이템 등등 획등
+            }
+
+            else if(win == false)
+            {
+                Console.WriteLine("Player Defeat...");
+                Console.WriteLine();
+                Console.WriteLine();
+                Console.WriteLine("Monster가 전투에서 승리하였습니다.");
+                Console.WriteLine();
+                Console.WriteLine("Enter 키를 누르면 집으로 돌아갑니다.");
+                Console.ReadKey();     
+                GameManager.DisplayHome();
+
+            }
+
+
+        }
 
         
 
