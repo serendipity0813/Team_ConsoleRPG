@@ -110,34 +110,35 @@ namespace ConsoleRPG
             Company.Add(new Monster(1, "DJMAX[네오위즈]", 100, 10, 5, 10));
             Company.Add(new Monster(1, "검은사막[펄어비스]", 100, 10, 5, 10));
             Company.Add(new Monster(1, "라그라로크온라인[그라비티]", 100, 10, 5, 10));
-            Company.Add(new Monster(1, "미르[위메이드]", 100, 10, 5, 10));
+            Company.Add(new Monster(1, "문명[2k games]", 100, 10, 5, 10));
             Company.Add(new Monster(2, "서머너즈워[컴투스]", 175, 25, 10, 40));
             Company.Add(new Monster(2, "몬스터헌터[캡콤]", 175, 25, 10, 40));
-            Company.Add(new Monster(2, "북두의 권[겅호온라인]", 175, 25, 10, 40));
+            Company.Add(new Monster(2, "싸이버펑크[CD프로젝트]", 175, 25, 10, 40));
             Company.Add(new Monster(2, "엘리온[카카오게임즈]", 175, 25, 10, 40));
             Company.Add(new Monster(2, "로스트아크[스마일게이트]", 175, 25, 10, 40));
             Company.Add(new Monster(3, "배틀그라운드[크래프톤]", 250, 40, 15, 150));
             Company.Add(new Monster(3, "세븐나이츠[넷마블]", 250, 40, 15, 150));
             Company.Add(new Monster(3, "리니지[엔씨소프트]", 250, 40, 15, 150));
-            Company.Add(new Monster(3, "로블록스[로블록스]", 250, 40, 15, 150));
+            Company.Add(new Monster(3, "브롤스타즈[슈퍼셀]", 250, 40, 15, 150));
             Company.Add(new Monster(3, "어쎄신크리드[유비소프트]", 250, 40, 15, 150));
             Company.Add(new Monster(4, "메탈기어솔리드[코나미]", 325, 55, 20, 500));
             Company.Add(new Monster(4, "메이플스토리[넥슨]", 325, 55, 20, 500));
-            Company.Add(new Monster(4, "FootballManager[세가사미]", 325, 55, 20, 500));
+            Company.Add(new Monster(4, "풋볼매니저[세가사미]", 325, 55, 20, 500));
             Company.Add(new Monster(4, "카운터스트라이크[엠브레이서]", 325, 55, 20, 500));
             Company.Add(new Monster(4, "파이널판타지[스퀘어에닉스]", 325, 55, 20, 500));
-            Company.Add(new Monster(5, "GTA[테이크투인터랙티브]", 400, 70, 25, 1250));
-            Company.Add(new Monster(5, "우마무스메[사이버에이전트]", 400, 70, 25, 1250));
+            Company.Add(new Monster(5, "GTA[락스타]", 400, 70, 25, 1250));
+            Company.Add(new Monster(5, "레포데[벨브코퍼레이션]", 400, 70, 25, 1250));
             Company.Add(new Monster(5, "FIFA[일렉트로닉 아츠]", 400, 70, 25, 1250));
-            Company.Add(new Monster(5, "Diablo[블리자드] - 9.79조", 400, 70, 25, 1250));
+            Company.Add(new Monster(5, "엘더스크롤[bethesda]", 400, 70, 25, 1250));
             Company.Add(new Monster(5, "엘든링[반다이남코]", 400, 70, 25, 1250));
             Company.Add(new Monster(6, "포켓몬[닌텐도]", 475, 85, 30, 3000));
-            Company.Add(new Monster(6, "제5 인격[넷이즈]", 475, 85, 30, 3000));
+            Company.Add(new Monster(6, "Diablo[블리자드]", 475, 85, 30, 3000));
             Company.Add(new Monster(6, "갓 오브 워[소니]", 475, 85, 30, 3000));
             Company.Add(new Monster(6, "리그오브레전드 (라이엇)", 475, 85, 30, 3000));
             Company.Add(new Monster(6, "Minecraft(마이크로소프트)", 475, 85, 30, 3000));
             Company.Add(new Monster(7, "BOSS : 스파르타코딩클럽", 1500, 250, 100, 231030));
-            
+
+
         }
     }
 }

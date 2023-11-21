@@ -8,13 +8,13 @@ using static ConsoleRPG.ConsoleRPG;
 
 namespace ConsoleRPG
 {
-    public enum Jop 
+    public enum Jop
     {
-        student,
-        junior,
-        senior,
-        leader,
-        Max
+        Programmer,
+        GameDirector,
+        QATester,
+        GameProducer,
+        StroyWriter
     }
 
     public class Player : Character      //플레이어 캐릭터 클래스
