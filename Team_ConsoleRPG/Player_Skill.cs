@@ -35,24 +35,24 @@ namespace ConsoleRPG
             }
 
 
-            if (DataManager.monsters.Health <= 0) // 몬스터 체력0, 사망
+            if (DataManager.monsters[input].Health <= 0) // 몬스터 체력0, 사망
             {
                 Console.WriteLine($"{DataManager.monsters} 처치!");
             }
             else
             {
-                Console.WriteLine($"{DataManager.monsters}의 남은 체력: {DataManager.monsters.Health}");
+                Console.WriteLine($"{DataManager.monsters}의 남은 체력: {DataManager.monsters[input].Health}");
             }
 
         }
 
-        public void ThreeSnails(int input) // 스킬1
+        public void Skill1(int input) // 스킬1
         {
             if (Player.GetInst.MP >= 5)
             {
                 Console.WriteLine($"{Player.GetInst.Name}의 달팽이 세마리! - 마나 소모 5");
                 Player.GetInst.MP = -5;
-                int damage = Player.GetInst.Attack * 1.2;
+                int damage = (int)(Player.GetInst.Attack * 1.2);
 
 
                 if (CriticalAtk())
@@ -64,16 +64,16 @@ namespace ConsoleRPG
                 {
                     Console.WriteLine($"[데미지 : {damage}]");
                 }
-                DataManager.monsters.Health -= damage;
+                DataManager.monsters[input].Health -= damage;
 
 
-                if (DataManager.monsters.Health <= 0)
+                if (DataManager.monsters[input].Health <= 0)
                 {
                     Console.WriteLine($"{DataManager.monsters} 처치!");
                 }
                 else
                 {
-                    Console.WriteLine($"{DataManager.monsters}의 남은 체력: {DataManager.monsters.Health}");
+                    Console.WriteLine($"{DataManager.monsters}의 남은 체력: {DataManager.monsters[input].Health}");
                 }
             }
             else
@@ -82,13 +82,13 @@ namespace ConsoleRPG
             }           
            
         }
-        public void PowerStrike(int input) // 스킬2
+        public void Skill2(int input) // 스킬2
         {
-            if (player.MP >= 15)
+            if (Player.GetInst.MP >= 15)
             {
                 Console.WriteLine($"{Player.GetInst.Name}의 파워 스트라이크! - 마나 소모 15");
-                player.MP = -15;
-                int damage = Player.GetInst.Attack * 1.5;
+                Player.GetInst.MP = -15;
+                int damage = (int)(Player.GetInst.Attack * 1.5);
 
 
                 if (CriticalAtk()) 
@@ -100,16 +100,16 @@ namespace ConsoleRPG
                 {
                     Console.WriteLine($"[데미지 : {damage}]");
                 }
-                DataManager.monsters.Health -= damage;
+                DataManager.monsters[input].Health -= damage;
 
 
-                if (DataManager.monsters.Health <= 0)
+                if (DataManager.monsters[input].Health <= 0)
                 {
                     Console.WriteLine($"{DataManager.monsters} 처치 !");
                 }
                 else
                 {
-                    Console.WriteLine($"{DataManager.monsters.name}의 남은 체력: {DataManager.monsters.Health}");
+                    Console.WriteLine($"{DataManager.monsters}의 남은 체력: {DataManager.monsters[input].Health}");
                 }
             }
 
@@ -124,6 +124,21 @@ namespace ConsoleRPG
             Random random = new Random();
             int Critchance = random.Next(1, 101);
             return Critchance <= 15;
+        }
+
+        internal static void BasicAttack(string userinput)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal static void Skill1(string userinput)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal static void Skill2(string userinput)
+        {
+            throw new NotImplementedException();
         }
     }
 
