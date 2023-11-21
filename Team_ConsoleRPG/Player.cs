@@ -174,6 +174,18 @@ namespace ConsoleRPG
             }
         }
 
+        public void DropGetItem(Item item) // 아이템 드랍 흭득 메소드
+        {
+            if (item.Have == true)
+            {
+                Player.instance.Money += item.Price;
+            }
+            else
+            {
+                Player.GetInst.inventory.Add(item);
+            }
+        }
+
         public void Save() 
         {
             DataManager.SaveData(this, DataManager.PLAYER);

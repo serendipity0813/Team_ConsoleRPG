@@ -344,6 +344,17 @@
     "ID": 31,
     "Equip": false,
     "Have": false,
+    "Name": "외계인안경쓴 르탄이 포인트키캡",
+    "Type": 5,
+    "Attack": 20,
+    "Defend": 20,
+    "Health": 20,
+    "Price": 0
+  },
+  {
+    "ID": 32,
+    "Equip": false,
+    "Have": false,
     "Name": "우리집삼다수",
     "Type": 6,
     "Attack": 0,
@@ -352,7 +363,7 @@
     "Price": 10
   },
   {
-    "ID": 32,
+    "ID": 33,
     "Equip": false,
     "Have": false,
     "Name": "콜드여섯",
@@ -364,7 +375,7 @@
   },
 
   {
-    "ID": 33,
+    "ID": 34,
     "Equip": false,
     "Have": false,
     "Name": "괴물체력",
@@ -375,7 +386,7 @@
     "Price": 100
   },
   {
-    "ID": 34,
+    "ID": 35,
     "Equip": false,
     "Have": false,
     "Name": "르탄콜라",
@@ -386,7 +397,7 @@
     "Price": 150
   },
   {
-    "ID": 35,
+    "ID": 36,
     "Equip": false,
     "Have": false,
     "Name": "이세계 HP포션",
@@ -397,7 +408,7 @@
     "Price": 200
   },
   {
-    "ID": 36,
+    "ID": 37,
     "Equip": false,
     "Have": false,
     "Name": "한효승매니저님이화나서던진커피",
@@ -406,9 +417,9 @@
     "Defend": 0,
     "Health": 200,
     "Price": 500
-  }
+  },
   {
-    "ID": 37,
+    "ID": 38,
     "Equip": false,
     "Have": false,
     "Name": "재료1",
@@ -417,9 +428,9 @@
     "Defend": 0,
     "Health": 200,
     "Price": 500
-  }
+  },
   {
-    "ID": 38,
+    "ID": 39,
     "Equip": false,
     "Have": false,
     "Name": "재료2",
@@ -428,9 +439,9 @@
     "Defend": 0,
     "Health": 200,
     "Price": 500
-  }
+  },
   {
-    "ID": 39,
+    "ID": 40,
     "Equip": false,
     "Have": false,
     "Name": "재료3",
@@ -439,9 +450,9 @@
     "Defend": 0,
     "Health": 200,
     "Price": 500
-  }
+  },
   {
-    "ID": 40,
+    "ID": 41,
     "Equip": false,
     "Have": false,
     "Name": "재료4",
@@ -450,9 +461,9 @@
     "Defend": 0,
     "Health": 200,
     "Price": 500
-  }
+  },
   {
-    "ID": 41,
+    "ID": 42,
     "Equip": false,
     "Have": false,
     "Name": "재료5",

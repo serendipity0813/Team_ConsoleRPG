@@ -120,6 +120,8 @@ namespace ConsoleRPG
                 }
             }
             Console.WriteLine("====================================================================================");
+            Console.WriteLine();
+            Console.WriteLine("===|| 이 름 ||==========|| 상 품 명||=========|| 가 격||=========|| 옵 션 ||========");
 
             for (int i = 0; i < inven.Count; i++)
             {
@@ -459,6 +461,9 @@ namespace ConsoleRPG
 
                 int input = CheckInput(0, 5);
                 int num = input + 25;       //커뮤니티 진행시 획득하는 아이템 고유번호가 26~30이므로 
+                Random random = new Random();
+                int Randomcout = random.Next(1,3);
+
 
                 switch (input)
                 {
@@ -468,36 +473,46 @@ namespace ConsoleRPG
                     case 1:      //티켓을 소비하고 아이템 획득 및 자동장착
                         Player.GetInst.ticket -= 5;
                         Console.WriteLine("사랑하는 부모님과 식사를 하며 응원과 지지를 받습니다.");
-                        Console.WriteLine("전설의 기운 획득 - 모든 스텟 +10");
+                        Console.WriteLine("황금 르탄이 포인트키캡 획득 - 모든 스텟 +10");
                         Console.ReadKey();
                         DisplayHome();
                         break;
                     case 2:
                         Player.GetInst.ticket -= 5;
                         Console.WriteLine("학창시절 친구와 술 한잔 하며 좋은 기운을 받습니다.");
-                        Console.WriteLine("힘의 기운 획득 - 공격력 +10");
+                        Console.WriteLine("힘자랑하는 르탄이 포인트키캡 획득 - 공격력 +10");
                         Console.ReadKey();
                         DisplayHome();
                         break;
                     case 3:
                         Player.GetInst.ticket -= 5;
                         Console.WriteLine("직장 동료와 만나 친해지며 사이가 돈독해집니다.");
-                        Console.WriteLine("방어의 기운 획득 - 방어 +10");
+                        Console.WriteLine("잠자는 르탄이 포인트키캡 획득 - 방어 +10");
                         Console.ReadKey();
                         DisplayHome();
                         break;
                     case 4:
                         Player.GetInst.ticket -= 5;
                         Console.WriteLine("대학시절 동기를 만나 최신동향 정보와 꿀팁을 공유합니다.");
-                        Console.WriteLine("체력의 기운 획득 - 체력 +10");
+                        Console.WriteLine("달리는 르탄이 포인트키캡 획득 - 체력 +10");
                         Console.ReadKey();
                         DisplayHome();
                         break;
                     case 5:
                         Player.GetInst.ticket -= 5;
-                        Console.WriteLine("랜덤채팅에서 이상한 사람을 만나 큰일날 뻔 했지만 겨우 도망쳤습니다.");
-                        Console.WriteLine("나태의 기운 획득 - 모든 스텟 -10");
-                        Console.ReadKey();
+                        if (Randomcout == 1)
+                        {
+                            Console.WriteLine("랜덤채팅에서 이상한 사람을 만나 큰일날 뻔 했지만 겨우 도망쳤습니다.");
+                            Console.WriteLine("꼴받는 르탄이 포인트키캡 획득 - 모든 스텟 -10");
+                            Console.ReadKey();
+                        }
+                        else if (Randomcout == 2)
+                        {
+                            Console.WriteLine("랜덤채팅에서 과거의 전설적인 디렉터를 만났습니다.");
+                            Console.WriteLine("외계인안경쓴 르탄이 포인트키캡 획득 - 모든 스텟 +20");
+                            num = 31;
+                            Console.ReadKey();
+                        }
                         DisplayHome();
                         break;
                     default:
@@ -506,7 +521,7 @@ namespace ConsoleRPG
 
                 }
 
-                Player.GetInst.inventory.Add(DataManager.Items[num]);
+                Player.GetInst.inventory.Add(DataManager.Items[num]); //아이템 추가
                 DataManager.Items[num].Have = true;
                 Player.GetInst.EquipItem(DataManager.Items[num]);
             }

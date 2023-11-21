@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataManager.cs" />
+    <Compile Include="MonsterDropTable.cs" />
     <Compile Include="MonsterSkill.cs" />
     <Compile Include="Battle1.cs" />
     <Compile Include="Stage.cs" />
