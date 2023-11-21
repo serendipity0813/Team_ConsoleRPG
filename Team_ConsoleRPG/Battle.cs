@@ -184,7 +184,15 @@ namespace ConsoleRPG
             else if (input == 5) 
             {
                 Console.WriteLine("진행중인 전투를 포기하고 돌아갑니다");
-                Stage.DisplayStage();
+                Battle.winpoint = 0;
+
+                for (int i = 0; i < DataManager.monsters.Count; i++)
+                {
+                    DataManager.monsters.RemoveAt(i);
+                }
+
+                Console.ReadKey();
+                GameManager.DisplayHome();
             }
                     
         }
