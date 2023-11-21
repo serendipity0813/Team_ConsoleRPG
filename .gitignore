@@ -397,3 +397,4 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+Team_ConsoleRPG/obj/Debug/Team_ConsoleRPG.csproj.AssemblyReference.cache

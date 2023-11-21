@@ -6,7 +6,7 @@ namespace ConsoleRPG
 {
     public class PlayerSkill
     {
-        public void BasicAttack(int input) // 플레이어 기본 공격
+        public static void BasicAttack(int input) // 플레이어 기본 공격
         {
             Console.WriteLine($"{Player.GetInst.Name}의 기본공격!");
 
@@ -38,6 +38,7 @@ namespace ConsoleRPG
             if (DataManager.monsters[input].Health <= 0) // 몬스터 체력0, 사망
             {
                 Console.WriteLine($"{DataManager.monsters} 처치!");
+                Battle.winpoint++;
             }
             else
             {
@@ -46,7 +47,7 @@ namespace ConsoleRPG
 
         }
 
-        public void Skill1(int input) // 스킬1
+        public static void Skill1(int input) // 스킬1
         {
             if (Player.GetInst.MP >= 5)
             {
@@ -70,6 +71,7 @@ namespace ConsoleRPG
                 if (DataManager.monsters[input].Health <= 0)
                 {
                     Console.WriteLine($"{DataManager.monsters} 처치!");
+                    Battle.winpoint++;
                 }
                 else
                 {
@@ -82,7 +84,7 @@ namespace ConsoleRPG
             }           
            
         }
-        public void Skill2(int input) // 스킬2
+        public static void Skill2(int input) // 스킬2
         {
             if (Player.GetInst.MP >= 15)
             {
@@ -106,6 +108,7 @@ namespace ConsoleRPG
                 if (DataManager.monsters[input].Health <= 0)
                 {
                     Console.WriteLine($"{DataManager.monsters} 처치 !");
+                    Battle.winpoint++;
                 }
                 else
                 {
@@ -119,7 +122,7 @@ namespace ConsoleRPG
             }
 
         }
-        public bool CriticalAtk() // 크리티컬 확률 15%
+        public static bool CriticalAtk() // 크리티컬 확률 15%
         {
             Random random = new Random();
             int Critchance = random.Next(1, 101);

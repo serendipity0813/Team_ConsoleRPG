@@ -20,6 +20,7 @@ namespace ConsoleRPG
             {
                 int exp = 0;
                 int money = 0;
+                Battle.winpoint = 0;
 
                 for (int i = 0; i < DataManager.monsters.Count; i++)
                 {
@@ -65,6 +66,7 @@ namespace ConsoleRPG
 
             else if (win == false)
             {
+                Battle.winpoint = 0;
 
                 for (int i = 0; i < DataManager.monsters.Count; i++)
                 {

@@ -15,11 +15,13 @@ namespace ConsoleRPG
             Console.WriteLine("3단계");      
             Console.WriteLine("4단계");
             Console.WriteLine("5단계");
+            Console.WriteLine("6단계");
+            Console.WriteLine("7단계");
 
             Console.WriteLine();
             Console.WriteLine("0. 오늘은 집에서 쉬도록 하자!");
 
-            int input = GameManager.CheckInput(0, 5);
+            int input = GameManager.CheckInput(0, 7);
 
             switch (input)
             {
@@ -37,7 +39,7 @@ namespace ConsoleRPG
                     }
                     else
                     {
-                        Battle2.Fight(input);
+                        Battle.Fight(input);
                         break;
                     }
 
