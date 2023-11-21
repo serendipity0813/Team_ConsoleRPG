@@ -1,19 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using Team_ConsoleRPG;
-using static ConsoleRPG.ConsoleRPG;
 
 
-namespace ConsoleRPG
+namespace Team_ConsoleRPG
 {
     internal class Quest
     {
-
-        public static void QuestBoard()
+        public static void DisplayQuest()
         {
 
         }
-
     }
 }
