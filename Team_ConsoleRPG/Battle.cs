@@ -85,9 +85,54 @@ namespace ConsoleRPG
             for (int i = 0; i < count; i++)
             {
                 Console.WriteLine($"회사정보 : 이름({DataManager.monsters[i].Name}), 체력({DataManager.monsters[i].Health}), 공격력({DataManager.monsters[i].Attack}), 방어력({Player.GetInst.Defend})");
-            }
+            }            
             Console.WriteLine("----------------------------------------------------");      //플레이어와 몬스터 정보 출력 후 전투 시작
+            Console.WriteLine("1. 기본 공격");
+            Console.WriteLine();
+            Console.WriteLine("2. 스킬1 사용");
+            Console.WriteLine("3. 스킬2 사용");
+            Console.WriteLine();
+            Console.WriteLine("4. 가방 열기");
+            Console.WriteLine();
+            Console.WriteLine("5. 전투 포기");
+            Console.WriteLine("----------------------------------------------------");
+            Console.WriteLine();
+            Console.WriteLine($"({Player.GetInst.Name})은 무엇을 할까?");
+            string input = Console.ReadLine();
+            
 
+            Console.WriteLine("1번 몬스터 공격");
+            Console.WriteLine("2번 몬스터 공격");
+            Console.WriteLine("3번 몬스터 공격");
+            Console.WriteLine("공격할 대상을 지정해 주세요");
+            
+            int userinput = int.Parse(Console.ReadLine());
+            
+
+            switch (input)
+            {
+                case "1":
+                    PlayerSkill.BasicAttack(userinput);
+
+                    break;
+
+                case "2":
+                    PlayerSkill.Skill1(userinput);
+                    break;
+
+                case "3":
+                    PlayerSkill.Skill2(userinput);
+                    break;
+
+                case "4":
+                    GameManager.DisplayInventory();
+                    break;
+
+                case "5":
+                    Console.WriteLine("진행중인 전투를 포기하고 돌아갑니다");
+                    Stage.DisplayStage();
+                    break;
+            }
 
         }
 
