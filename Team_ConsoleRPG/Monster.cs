@@ -19,6 +19,7 @@ namespace ConsoleRPG {
             Money = money;
         }
 
+
         public override void TakeDamage(int damage)      //전투 진행시 몬스터가 데미지를 받는 메소드
         {
             Health -= (damage - Defend);          //플레이어 데이지 계산과 동일하게 적용
