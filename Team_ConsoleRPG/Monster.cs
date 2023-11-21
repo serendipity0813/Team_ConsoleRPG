@@ -26,24 +26,6 @@ namespace ConsoleRPG {
             else Console.WriteLine($"{Name}이(가) {damage - Defend}의 데미지를 받았습니다. 남은 체력: {Health}");
         }
 
-        public static void MakeMonster(int stage)
-        {
-            Console.WriteLine("몬스터를 생성합니다.");
-
-            Random random = new Random();
-            Random monsterNumber = new Random();
-
-            int start = stage * 10 - 10;
-            int end = stage * 10 - 1;
-            int count = random.Next(1, 3);
-
-
-            for (int i = 0; i < count; i++)
-            {
-                DataManager.monsters[i] = DataManager.Company[monsterNumber.Next(start, end)];
-            }
-
-        }
 
 
         //public static void Work(int idx)        //던전 진행 메소드 - stage 선택시 선택한 숫자를 idx로 받아서 배열의 몬스터 선택

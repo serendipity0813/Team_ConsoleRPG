@@ -30,8 +30,8 @@ namespace ConsoleRPG {
                 //공격 관련 콘솔 출력
 
                 Console.WriteLine();
-                Thread.Sleep(1000);     //잠시 멈추는 시간
 
+                Thread.Sleep(1000);     //잠시 멈추는 시간
 
                 // 몬스터의 턴
                 for (int i = 0; i < count; i++) {

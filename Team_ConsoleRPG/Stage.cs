@@ -30,14 +30,14 @@ namespace ConsoleRPG
                 default:
                     if (Player.GetInst.Level < input)        //입장 레벨(== stage) 보다 낮은 경우 경고문 출력 후 화면 다시 호출
                     {
-                        Console.WriteLine($"LV{input} 이상부터 입장 가능합니다.");        
+                        Console.WriteLine($"LV{input} 이상부터 입장 가능합니다.");
+                        Console.ReadKey();
                         DisplayStage();
                         break;
                     }
                     else
                     {
-                        Monster.MakeMonster(input);
-                        Battle1.Fight();
+                        Battle2.Fight(input);
                         break;
                     }
 
@@ -46,44 +46,7 @@ namespace ConsoleRPG
 
         }
 
-        public static void DisplayReward(bool win)
-        {
-            Console.Clear();
-
-            Console.WriteLine();
-            Console.Write(" [전투결과] : ");
-
-
-            if (win == true)
-            {
-                Console.WriteLine("Player Win!");
-                Console.WriteLine();
-                Console.WriteLine();
-                Console.WriteLine($"{Player.GetInst.Name}가 전투에서 승리하였습니다!");
-                Console.WriteLine();
-                //경험치 획득 및 레벨업 관련 함수 호출
-                //돈, 아이템 등등 획등
-            }
-
-            else if(win == false)
-            {
-                Console.WriteLine("Player Defeat...");
-                Console.WriteLine();
-                Console.WriteLine();
-                Console.WriteLine("Monster가 전투에서 승리하였습니다.");
-                Console.WriteLine();
-                Console.WriteLine("Enter 키를 누르면 집으로 돌아갑니다.");
-                Console.ReadKey();     
-                GameManager.DisplayHome();
-
-            }
-
-
-        }
-
-        
-
-
+       
 
     }
 }

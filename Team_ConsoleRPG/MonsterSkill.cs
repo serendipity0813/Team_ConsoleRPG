@@ -24,7 +24,7 @@ namespace ConsoleRPG
                 Skill_3(damage);
             else if (level >= 4 && percent < 41)
                 Skill_4();
-            else if (level >= 4 && percent < 51)
+            else if (level >= 5 && percent < 51)
                 Skill_5();
             else
                 NormalAttack(damage);
