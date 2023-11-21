@@ -52,7 +52,6 @@
     <Compile Include="DataManager.cs" />
     <Compile Include="MonsterDropTable.cs" />
     <Compile Include="MonsterSkill.cs" />
-    <Compile Include="Battle1.cs" />
     <Compile Include="Player_Skill.cs" />
     <Compile Include="Stage.cs" />
     <Compile Include="Character.cs" />

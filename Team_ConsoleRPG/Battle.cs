@@ -22,11 +22,14 @@ namespace ConsoleRPG
             bool battle = true;
             bool win = true;
 
-            Console.WriteLine("싸움을 시작합니다.");
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.WriteLine("----------Battle Start!----------");
+            Console.ResetColor();
 
 
             while (battle) // 플레이어가 죽거나 모든 몬스터가 죽을 때까지 반복
             {
+                Console.Clear();
                 BattleInfo(count);
 
                 Console.WriteLine();
@@ -50,7 +53,9 @@ namespace ConsoleRPG
                 {
                     if (DataManager.monsters[i].IsDead == false)
                     {
+                        Console.ForegroundColor = ConsoleColor.Yellow;
                         Console.WriteLine($"{DataManager.monsters[i].Name}의 턴!");
+                        Console.ResetColor();
                         MonsterSkill.Attack(DataManager.monsters[i].Attack, DataManager.monsters[i].Level, DataManager.monsters[i].Name);
                         Console.WriteLine();
                         Thread.Sleep(1000);
@@ -67,9 +72,6 @@ namespace ConsoleRPG
                     Reward.ShowReward(win);
                 }
 
-
-
-                Console.WriteLine("엔터키를 눌러 다음 턴 진행");
                 Console.ReadKey();
 
             }
@@ -79,49 +81,94 @@ namespace ConsoleRPG
         public static void BattleInfo(int count)
         {
             Console.WriteLine("----------------------------------------------------");
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine($"플레이어 정보: 체력({Player.GetInst.Health}), 마나({Player.GetInst.MP}), 공격력({Player.GetInst.Attack}), 방어력({Player.GetInst.Defend})");
+            Console.ResetColor();
+            Console.WriteLine();
+            Console.WriteLine("----------------------------------------------------");
+            Console.WriteLine();
             for (int i = 0; i < count; i++)
             {
-                Console.WriteLine($"회사정보 : 이름({DataManager.monsters[i].Name}), 체력({DataManager.monsters[i].Health}), 공격력({DataManager.monsters[i].Attack}), 방어력({Player.GetInst.Defend})");
+                if(DataManager.monsters[i].IsDead)
+                {
+                    Console.ForegroundColor = ConsoleColor.DarkGray;
+                    Console.WriteLine($"회사정보 : {DataManager.monsters[i].Name}, 체력 : {DataManager.monsters[i].Health}, 공격력 : {DataManager.monsters[i].Attack}, 방어력 : {Player.GetInst.Defend}");
+                    Console.ResetColor();
+                    Console.WriteLine();
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine($"회사정보 : {DataManager.monsters[i].Name}, 체력 : {DataManager.monsters[i].Health}, 공격력 : {DataManager.monsters[i].Attack}, 방어력 : {Player.GetInst.Defend}");
+                    Console.ResetColor();
+                    Console.WriteLine();
+                }
             }
-            Console.WriteLine($"{Player.GetInst.Name}의 턴!");
+
             Console.WriteLine("----------------------------------------------------");      //플레이어와 몬스터 정보 출력 후 전투 시작
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine();
+            Console.WriteLine($"{Player.GetInst.Name}의 턴!");
+            Console.ResetColor();
+            Console.WriteLine();
             Console.WriteLine("1. 기본 공격");
             Console.WriteLine();
             Console.WriteLine("2. 스킬1 사용");
+            Console.WriteLine();
             Console.WriteLine("3. 스킬2 사용");
             Console.WriteLine();
             Console.WriteLine("4. 가방 열기");
             Console.WriteLine();
             Console.WriteLine("5. 전투 포기");
+            Console.WriteLine();
             Console.WriteLine("----------------------------------------------------");
             Console.WriteLine();
-            Console.WriteLine($"({Player.GetInst.Name})은 무엇을 할까?");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine($"[{Player.GetInst.Name}]의 행동을 선택하세요!");
+            Console.ResetColor();
 
             int input = GameManager.CheckInput(1, 5);
 
 
             if (0 < input && input < 4)
             {
-                Console.WriteLine("1번 몬스터 공격");
-                Console.WriteLine("2번 몬스터 공격");
-                Console.WriteLine("3번 몬스터 공격");
+                Console.Clear();
+                Console.WriteLine("----------------------------------------------------");
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine($"{Player.GetInst.Name}의 턴!");
+                Console.ResetColor();
+                Console.WriteLine();
                 Console.WriteLine("공격할 대상을 지정해 주세요");
+                Console.WriteLine();
+                for(int i = 0; i < count; i++)
+                {
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine($"{i+1}번 : LV.{DataManager.monsters[i].Level} {DataManager.monsters[i].Name} 공격!");
+                    Console.ResetColor();
+                    Console.WriteLine();
+                }
+                Console.WriteLine("0. 이전으로 돌아가기");
+                Console.WriteLine();
+                Console.WriteLine("----------------------------------------------------");
+   
 
-                int userinput = GameManager.CheckInput(1, 3);
+                int userinput = GameManager.CheckInput(0, 3);
 
                 switch (userinput)
                 {
+                    case 0:
+                        BattleInfo(count);
+                        break;
                     case 1:
-                        PlayerSkill.BasicAttack(userinput);
+                        PlayerSkill.BasicAttack(userinput-1);
                         break;
 
                     case 2:
-                        PlayerSkill.Skill1(userinput);
+                        PlayerSkill.Skill1(userinput-1);
                         break;
 
                     case 3:
-                        PlayerSkill.Skill2(userinput);
+                        PlayerSkill.Skill2(userinput-1);
                         break;
 
                 }
@@ -144,7 +191,6 @@ namespace ConsoleRPG
 
         public static void MakeMonster(int stage)
         {
-            Console.WriteLine("몬스터를 생성합니다.");
 
             Random random = new Random();
             Random random2 = new Random();
