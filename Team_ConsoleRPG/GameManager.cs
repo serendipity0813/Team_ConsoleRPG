@@ -104,15 +104,36 @@ namespace ConsoleRPG
             //        DataManager.Items[i].PrintItemData();
             //    }
             //}
+
+            
             List<Item> inven = Player.GetInst.inventory;
+            Console.WriteLine("===|| 이 름 ||==========|| 상 품 명||=========|| 가 격||=========|| 옵 션 ||========");
             for (int i = 0; i < inven.Count; i++) 
             {
-                if (i >= 10)
-                    Console.Write($"{i + 1}. ");
-                else
-                    Console.Write($" {i + 1}. ");
-                inven[i].PrintItemData();
+                if (inven[i].Type != ItemType.activeitem)
+                {
+                    if (i >= 10)
+                        Console.Write($" {i + 1}||");
+                    else
+                        Console.Write($" {i + 1} ||");
+                    inven[i].PrintItemData();
+                }
             }
+            Console.WriteLine("====================================================================================");
+
+            for (int i = 0; i < inven.Count; i++)
+            {
+                if (inven[i].Type == ItemType.activeitem)
+                {
+                    if (i >= 10)
+                        Console.Write($"{i + 1}. ");
+                    else
+                        Console.Write($" {i + 1}. ");
+                    inven[i].PrintItemData();
+                }
+            }
+            Console.WriteLine("====================================================================================");
+
 
             Console.WriteLine(" ");             //추가로 진행할 수 있는 기능 출력
 
@@ -154,10 +175,11 @@ namespace ConsoleRPG
             Console.WriteLine("3. 무신사에 들어가서 옷(방어구) 를 구입한다.");
             Console.WriteLine("4. 11번가에 들어가서 이어폰(방패) 를 구입한다.");
             Console.WriteLine("5. 쿠팡에 들어가서 여러가지 물건(엑세서리) 를 보고 구입한다.");
+            Console.WriteLine("6. GS25에 들어가서 소모품을 구입한다.");
             Console.WriteLine();
             Console.WriteLine("0. 다음을 기약하며 핸드폰을 끈다.");
 
-            int input = CheckInput(0, 5);
+            int input = CheckInput(0, 6);
 
             switch (input)
             {
@@ -179,6 +201,9 @@ namespace ConsoleRPG
                 case 5:
                     DisplayAccessoryShop();
                     break;
+                case 6:
+                    DisplayDrinkShop();
+                    break;
                 default:
                     Console.WriteLine("잘못된 입력입니다.");
                     break;
@@ -194,12 +219,14 @@ namespace ConsoleRPG
             Console.WriteLine($"현재 보유금액 : {Player.GetInst.Money}");
             Console.WriteLine("구입하려는 키보드를 선택하세요.");
             Console.WriteLine();
+            Console.WriteLine("===========|| 상 품 명||=================|| 가 격||=========|| 옵 션 ||========");
             List<Item> items = DataManager.GetItemsByType(ItemType.Weapon);
             for (int i = 0; i < items.Count; i++)     //아이템 고유번호 1~5번까지 아이템 데이터 출력
             {
-                Console.Write("{0}. ", i + 1);
+                Console.Write("{0}.  ", i + 1);
                 items[i].PrintItemData();
             }
+            Console.WriteLine("====================================================================================");
             Console.WriteLine("0. 다음을 기약하며 핸드폰을 끈다.");
             Console.WriteLine();
             Console.WriteLine("구매를 원하는 키보드의 번호를 입력하세요.");
@@ -215,12 +242,14 @@ namespace ConsoleRPG
             Console.WriteLine($"현재 보유금액 : {Player.GetInst.Money}");
             Console.WriteLine("구입하려는 마우스를 선택하세요.");
             Console.WriteLine();
+            Console.WriteLine("===========|| 상 품 명||=================|| 가 격||=========|| 옵 션 ||========");
             List<Item> items = DataManager.GetItemsByType(ItemType.SubWeapon);
             for (int i = 0; i < items.Count; i++)                //보조무기 아이템 데이터 출력
             {
-                Console.Write("{0}. ", i + 1);
+                Console.Write("{0}.  ", i + 1);
                 items[i].PrintItemData();
             }
+            Console.WriteLine("====================================================================================");
             Console.WriteLine("0. 다음을 기약하며 핸드폰을 끈다.");
             Console.WriteLine();
             Console.WriteLine("구매를 원하는 마우스의 번호를 입력하세요.");
@@ -236,10 +265,11 @@ namespace ConsoleRPG
             Console.WriteLine($"현재 보유금액 : {Player.GetInst.Money}");
             Console.WriteLine("구입하려는 옷을 선택하세요.");
             Console.WriteLine();
+            Console.WriteLine("===========|| 상 품 명||=================|| 가 격||=========|| 옵 션 ||========");
             List<Item> items = DataManager.GetItemsByType(ItemType.Armor);
             for (int i = 0; i < items.Count; i++)
             {
-                Console.Write("{0}. ", i + 1);
+                Console.Write("{0}.  ", i + 1);
                 items[i].PrintItemData();
             }
             Console.WriteLine("0. 다음을 기약하며 핸드폰을 끈다.");
@@ -257,12 +287,14 @@ namespace ConsoleRPG
             Console.WriteLine($"현재 보유금액 : {Player.GetInst.Money}");
             Console.WriteLine("구입하려는 이어폰을 선택하세요.");
             Console.WriteLine();
+            Console.WriteLine("===========|| 상 품 명||=================|| 가 격||=========|| 옵 션 ||========");
             List<Item> items = DataManager.GetItemsByType(ItemType.Shield);
             for (int i = 0; i < items.Count; i++)
             {
-                Console.Write("{0}. ", i + 1);
+                Console.Write("{0}.  ", i + 1);
                 items[i].PrintItemData();
             }
+            Console.WriteLine("====================================================================================");
             Console.WriteLine("0. 다음을 기약하며 핸드폰을 끈다.");
             Console.WriteLine();
             Console.WriteLine("구매를 원하는 이어폰의 번호를 입력하세요.");
@@ -278,12 +310,14 @@ namespace ConsoleRPG
             Console.WriteLine($"현재 보유금액 : {Player.GetInst.Money}");
             Console.WriteLine("구입하려는 꿀템을 선택하세요.");
             Console.WriteLine();
+            Console.WriteLine("===========|| 상 품 명||=================|| 가 격||=========|| 옵 션 ||========");
             List<Item> items = DataManager.GetItemsByType(ItemType.Accessory);
             for (int i = 0; i < items.Count; i++)
             {
-                Console.Write("{0}. ", i + 1);
+                Console.Write("{0}.  ", i + 1);
                 items[i].PrintItemData();
             }
+            Console.WriteLine("====================================================================================");
             Console.WriteLine("0. 다음을 기약하며 핸드폰을 끈다.");
             Console.WriteLine();
             Console.WriteLine("구매를 원하는 꿀템의 번호를 입력하세요.");
@@ -291,6 +325,56 @@ namespace ConsoleRPG
 
             BuyItem(items);
         }
+
+        public static void DisplayDrinkShop()       //물약 상점 출력, 기능은 동일
+        {
+            Console.Clear();
+
+            Console.WriteLine($"현재 보유금액 : {Player.GetInst.Money}");
+            Console.WriteLine("구입하려는 꿀템을 선택하세요.");
+            Console.WriteLine();
+            Console.WriteLine("===========|| 상 품 명||=================|| 가 격||=========|| 옵 션 ||========");
+            List<Item> items = DataManager.GetItemsByType(ItemType.activeitem);
+            for (int i = 0; i < items.Count; i++)
+            {
+                Console.Write("{0}.  ", i + 1);
+                items[i].PrintItemData();
+            }
+            Console.WriteLine("====================================================================================");
+            Console.WriteLine("0. 다음을 기약하며 핸드폰을 끈다.");
+            Console.WriteLine();
+            Console.WriteLine("구매를 원하는 꿀템의 번호를 입력하세요.");
+
+
+            BuyItem(items);
+        }
+
+
+
+        /*
+        public static void DisplayDrinkShop()       //소모품 상점 출력, 기능은 동일 임시구현
+        {
+            Console.Clear();
+
+            int input = 0;
+
+            Console.WriteLine($"현재 보유금액 : {Player.GetInst.Money}");
+            Console.WriteLine("구입하려는 꿀템을 선택하세요.");
+            Console.WriteLine();
+            for (int i = 0; i < UseItem.useitems.Length; i++)
+            {
+                Console.Write("{0}. ", i + 1);
+                UseItem.useitems[i].PrintItemDate();
+            }
+            Console.WriteLine("0. 살게 없내.. 집으로 돌아간다.");
+            Console.WriteLine();
+            Console.WriteLine("구매를 원하는 꿀템의 번호를 입력하세요.");
+
+            input = int.Parse(Console.ReadLine());
+
+            UseItem.BuyuseItem(input);
+        }*/
+
 
         public static void BuyItem(List<Item> items) 
         {
@@ -344,6 +428,8 @@ namespace ConsoleRPG
                     break;
             }
         }
+
+
 
         public static void DisplayCommunity()       //커뮤니티 화면 출력
         {
