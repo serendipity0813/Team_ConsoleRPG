@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Threading;
-using static ConsoleRPG.ConsoleRPG;
-
-
+using System.Threading.Tasks;
 
 namespace ConsoleRPG
 {
@@ -34,13 +35,13 @@ namespace ConsoleRPG
                 Thread.Sleep(1000);     //잠시 멈추는 시간
 
 
-                if(winpoint > DataManager.monsters.Count)
+                if (winpoint > DataManager.monsters.Count)
                 {
                     Player.GetInst.Health = Pmaxhp;
                     battle = true;
                     win = true;
 
-                    Reward.ShowReward(win);
+                    Reward1.ShowReward(win);
                 }
 
 
@@ -63,7 +64,7 @@ namespace ConsoleRPG
                     battle = false;
                     win = false;
 
-                    Reward.ShowReward(win);
+                    Reward1.ShowReward(win);
                 }
 
 
@@ -96,7 +97,7 @@ namespace ConsoleRPG
 
             int start = stage * 10 - 10;
             int end = stage * 10;
-            int count = random.Next(1, stage+1);
+            int count = random.Next(1, stage + 1);
 
             for (int i = 0; i < count; i++)
             {
@@ -106,6 +107,3 @@ namespace ConsoleRPG
         }
     }
 }
-
-
-
