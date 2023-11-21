@@ -289,7 +289,7 @@
     "ID": 26,
     "Equip": false,
     "Have": false,
-    "Name": "전설의 기운",
+    "Name": "황금 르탄이 포인트키캡",
     "Type": 5,
     "Attack": 10,
     "Defend": 10,
@@ -300,7 +300,7 @@
     "ID": 27,
     "Equip": false,
     "Have": false,
-    "Name": "힘의 기운",
+    "Name": "힘자랑하는 르탄이 포인트키캡",
     "Type": 5,
     "Attack": 10,
     "Defend": 0,
@@ -311,7 +311,7 @@
     "ID": 28,
     "Equip": false,
     "Have": false,
-    "Name": "방어의 기운",
+    "Name": "잠자는 르탄이 포인트키캡",
     "Type": 5,
     "Attack": 0,
     "Defend": 10,
@@ -322,7 +322,7 @@
     "ID": 29,
     "Equip": false,
     "Have": false,
-    "Name": "체력의 기운",
+    "Name": "달리는 르탄이 포인트키캡",
     "Type": 5,
     "Attack": 0,
     "Defend": 0,
@@ -333,7 +333,7 @@
     "ID": 30,
     "Equip": false,
     "Have": false,
-    "Name": "나태의 기운",
+    "Name": "꼴받는 르탄이 포인트키캡",
     "Type": 5,
     "Attack": -10,
     "Defend": -10,
@@ -349,7 +349,7 @@
     "Attack": 0,
     "Defend": 0,
     "Health": 20,
-    "Price": 0
+    "Price": 10
   },
   {
     "ID": 32,
@@ -360,7 +360,7 @@
     "Attack": 0,
     "Defend": 0,
     "Health": 40,
-    "Price": 0
+    "Price": 50
   },
 
   {
@@ -372,7 +372,7 @@
     "Attack": 0,
     "Defend": 0,
     "Health": 60,
-    "Price": 0
+    "Price": 100
   },
   {
     "ID": 34,
@@ -383,7 +383,7 @@
     "Attack": 0,
     "Defend": 0,
     "Health": 80,
-    "Price": 0
+    "Price": 150
   },
   {
     "ID": 35,
@@ -394,7 +394,7 @@
     "Attack": 0,
     "Defend": 0,
     "Health": 100,
-    "Price": 0
+    "Price": 200
   },
   {
     "ID": 36,
@@ -405,7 +405,62 @@
     "Attack": 0,
     "Defend": 0,
     "Health": 200,
-    "Price": 0
+    "Price": 500
+  }
+  {
+    "ID": 37,
+    "Equip": false,
+    "Have": false,
+    "Name": "재료1",
+    "Type": 7,
+    "Attack": 0,
+    "Defend": 0,
+    "Health": 200,
+    "Price": 500
+  }
+  {
+    "ID": 38,
+    "Equip": false,
+    "Have": false,
+    "Name": "재료2",
+    "Type": 7,
+    "Attack": 0,
+    "Defend": 0,
+    "Health": 200,
+    "Price": 500
+  }
+  {
+    "ID": 39,
+    "Equip": false,
+    "Have": false,
+    "Name": "재료3",
+    "Type": 7,
+    "Attack": 0,
+    "Defend": 0,
+    "Health": 200,
+    "Price": 500
+  }
+  {
+    "ID": 40,
+    "Equip": false,
+    "Have": false,
+    "Name": "재료4",
+    "Type": 7,
+    "Attack": 0,
+    "Defend": 0,
+    "Health": 200,
+    "Price": 500
+  }
+  {
+    "ID": 41,
+    "Equip": false,
+    "Have": false,
+    "Name": "재료5",
+    "Type": 7,
+    "Attack": 0,
+    "Defend": 0,
+    "Health": 200,
+    "Price": 500
   }
 
 ]
