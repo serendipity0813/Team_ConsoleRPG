@@ -61,7 +61,7 @@ namespace ConsoleRPG
             //SaveData(Companys, MONSTER);
 
             Items = LoadData<List<Item>>(ITEM);
-            Company = LoadData<List<Monster>>(MONSTER);
+            //Company = LoadData<List<Monster>>(MONSTER);
         }
 
         public static void ItemSetting() 

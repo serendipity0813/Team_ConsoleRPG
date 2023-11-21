@@ -17,7 +17,7 @@ namespace Team_ConsoleRPG {
 
     public abstract class Character : ICharter 
     {
-        public string Name { get; protected set; }     //하위 클래스에서 수정이 가능하도록 protected set으로 설정
+        public string Name { get; set; }     //하위 클래스에서 수정이 가능하도록 protected set으로 설정
         public int Health { get; set; }
         public int Attack { get; set; }
         public int Defend { get; set; }
