@@ -9,6 +9,42 @@ namespace ConsoleRPG
     internal class GameManager      //게임 기능적인 부분을 관리하는 클래스
     {
         //Display 함수 모음    
+        public static void StartMain()
+        {
+            Console.WriteLine("스파르타 던전에 오신 여러분 환영합니다.");
+            Console.WriteLine("원하시는 이름을 설정해주세요");
+
+            string playerName = Console.ReadLine();
+            Console.WriteLine($"플레이어의 이름이 {playerName}으로 설정되었습니다");
+
+            List<string> jobOptions = new List<string> { "프로그래머", "게임 디렉터", "QA 테스터", "게임 프로듀서", "스토리 라이터" };
+            if (playerName.ToLower() == "비둘기")
+            {
+                AdminMode();
+                return;
+            }
+            Console.WriteLine("원하는 직업을 선택해주세요.");
+            for (int i = 0; i < jobOptions.Count; i++)
+            {
+                Console.WriteLine($"{i + 1}. {jobOptions[i]}");
+            }
+            int jobChoice = int.Parse(Console.ReadLine()) - 1;
+            string selectedJob = jobOptions[jobChoice];
+            Console.WriteLine($"플레이어의 직업이 {selectedJob}으로 설정되었습니다.");
+
+            Player.GetInst.PlayerDataSetting(playerName, (Jop)jobChoice, 1, 100, 10, 5, 1000);
+        }
+        public static void AdminMode()
+        {
+            Console.WriteLine("관리자 모드에 진입하셨습니다.");
+
+            //모든 능력치 99999로, 보유골드 99999999로 설정
+            Player.GetInst.PlayerDataSetting("비둘기", Jop.Programmer, 99999, 99999, 99999, 99999, 99999999);
+
+            Console.WriteLine("비둘기님의 능력치와 보유 골드가 최대치로 설정되었습니다.");
+            Console.WriteLine();
+        }   
+
 
         public static void DisplayHome()        //메인 로비화면 출력
         {

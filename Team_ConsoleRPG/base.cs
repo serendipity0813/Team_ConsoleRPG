@@ -55,7 +55,8 @@ namespace ConsoleRPG.Base {
 
 
     public class TextRPG {
-        public static void StartMain() {
+        public static void StartMain() 
+        {
             Console.WriteLine("스파르타 던전에 오신 여러분 환영합니다.");
             Console.WriteLine("원하시는 이름을 설정해주세요");
 
@@ -65,7 +66,8 @@ namespace ConsoleRPG.Base {
             List<string> jobOptions = new List<string> { "프로그래머", "게임 디렉터", "QA 테스터", "게임 프로듀서", "스토리 라이터" };
 
             Console.WriteLine("원하는 직업을 선택해주세요.");
-            for (int i = 0; i < jobOptions.Count; i++) {
+            for (int i = 0; i < jobOptions.Count; i++)
+            {
                 Console.WriteLine($"{i + 1}. {jobOptions[i]}");
             }
             int jobChoice = int.Parse(Console.ReadLine()) - 1;
