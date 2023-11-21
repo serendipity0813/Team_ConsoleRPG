@@ -351,7 +351,54 @@ namespace ConsoleRPG
             BuyItem(items);
         }
 
+        public static void DisplayBattleinventory() //전투도중 물약 사용
+        {
+            Console.Clear();
 
+            Console.WriteLine("소유하고 있는 아이템을 확인합니다.");
+            Console.WriteLine();
+            Console.WriteLine("[아이템 목록]");
+            Console.WriteLine();
+
+            Console.WriteLine("===|| 이 름 ||==========|| 상 품 명||=========|| 가 격||=========|| 옵 션 ||========");
+            List<Item> inven = Player.GetInst.inventory;
+            for (int i = 0; i < inven.Count; i++)
+            {
+                if (inven[i].Type == ItemType.activeitem)
+                {
+                    if (i >= 10)
+                        Console.Write($"{i + 1}. ");
+                    else
+                        Console.Write($" {i + 1}. ");
+                    inven[i].PrintItemData();
+                }
+            }
+            Console.WriteLine("====================================================================================");
+
+
+            Console.WriteLine(" ");
+            Console.WriteLine("0. 사용하지 않기");
+            Console.WriteLine("원하시는 행동을 입력하시오");
+            Console.WriteLine();
+
+            int input = CheckInput(0, inven.Count);
+            input += 31;
+
+            for (int i = 0; i < inven.Count; i++)
+            {
+                if (inven[i].Type == ItemType.activeitem)
+                {
+                    if (inven[i].ID == input)
+                    {
+                        inven[i].UseactiveItem();
+                    }
+                }
+            }
+            
+            /*inven[i].UseactiveItem(inven); // 포션 사용*/
+
+            Console.Clear();
+        }
 
         /*
         public static void DisplayDrinkShop()       //소모품 상점 출력, 기능은 동일 임시구현

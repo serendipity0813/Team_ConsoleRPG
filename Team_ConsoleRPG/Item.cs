@@ -68,17 +68,23 @@ namespace ConsoleRPG
         {
             int maxNameLength = 30; //글자수제한
             int maxPrice = 15;
-
-            if (Equip) {
-                Console.ForegroundColor = ConsoleColor.Cyan;        //아이템 장착시 출력
-                Console.Write("[E]");
-                Console.ResetColor();
-            } else if (Have) {
-                Console.ForegroundColor = ConsoleColor.Yellow;      //아이템 보유시 출력
-                Console.Write("[I]");
-                Console.ResetColor();
-            } else
-                Console.Write("   ");                   //아이템 이름, 가격 등 출력 후 아이템 효과중 0이 아닌 효과 출력
+            if (Type != ItemType.activeitem)
+            {
+                if (Equip)
+                {
+                    Console.ForegroundColor = ConsoleColor.Cyan;        //아이템 장착시 출력
+                    Console.Write("[E]");
+                    Console.ResetColor();
+                }
+                else if (Have)
+                {
+                    Console.ForegroundColor = ConsoleColor.Yellow;      //아이템 보유시 출력
+                    Console.Write("[I]");
+                    Console.ResetColor();
+                }
+                else
+                    Console.Write("   ");                   //아이템 이름, 가격 등 출력 후 아이템 효과중 0이 아닌 효과 출력
+            }
             int padLen = maxNameLength - Encoding.Default.GetBytes(Name).Length;
             string itemName = Name + new string(' ', padLen);
             Console.Write($"이름|| {itemName}");
@@ -91,14 +97,15 @@ namespace ConsoleRPG
             if (Attack != 0) Console.Write($"Atk {(Attack >= 0 ? "+" : "")}{Attack} ");
             if (Defend != 0) Console.Write($"Def {(Defend >= 0 ? "+" : "")}{Defend} ");
             if (Health != 0) Console.Write($"Hp {(Health >= 0 ? "+" : "")}{Health}");
+            if (Type == ItemType.activeitem) Console.WriteLine($"수량 : {(ItemCnt >= 0 ? "+" : "")}{ItemCnt}");
             Console.WriteLine();
 
         }
 
         
-        public void UseItem(Item item) //아이템 사용 구현 임시구현
+        public void UseactiveItem() //아이템 사용 구현 임시구현
         {
-            if (item.Type != ItemType.activeitem)
+            if (Type != ItemType.activeitem)
             {
                 Console.WriteLine($"{Name}을 사용하였습니다.");
                 Console.WriteLine($"{Health} 만큼 회복하였습니다.");
