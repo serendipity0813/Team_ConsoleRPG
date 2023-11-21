@@ -92,14 +92,14 @@ namespace ConsoleRPG
                 if(DataManager.monsters[i].IsDead)
                 {
                     Console.ForegroundColor = ConsoleColor.DarkGray;
-                    Console.WriteLine($"회사정보 : {DataManager.monsters[i].Name}, 체력 : {DataManager.monsters[i].Health}, 공격력 : {DataManager.monsters[i].Attack}, 방어력 : {Player.GetInst.Defend}");
+                    Console.WriteLine($"회사정보 : {DataManager.monsters[i].Name}, 체력 : {DataManager.monsters[i].Health}, 공격력 : {DataManager.monsters[i].Attack}, 방어력 : {DataManager.monsters[i].Defend}");
                     Console.ResetColor();
                     Console.WriteLine();
                 }
                 else
                 {
                     Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine($"회사정보 : {DataManager.monsters[i].Name}, 체력 : {DataManager.monsters[i].Health}, 공격력 : {DataManager.monsters[i].Attack}, 방어력 : {Player.GetInst.Defend}");
+                    Console.WriteLine($"회사정보 : {DataManager.monsters[i].Name}, 체력 : {DataManager.monsters[i].Health}, 공격력 : {DataManager.monsters[i].Attack}, 방어력 : {DataManager.monsters[i].Defend}");
                     Console.ResetColor();
                     Console.WriteLine();
                 }
@@ -154,7 +154,7 @@ namespace ConsoleRPG
 
                 int userinput = GameManager.CheckInput(0, 3);
 
-                switch (userinput)
+                switch (input)
                 {
                     case 0:
                         BattleInfo(count);
