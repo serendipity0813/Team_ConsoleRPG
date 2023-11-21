@@ -1,13 +1,20 @@
-﻿using System;
+﻿using ConsoleRPG;
+using System;
 
 
 namespace Team_ConsoleRPG
 {
     internal class Quest
     {
-        public static void DisplayQuest()
+        public static void DisplayQuestBoard()
         {
+           
+                    
 
+
+            
         }
+
     }
+
 }
