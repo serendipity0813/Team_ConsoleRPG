@@ -41,7 +41,7 @@ namespace ConsoleRPG
                     battle = true;
                     win = true;
 
-                    Reward1.ShowReward(win);
+                    Reward.ShowReward(win);
                 }
 
 
@@ -64,7 +64,7 @@ namespace ConsoleRPG
                     battle = false;
                     win = false;
 
-                    Reward1.ShowReward(win);
+                    Reward.ShowReward(win);
                 }
 
 
@@ -95,14 +95,22 @@ namespace ConsoleRPG
             Random random = new Random();
             Random random2 = new Random();
 
-            int start = stage * 10 - 10;
-            int end = stage * 10;
+            int start = stage * 5 - 5;
+            int end = stage * 5;
             int count = random.Next(1, stage + 1);
 
-            for (int i = 0; i < count; i++)
+            if(stage == 7)
             {
-                DataManager.monsters.Add(DataManager.Company[random2.Next(start, end)]);
+                DataManager.monsters.Add(DataManager.Company[31]);
             }
+            else
+            {
+                for (int i = 0; i < count; i++)
+                {
+                    DataManager.monsters.Add(DataManager.Company[random2.Next(start, end)]);
+                }
+            }
+          
 
         }
     }

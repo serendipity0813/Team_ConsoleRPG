@@ -68,7 +68,7 @@ namespace ConsoleRPG
         {
             Items = new List<Item>();
 
-            Items.Add(new Item(0, " ", ItemType.Max, 1, 1, 1, 1, false, false));
+            Items.Add(new Item(0, " ", ItemType.Max, 1, 0, 1, 0, false, false));
             Items.Add(new Item(1, "물려받은 키보드", ItemType.Weapon, 20, 0, 0, 10, false, false));
             Items.Add(new Item(2, "다이소 키보드", ItemType.Weapon, 40, 0, 0, 50, false, false));
             Items.Add(new Item(3, "보급형 기계식 키보드", ItemType.Weapon, 60, 0, 0, 250, false, false));
@@ -106,57 +106,38 @@ namespace ConsoleRPG
             Company = new List<Monster>();
             monsters = new List<Monster>();
 
-            Company.Add(new Monster(1, "0", 1, 1, 1, 1));
-            Company.Add(new Monster(1, "1", 100, 10, 5, 10));
-            Company.Add(new Monster(1, "2", 1, 1, 1, 1));
-            Company.Add(new Monster(1, "3", 1, 1, 1, 1));
-            Company.Add(new Monster(1, "4", 1, 1, 1, 1));
-            Company.Add(new Monster(1, "5", 1, 1, 1, 1));
-            Company.Add(new Monster(1, "6", 1, 1, 1, 1));
-            Company.Add(new Monster(1, "7", 1, 1, 1, 1));
-            Company.Add(new Monster(1, "8", 1, 1, 1, 1));
-            Company.Add(new Monster(1, "9", 1, 1, 1, 1));
-            Company.Add(new Monster(2, "10", 1, 1, 1, 1));
-            Company.Add(new Monster(2, "11", 250, 40, 15, 50));
-            Company.Add(new Monster(2,"12", 1, 1, 1, 1));
-            Company.Add(new Monster(2,"13", 1, 1, 1, 1));
-            Company.Add(new Monster(2,"14", 1, 1, 1, 1));
-            Company.Add(new Monster(2,"15", 1, 1, 1, 1));
-            Company.Add(new Monster(2,"16", 1, 1, 1, 1));
-            Company.Add(new Monster(2,"17", 1, 1, 1, 1));
-            Company.Add(new Monster(2,"18", 1, 1, 1, 1));
-            Company.Add(new Monster(2,"19", 1, 1, 1, 1));
-            Company.Add(new Monster(3,"20", 1, 1, 1, 1));
-            Company.Add(new Monster(3,"21", 400, 70, 25, 250));
-            Company.Add(new Monster(3,"22", 1, 1, 1, 1));
-            Company.Add(new Monster(3,"23", 1, 1, 1, 1));
-            Company.Add(new Monster(3,"24", 1, 1, 1, 1));
-            Company.Add(new Monster(3,"25", 1, 1, 1, 1));
-            Company.Add(new Monster(3,"26", 1, 1, 1, 1));
-            Company.Add(new Monster(3,"27", 1, 1, 1, 1));
-            Company.Add(new Monster(3,"28", 1, 1, 1, 1));
-            Company.Add(new Monster(3,"29", 1, 1, 1, 1));
-            Company.Add(new Monster(4,"30", 1, 1, 1, 1));
-            Company.Add(new Monster(4,"31", 550, 100, 35, 1250));
-            Company.Add(new Monster(4,"32", 1, 1, 1, 1));
-            Company.Add(new Monster(4,"33", 1, 1, 1, 1));
-            Company.Add(new Monster(4,"34", 1, 1, 1, 1));
-            Company.Add(new Monster(4,"35", 1, 1, 1, 1));
-            Company.Add(new Monster(4,"36", 1, 1, 1, 1));
-            Company.Add(new Monster(4,"37", 1, 1, 1, 1));
-            Company.Add(new Monster(4,"38", 1, 1, 1, 1));
-            Company.Add(new Monster(4,"39", 1, 1, 1, 1));
-            Company.Add(new Monster(5,"40", 1, 1, 1, 1));
-            Company.Add(new Monster(5,"41", 700, 130, 45, 6250));
-            Company.Add(new Monster(5,"42", 1, 1, 1, 1));
-            Company.Add(new Monster(5,"43", 1, 1, 1, 1));
-            Company.Add(new Monster(5,"44", 1, 1, 1, 1));
-            Company.Add(new Monster(5,"45", 1, 1, 1, 1));
-            Company.Add(new Monster(5,"46", 1, 1, 1, 1));
-            Company.Add(new Monster(5,"47", 1, 1, 1, 1));
-            Company.Add(new Monster(5,"48", 1, 1, 1, 1));
-            Company.Add(new Monster(5,"49", 1, 1, 1, 1));
-            Company.Add(new Monster(6,"50", 1000, 180, 60, 50000));
+            Company.Add(new Monster(1, "쿠키런[데브시스터즈]", 100, 10, 5, 10));
+            Company.Add(new Monster(1, "DJMAX[네오위즈]", 100, 10, 5, 10));
+            Company.Add(new Monster(1, "검은사막[펄어비스]", 100, 10, 5, 10));
+            Company.Add(new Monster(1, "라그라로크온라인[그라비티]", 100, 10, 5, 10));
+            Company.Add(new Monster(1, "미르[위메이드]", 100, 10, 5, 10));
+            Company.Add(new Monster(2, "서머너즈워[컴투스]", 175, 25, 10, 40));
+            Company.Add(new Monster(2, "몬스터헌터[캡콤]", 175, 25, 10, 40));
+            Company.Add(new Monster(2, "북두의 권[겅호온라인]", 175, 25, 10, 40));
+            Company.Add(new Monster(2, "엘리온[카카오게임즈]", 175, 25, 10, 40));
+            Company.Add(new Monster(2, "로스트아크[스마일게이트]", 175, 25, 10, 40));
+            Company.Add(new Monster(3, "배틀그라운드[크래프톤]", 250, 40, 15, 150));
+            Company.Add(new Monster(3, "세븐나이츠[넷마블]", 250, 40, 15, 150));
+            Company.Add(new Monster(3, "리니지[엔씨소프트]", 250, 40, 15, 150));
+            Company.Add(new Monster(3, "로블록스[로블록스]", 250, 40, 15, 150));
+            Company.Add(new Monster(3, "어쎄신크리드[유비소프트]", 250, 40, 15, 150));
+            Company.Add(new Monster(4, "메탈기어솔리드[코나미]", 325, 55, 20, 500));
+            Company.Add(new Monster(4, "메이플스토리[넥슨]", 325, 55, 20, 500));
+            Company.Add(new Monster(4, "FootballManager[세가사미]", 325, 55, 20, 500));
+            Company.Add(new Monster(4, "카운터스트라이크[엠브레이서]", 325, 55, 20, 500));
+            Company.Add(new Monster(4, "파이널판타지[스퀘어에닉스]", 325, 55, 20, 500));
+            Company.Add(new Monster(5, "GTA[테이크투인터랙티브]", 400, 70, 25, 1250));
+            Company.Add(new Monster(5, "우마무스메[사이버에이전트]", 400, 70, 25, 1250));
+            Company.Add(new Monster(5, "FIFA[일렉트로닉 아츠]", 400, 70, 25, 1250));
+            Company.Add(new Monster(5, "Diablo[블리자드] - 9.79조", 400, 70, 25, 1250));
+            Company.Add(new Monster(5, "엘든링[반다이남코]", 400, 70, 25, 1250));
+            Company.Add(new Monster(6, "포켓몬[닌텐도]", 475, 85, 30, 3000));
+            Company.Add(new Monster(6, "제5 인격[넷이즈]", 475, 85, 30, 3000));
+            Company.Add(new Monster(6, "갓 오브 워[소니]", 475, 85, 30, 3000));
+            Company.Add(new Monster(6, "리그오브레전드 (라이엇)", 475, 85, 30, 3000));
+            Company.Add(new Monster(6, "Minecraft(마이크로소프트)", 475, 85, 30, 3000));
+            Company.Add(new Monster(7, "BOSS : 스파르타코딩클럽", 1500, 250, 100, 231030));
+            
         }
     }
 }
