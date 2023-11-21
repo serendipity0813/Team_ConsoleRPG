@@ -32,14 +32,14 @@ namespace ConsoleRPG
             string selectedJob = jobOptions[jobChoice];
             Console.WriteLine($"플레이어의 직업이 {selectedJob}으로 설정되었습니다.");
 
-            Player.GetInst.PlayerDataSetting(playerName, (Jop)jobChoice, 1, 100, 10, 5, 1000);
+            Player.GetInst.PlayerDataSetting(playerName, (Jop)jobChoice, 1, 100, 100, 10, 5, 1000);
         }
         public static void AdminMode()
         {
             Console.WriteLine("관리자 모드에 진입하셨습니다.");
 
             //모든 능력치 99999로, 보유골드 99999999로 설정
-            Player.GetInst.PlayerDataSetting("비둘기", Jop.Programmer, 99999, 99999, 99999, 99999, 99999999);
+            Player.GetInst.PlayerDataSetting("비둘기", Jop.Programmer, 99999, 99999, 100, 99999, 99999, 99999999);
 
             Console.WriteLine("비둘기님의 능력치와 보유 골드가 최대치로 설정되었습니다.");
             Console.WriteLine();

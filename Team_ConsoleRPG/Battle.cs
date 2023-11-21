@@ -207,7 +207,7 @@ namespace ConsoleRPG
             {
                 for (int i = 0; i < count; i++)
                 {
-                    DataManager.monsters.Add(DataManager.Company[random2.Next(start, end)]);
+                    DataManager.monsters.Add(new Monster(DataManager.Company[random2.Next(start, end)]));
                 }
             }
           

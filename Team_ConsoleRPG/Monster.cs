@@ -19,6 +19,15 @@ namespace ConsoleRPG {
             Money = money;
         }
 
+        public Monster(Monster monster) {
+            Level = monster.Level;
+            Name = monster.Name;
+            Health = monster.Health;
+            Attack = monster.Attack;
+            Defend = monster.Defend;
+            Money = monster.Money;
+        }
+
 
         public override void TakeDamage(int damage)      //전투 진행시 몬스터가 데미지를 받는 메소드
         {
