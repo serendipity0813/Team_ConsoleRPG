@@ -19,6 +19,7 @@ C:\Users\DongHyun\Documents\csharpProject\Team_ConsoleRPG\Team_ConsoleRPG\obj\De
 C:\Users\junyoung\source\repos\unity\Team_ConsoleRPG\Team_ConsoleRPG\bin\Debug\Newtonsoft.Json.dll
 C:\Users\junyoung\source\repos\unity\Team_ConsoleRPG\Team_ConsoleRPG\bin\Debug\Newtonsoft.Json.xml
 C:\Users\junyoung\source\repos\unity\Team_ConsoleRPG\Team_ConsoleRPG\obj\Debug\Team_ConsoleRPG.csproj.CopyComplete
+<<<<<<< HEAD
 D:\Github\Team_ConsoleRPG\Team_ConsoleRPG\obj\Debug\Team_ConsoleRPG.csproj.AssemblyReference.cache
 D:\Github\Team_ConsoleRPG\Team_ConsoleRPG\obj\Debug\Team_ConsoleRPG.csproj.CoreCompileInputs.cache
 D:\Github\Team_ConsoleRPG\Team_ConsoleRPG\obj\Debug\Team_ConsoleRPG.exe
@@ -29,3 +30,15 @@ D:\Github\Team_ConsoleRPG\Team_ConsoleRPG\bin\Debug\Team_ConsoleRPG.pdb
 D:\Github\Team_ConsoleRPG\Team_ConsoleRPG\bin\Debug\Newtonsoft.Json.dll
 D:\Github\Team_ConsoleRPG\Team_ConsoleRPG\bin\Debug\Newtonsoft.Json.xml
 D:\Github\Team_ConsoleRPG\Team_ConsoleRPG\obj\Debug\Team_ConsoleRPG.csproj.CopyComplete
+=======
+C:\Users\rlady\OneDrive\문서\GitHub\Team_ConsoleRPG\Team_ConsoleRPG\bin\Debug\Team_ConsoleRPG.exe.config
+C:\Users\rlady\OneDrive\문서\GitHub\Team_ConsoleRPG\Team_ConsoleRPG\bin\Debug\Team_ConsoleRPG.exe
+C:\Users\rlady\OneDrive\문서\GitHub\Team_ConsoleRPG\Team_ConsoleRPG\bin\Debug\Team_ConsoleRPG.pdb
+C:\Users\rlady\OneDrive\문서\GitHub\Team_ConsoleRPG\Team_ConsoleRPG\bin\Debug\Newtonsoft.Json.dll
+C:\Users\rlady\OneDrive\문서\GitHub\Team_ConsoleRPG\Team_ConsoleRPG\bin\Debug\Newtonsoft.Json.xml
+C:\Users\rlady\OneDrive\문서\GitHub\Team_ConsoleRPG\Team_ConsoleRPG\obj\Debug\Team_ConsoleRPG.csproj.AssemblyReference.cache
+C:\Users\rlady\OneDrive\문서\GitHub\Team_ConsoleRPG\Team_ConsoleRPG\obj\Debug\Team_ConsoleRPG.csproj.CoreCompileInputs.cache
+C:\Users\rlady\OneDrive\문서\GitHub\Team_ConsoleRPG\Team_ConsoleRPG\obj\Debug\Team_ConsoleRPG.csproj.CopyComplete
+C:\Users\rlady\OneDrive\문서\GitHub\Team_ConsoleRPG\Team_ConsoleRPG\obj\Debug\Team_ConsoleRPG.exe
+C:\Users\rlady\OneDrive\문서\GitHub\Team_ConsoleRPG\Team_ConsoleRPG\obj\Debug\Team_ConsoleRPG.pdb
+>>>>>>> origin/use_item_1.01

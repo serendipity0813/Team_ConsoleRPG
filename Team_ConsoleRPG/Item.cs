@@ -18,6 +18,7 @@ namespace ConsoleRPG
         Shield,
         Accessory,
         Energy,
+        activeitem,
         MaxEquipItem,
         Max
     }
@@ -65,7 +66,7 @@ namespace ConsoleRPG
 
         public void PrintItemData()     //아이템 데이터 출력 함수 
         {
-            int maxNameLength = 30;
+            int maxNameLength = 30; //글자수제한
             int maxPrice = 15;
 
             if (Equip) {
@@ -80,19 +81,36 @@ namespace ConsoleRPG
                 Console.Write("   ");                   //아이템 이름, 가격 등 출력 후 아이템 효과중 0이 아닌 효과 출력
             int padLen = maxNameLength - Encoding.Default.GetBytes(Name).Length;
             string itemName = Name + new string(' ', padLen);
-            Console.Write($"이름 : {itemName}");
-            Console.Write(" | ");
+            Console.Write($"이름|| {itemName}");
+            Console.Write(" || ");
             string priceTex = $"가격 : {Price}";
             padLen = maxPrice - Encoding.Default.GetBytes(priceTex).Length;
             priceTex = priceTex + new string(' ', padLen);
             if (Price != 0) Console.Write(priceTex);
-            Console.Write(" | ");
+            Console.Write(" || ");
             if (Attack != 0) Console.Write($"Atk {(Attack >= 0 ? "+" : "")}{Attack} ");
             if (Defend != 0) Console.Write($"Def {(Defend >= 0 ? "+" : "")}{Defend} ");
             if (Health != 0) Console.Write($"Hp {(Health >= 0 ? "+" : "")}{Health}");
             Console.WriteLine();
 
         }
+
+        
+        public void UseItem(Item item) //아이템 사용 구현 임시구현
+        {
+            if (item.Type != ItemType.activeitem)
+            {
+                Console.WriteLine($"{Name}을 사용하였습니다.");
+                Console.WriteLine($"{Health} 만큼 회복하였습니다.");
+                Player.GetInst.Health += Health; //유저 피 회복
+            }
+            else
+            {
+                Console.WriteLine("그아이템은 사용할수 없어");
+            }
+        }
+        
+        
     }
 }
 
