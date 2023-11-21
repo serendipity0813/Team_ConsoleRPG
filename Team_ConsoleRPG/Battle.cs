@@ -15,6 +15,7 @@ namespace ConsoleRPG
             MakeMonster(stage);
             int count = DataManager.monsters.Count;
             int Pmaxhp = Player.GetInst.Health;          //던전 진행 후 체력을 원상태로 전환하기 위해 기존 체력값 저장
+            int Pmaxmp = Player.GetInst.MP;
             bool battle = true;
             bool win = true;
             int winpoint = 0;
@@ -38,11 +39,13 @@ namespace ConsoleRPG
                 if (winpoint > DataManager.monsters.Count)
                 {
                     Player.GetInst.Health = Pmaxhp;
+                    Player.GetInst.MP = Pmaxmp;
                     battle = true;
                     win = true;
 
-                    Reward1.ShowReward(win);
+                    Reward.ShowReward(win);
                 }
+
 
 
                 //몬스터의 턴
@@ -64,7 +67,7 @@ namespace ConsoleRPG
                     battle = false;
                     win = false;
 
-                    Reward1.ShowReward(win);
+                    Reward.ShowReward(win);
                 }
 
 

@@ -19,3 +19,13 @@ C:\Users\DongHyun\Documents\csharpProject\Team_ConsoleRPG\Team_ConsoleRPG\obj\De
 C:\Users\junyoung\source\repos\unity\Team_ConsoleRPG\Team_ConsoleRPG\bin\Debug\Newtonsoft.Json.dll
 C:\Users\junyoung\source\repos\unity\Team_ConsoleRPG\Team_ConsoleRPG\bin\Debug\Newtonsoft.Json.xml
 C:\Users\junyoung\source\repos\unity\Team_ConsoleRPG\Team_ConsoleRPG\obj\Debug\Team_ConsoleRPG.csproj.CopyComplete
+D:\Github\Team_ConsoleRPG\Team_ConsoleRPG\obj\Debug\Team_ConsoleRPG.csproj.AssemblyReference.cache
+D:\Github\Team_ConsoleRPG\Team_ConsoleRPG\obj\Debug\Team_ConsoleRPG.csproj.CoreCompileInputs.cache
+D:\Github\Team_ConsoleRPG\Team_ConsoleRPG\obj\Debug\Team_ConsoleRPG.exe
+D:\Github\Team_ConsoleRPG\Team_ConsoleRPG\obj\Debug\Team_ConsoleRPG.pdb
+D:\Github\Team_ConsoleRPG\Team_ConsoleRPG\bin\Debug\Team_ConsoleRPG.exe.config
+D:\Github\Team_ConsoleRPG\Team_ConsoleRPG\bin\Debug\Team_ConsoleRPG.exe
+D:\Github\Team_ConsoleRPG\Team_ConsoleRPG\bin\Debug\Team_ConsoleRPG.pdb
+D:\Github\Team_ConsoleRPG\Team_ConsoleRPG\bin\Debug\Newtonsoft.Json.dll
+D:\Github\Team_ConsoleRPG\Team_ConsoleRPG\bin\Debug\Newtonsoft.Json.xml
+D:\Github\Team_ConsoleRPG\Team_ConsoleRPG\obj\Debug\Team_ConsoleRPG.csproj.CopyComplete

@@ -22,18 +22,20 @@ namespace ConsoleRPG
         //캐릭터 클래스 필드
         public Jop Job { get; private set; }
         public int Level { get; set; }      //지속적으로 변경되어 프로퍼티 - get, set
+        public int MP { get; set; }         //플레이어 마나
         public int exp = 0;                 //플레이어 경험치 - 일정수치 이상 획득시 레벨업
         public int ticket = 0;              //던전 진행시 얻는 아이템
 
         public List<Item> equipItems;
         public List<Item> inventory { get; private set; }
 
-        public void PlayerDataSetting(string name, Jop job, int level, int health, int attack, int defend, int money)
+        public void PlayerDataSetting(string name, Jop job, int level, int health, int mp, int attack, int defend, int money)
         {
             Name = name;
             Job = job;
             Level = level;
             Health = health;
+            MP = mp;
             Attack = attack;
             Defend = defend;
             Money = money;
