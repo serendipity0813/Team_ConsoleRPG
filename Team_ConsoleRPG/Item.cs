@@ -85,6 +85,10 @@ namespace ConsoleRPG
                 else
                     Console.Write("   ");                   //아이템 이름, 가격 등 출력 후 아이템 효과중 0이 아닌 효과 출력
             }
+
+
+
+
             int padLen = maxNameLength - Encoding.Default.GetBytes(Name).Length;
             string itemName = Name + new string(' ', padLen);
             Console.Write($"이름|| {itemName}");

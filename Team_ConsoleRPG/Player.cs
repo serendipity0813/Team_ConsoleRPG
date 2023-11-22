@@ -62,7 +62,10 @@ namespace ConsoleRPG
             for (int i = 0; i < equipItems.Count; i++)
             {
                 if (equipItems[i] != null)
+                {
                     sum += equipItems[i].Attack;
+                    
+                }
             }
             return sum;
         }
@@ -130,11 +133,22 @@ namespace ConsoleRPG
             } 
             else 
             {
-                if (item.Equip)       //이미 장착중인 아이템의 경우 출력
+                if (item.Equip == true)       //이미 장착중인 아이템의 경우 출력
                 {
                     Console.WriteLine("이미 장착중인 아이템입니다.");
-                }
+                    item.Equip = false;
+                    for (int i = 0; i < Player.GetInst.equipItems.Count; i++)
+                    {
+                        if (Player.GetInst.equipItems[i] != null && Player.GetInst.equipItems[i].ID == item.ID)
+                        {
+                            Player.GetInst.equipItems[i] = null;
+                        }
+                    }
+                    Player.GetInst.Attack -= item.Attack;
+                    Player.GetInst.Defend -= item.Defend;
+                    Player.GetInst.Health -= item.Health;
 
+                }
                 else 
                 {
                     if(equipItems[(int)item.Type] == null) 
@@ -173,7 +187,22 @@ namespace ConsoleRPG
                 Player.GetInst.Money += sellmoney;           //판매 금액만큼 플레이어 보유 금액 추가합산
                 items[item.ID].Have = false;
                 if (items[item.ID].Equip)
+                {
+                    for (int i = 0; i < Player.GetInst.equipItems.Count; i++)
+                    {
+                        if (Player.GetInst.equipItems[i] != null && Player.GetInst.equipItems[i].ID == item.ID)
+                        {
+                            Player.GetInst.equipItems[i] = null;
+                        }
+                    }
+                    Player.GetInst.Attack -= item.Attack;
+                    Player.GetInst.Defend -= item.Defend;
+                    Player.GetInst.Health -= item.Health;
                     items[item.ID].Equip = false;       //아이템을 장착하고 있었다면 해제하고 아이템 소지 bool값을 false로 전환
+                  
+
+
+                }
                 Player.GetInst.inventory.Remove(item);
             }
         }
