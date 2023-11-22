@@ -178,8 +178,10 @@ namespace ConsoleRPG
 
             else if (input == 4)
             {
-                GameManager.DisplayInventory();
 
+
+                GameManager.DisplayBattleinventory();
+              
             }
             else if (input == 5) 
             {

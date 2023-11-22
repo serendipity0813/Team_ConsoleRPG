@@ -62,7 +62,7 @@ namespace ConsoleRPG
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine($"{Player.GetInst.Name}의 달팽이 세마리! - 마나 소모 5");
                 Console.ResetColor();
-                Player.GetInst.MP = -5;
+                Player.GetInst.MP -= 5;
                 int damage = (int)(Player.GetInst.Attack * 1.2);
 
 
@@ -109,7 +109,7 @@ namespace ConsoleRPG
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine($"{Player.GetInst.Name}의 파워 스트라이크! - 마나 소모 15");
                 Console.ResetColor();
-                Player.GetInst.MP = -15;
+                Player.GetInst.MP -= 15;
                 int damage = (int)(Player.GetInst.Attack * 1.5);
 
 
