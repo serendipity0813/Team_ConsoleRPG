@@ -73,10 +73,13 @@ namespace ConsoleRPG
                     Console.ReadKey();
                     Ending.EndingScene();
                 }
+                else
+                {
+                    Console.WriteLine("Enter키를 누르면 집으로 돌아갑니다.");
+                    Console.ReadKey();
+                    GameManager.DisplayHome();
+                }
 
-                Console.WriteLine("Enter키를 누르면 집으로 돌아갑니다.");
-                Console.ReadKey();
-                GameManager.DisplayHome();
             }
 
             else if (win == false)
