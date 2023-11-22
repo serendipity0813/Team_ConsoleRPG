@@ -126,79 +126,122 @@ namespace ConsoleRPG
         {
             Console.Clear();
 
-            Console.WriteLine("소유하고 있는 아이템을 확인합니다.");
+            Console.WriteLine("어느 인벤토리를 들어갈지 선택하시오");
+            Console.WriteLine("1. 장비");
+            Console.WriteLine("2.소모품");
             Console.WriteLine();
-            Console.WriteLine("[아이템 목록]");
-            Console.WriteLine();
-            //for (int i = 1; i < DataManager.Items.Count; i++)      //모든 아이템을 확인하며 HAVE 값이 TRUE라면 아이템 데이터 출력
-            //{
-            //    if (DataManager.Items[i].Have == true) {
-            //        if (DataManager.Items[i].ID >= 10)
-            //            Console.Write($"{DataManager.Items[i].ID}. ");
-            //        else
-            //            Console.Write($" {DataManager.Items[i].ID}. ");
-            //        DataManager.Items[i].PrintItemData();
-            //    }
-            //}
-
-            
-            List<Item> inven = Player.GetInst.inventory;
-            Console.WriteLine("===|| 이 름 ||==========|| 상 품 명||=========|| 가 격||=========|| 옵 션 ||========");
-            for (int i = 0; i < inven.Count; i++) 
-            {
-                if (inven[i].Type != ItemType.activeitem)
-                {
-                    if (i >= 10)
-                        Console.Write($" {i + 1}||");
-                    else
-                        Console.Write($" {i + 1} ||");
-                    inven[i].PrintItemData();
-                }
-            }
-            Console.WriteLine("====================================================================================");
-            Console.WriteLine();
-            Console.WriteLine("===|| 이 름 ||==========|| 상 품 명||=========|| 가 격||=========|| 옵 션 ||========");
-
-            for (int i = 0; i < inven.Count; i++)
-            {
-                if (inven[i].Type == ItemType.activeitem)
-                {
-                    if (i >= 10)
-                        Console.Write($"{i + 1}. ");
-                    else
-                        Console.Write($" {i + 1}. ");
-                    inven[i].PrintItemData();
-                }
-            }
-            Console.WriteLine("====================================================================================");
-
-
-            Console.WriteLine(" ");             //추가로 진행할 수 있는 기능 출력
-
-            Console.WriteLine("0. 나가기");
-            Console.WriteLine("1. 장착관리");
-            Console.WriteLine("2. 당근마켓에 아이템 팔기");
-            Console.WriteLine(" ");
-            Console.WriteLine("원하시는 행동을 입력하시오");
-            Console.WriteLine();
-
+            Console.WriteLine("0. 돌아가기");
             int input = CheckInput(0, 2);
-
+            List<Item> inven = Player.GetInst.inventory;
             switch (input)
             {
                 case 0:
                     DisplayHome();
                     break;
                 case 1:
-                    DisplayItemEquip();
+                    Console.Clear();
+                    Console.WriteLine("[아이템 목록]");
+                    Console.WriteLine();
+                    //for (int i = 1; i < DataManager.Items.Count; i++)      //모든 아이템을 확인하며 HAVE 값이 TRUE라면 아이템 데이터 출력
+                    //{
+                    //    if (DataManager.Items[i].Have == true) {
+                    //        if (DataManager.Items[i].ID >= 10)
+                    //            Console.Write($"{DataManager.Items[i].ID}. ");
+                    //        else
+                    //            Console.Write($" {DataManager.Items[i].ID}. ");
+                    //        DataManager.Items[i].PrintItemData();
+                    //    }
+                    //}
+
+
+                    
+                    Console.WriteLine("|| 장 비 ||");
+                    Console.WriteLine("===|| 이 름 ||==========|| 상 품 명||=========|| 가 격||=========|| 옵 션 ||========");
+                    for (int i = 0; i < inven.Count; i++)
+                    {
+                        if (inven[i].Type != ItemType.activeitem)
+                        {
+                            if (i >= 10)
+                                Console.Write($" {i + 1}||");
+                            else
+                                Console.Write($" {i + 1} ||");
+                            inven[i].PrintItemData();
+                        }
+                    }
+                    Console.WriteLine("====================================================================================");
+                    Console.WriteLine();
+                    Console.WriteLine(" ");             //추가로 진행할 수 있는 기능 출력
+
+                    Console.WriteLine("0. 나가기");
+                    Console.WriteLine("1. 장착관리");
+                    Console.WriteLine("2. 당근마켓에 아이템 팔기");
+                    Console.WriteLine(" ");
+                    Console.WriteLine("원하시는 행동을 입력하시오");
+                    Console.WriteLine();
+
+                    input = CheckInput(0, 2);
+
+                    switch (input)
+                    {
+                        case 0:
+                            DisplayHome();
+                            break;
+                        case 1:
+                            DisplayItemEquip();
+                            break;
+                        case 2:
+                            DisplayItemSell();
+                            break;
+
+                    }
+
+                    Console.Clear();
                     break;
                 case 2:
-                    DisplayItemSell();
+                    Console.Clear();
+                    Console.WriteLine("[아이템 목록]");
+                    Console.WriteLine();
+                    Console.WriteLine("|| 소모품 ||");
+                    Console.WriteLine("===|| 이 름 ||==========|| 상 품 명||=========|| 가 격||=========|| 옵 션 ||========");
+
+                    for (int i = 0; i < inven.Count; i++)
+                    {
+                        if (inven[i].Type == ItemType.activeitem)
+                        {
+                            if (i >= 10)
+                                Console.Write($"{i + 1}. ");
+                            else
+                                Console.Write($" {i + 1}. ");
+                            inven[i].PrintItemData();
+                        }
+                    }
+                    Console.WriteLine("====================================================================================");
+                    Console.WriteLine(" ");             //추가로 진행할 수 있는 기능 출력
+
+                    Console.WriteLine("0. 나가기");
+                    Console.WriteLine("1. 당근마켓에 아이템 팔기");
+                    Console.WriteLine(" ");
+                    Console.WriteLine("원하시는 행동을 입력하시오");
+                    Console.WriteLine();
+
+                    input = CheckInput(0, 1);
+
+                    switch (input)
+                    {
+                        case 0:
+                            DisplayHome();
+                            break;
+                        case 1:
+                            DisplayItemSell();
+                            break;
+
+                    }
+
+                    Console.Clear();
                     break;
 
             }
 
-            Console.Clear();
         }
 
         public static void DisplayShop()        //아이템 상점화면 출력 
@@ -310,6 +353,7 @@ namespace ConsoleRPG
                 Console.Write("{0}.  ", i + 1);
                 items[i].PrintItemData();
             }
+            Console.WriteLine("====================================================================================");
             Console.WriteLine("0. 다음을 기약하며 핸드폰을 끈다.");
             Console.WriteLine();
             Console.WriteLine("구매를 원하는 옷의 번호를 입력하세요.");
