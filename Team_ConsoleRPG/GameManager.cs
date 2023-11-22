@@ -124,6 +124,7 @@ namespace ConsoleRPG
 
         public static void DisplayInventory()       //아이템 인벤토리 출력
         {
+            int itemnumber = 0;
             Console.Clear();
 
             Console.WriteLine("어느 인벤토리를 들어갈지 선택하시오");
@@ -154,21 +155,35 @@ namespace ConsoleRPG
                     //}
 
 
-                    
+                    itemnumber = 0;
                     Console.WriteLine("|| 장 비 ||");
                     Console.WriteLine("===|| 이 름 ||==========|| 상 품 명||=========|| 가 격||=========|| 옵 션 ||========");
                     for (int i = 0; i < inven.Count; i++)
                     {
                         if (inven[i].Type != ItemType.activeitem)
                         {
+                            
                             if (i >= 10)
-                                Console.Write($" {i + 1}||");
+                                Console.Write($" {itemnumber + 1}||");
                             else
-                                Console.Write($" {i + 1} ||");
+                                Console.Write($" {itemnumber + 1} ||");
                             inven[i].PrintItemData();
+                            itemnumber++;
                         }
                     }
-                    Console.WriteLine("====================================================================================");
+                    /* //월래 작성된 구간
+                   for (int i = 0; i < inven.Count; i++)
+                   {
+                       if (inven[i].Type == ItemType.activeitem)
+                       {
+                           if (i >= 10)
+                               Console.Write($"{i + 1}. ");
+                           else
+                               Console.Write($" {i + 1}. ");
+                           inven[i].PrintItemData();
+                       }
+                   }
+                   */
                     Console.WriteLine();
                     Console.WriteLine(" ");             //추가로 진행할 수 있는 기능 출력
 
@@ -204,6 +219,21 @@ namespace ConsoleRPG
                     Console.WriteLine("|| 소모품 ||");
                     Console.WriteLine("===|| 이 름 ||==========|| 상 품 명||=========|| 가 격||=========|| 옵 션 ||========");
 
+
+                    for (int i = 0; i < inven.Count; i++)
+                    {
+                        if (inven[i].Type == ItemType.activeitem)
+                        {
+                            
+                            if (i >= 10)
+                                Console.Write($"{i + 1}. ");
+                            else
+                                Console.Write($" {i + 1}. ");
+                            inven[i].PrintItemData();
+                        }
+                    }
+
+                    /* //월래 작성된 구간
                     for (int i = 0; i < inven.Count; i++)
                     {
                         if (inven[i].Type == ItemType.activeitem)
@@ -215,7 +245,7 @@ namespace ConsoleRPG
                             inven[i].PrintItemData();
                         }
                     }
-                    Console.WriteLine("====================================================================================");
+                    */
                     Console.WriteLine(" ");             //추가로 진행할 수 있는 기능 출력
 
                     Console.WriteLine("0. 나가기");
@@ -307,7 +337,7 @@ namespace ConsoleRPG
                 Console.Write("{0}.  ", i + 1);
                 items[i].PrintItemData();
             }
-            Console.WriteLine("====================================================================================");
+
             Console.WriteLine("0. 다음을 기약하며 핸드폰을 끈다.");
             Console.WriteLine();
             Console.WriteLine("구매를 원하는 키보드의 번호를 입력하세요.");
@@ -330,7 +360,6 @@ namespace ConsoleRPG
                 Console.Write("{0}.  ", i + 1);
                 items[i].PrintItemData();
             }
-            Console.WriteLine("====================================================================================");
             Console.WriteLine("0. 다음을 기약하며 핸드폰을 끈다.");
             Console.WriteLine();
             Console.WriteLine("구매를 원하는 마우스의 번호를 입력하세요.");
@@ -353,7 +382,7 @@ namespace ConsoleRPG
                 Console.Write("{0}.  ", i + 1);
                 items[i].PrintItemData();
             }
-            Console.WriteLine("====================================================================================");
+
             Console.WriteLine("0. 다음을 기약하며 핸드폰을 끈다.");
             Console.WriteLine();
             Console.WriteLine("구매를 원하는 옷의 번호를 입력하세요.");
@@ -376,7 +405,7 @@ namespace ConsoleRPG
                 Console.Write("{0}.  ", i + 1);
                 items[i].PrintItemData();
             }
-            Console.WriteLine("====================================================================================");
+ 
             Console.WriteLine("0. 다음을 기약하며 핸드폰을 끈다.");
             Console.WriteLine();
             Console.WriteLine("구매를 원하는 이어폰의 번호를 입력하세요.");
@@ -399,7 +428,7 @@ namespace ConsoleRPG
                 Console.Write("{0}.  ", i + 1);
                 items[i].PrintItemData();
             }
-            Console.WriteLine("====================================================================================");
+
             Console.WriteLine("0. 다음을 기약하며 핸드폰을 끈다.");
             Console.WriteLine();
             Console.WriteLine("구매를 원하는 꿀템의 번호를 입력하세요.");
@@ -422,7 +451,6 @@ namespace ConsoleRPG
                 Console.Write("{0}.  ", i + 1);
                 items[i].PrintItemData();
             }
-            Console.WriteLine("====================================================================================");
             Console.WriteLine("0. 다음을 기약하며 핸드폰을 끈다.");
             Console.WriteLine();
             Console.WriteLine("구매를 원하는 꿀템의 번호를 입력하세요.");
@@ -453,8 +481,6 @@ namespace ConsoleRPG
                     inven[i].PrintItemData();
                 }
             }
-            Console.WriteLine("====================================================================================");
-
 
             Console.WriteLine(" ");
             Console.WriteLine("0. 사용하지 않기");

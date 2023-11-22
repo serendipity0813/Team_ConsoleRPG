@@ -1,0 +1,23 @@
+{
+  "exp": 0,
+  "ticket": 0,
+  "equipItems": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  "Job": 2,
+  "Level": 1,
+  "MP": 100,
+  "inventory": [],
+  "Name": "둘기",
+  "Health": 100,
+  "Attack": 10,
+  "Defend": 5,
+  "Money": 1000,
+  "IsDead": false
+}

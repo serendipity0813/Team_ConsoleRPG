@@ -101,8 +101,9 @@ namespace ConsoleRPG
             if (Attack != 0) Console.Write($"Atk {(Attack >= 0 ? "+" : "")}{Attack} ");
             if (Defend != 0) Console.Write($"Def {(Defend >= 0 ? "+" : "")}{Defend} ");
             if (Health != 0) Console.Write($"Hp {(Health >= 0 ? "+" : "")}{Health}");
-            if (Type == ItemType.activeitem) Console.WriteLine($"수량 : {(ItemCnt >= 0 ? "+" : "")}{ItemCnt}");
+            if (Type == ItemType.activeitem) Console.Write($"수량 : {(ItemCnt >= 0 ? "+" : "")}{ItemCnt}");
             Console.WriteLine();
+            Console.WriteLine("====================================================================================");
 
         }
 
