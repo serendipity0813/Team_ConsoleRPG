@@ -9,6 +9,7 @@ namespace ConsoleRPG {
     {
         public int Level { get; set; }      //지속적으로 변경되어 프로퍼티 - get, set
 
+        public Monster() { }
         //몬스터 클래스 속성
         public Monster(int level, string name, int health, int attack, int defend, int money) {
             Level = level;

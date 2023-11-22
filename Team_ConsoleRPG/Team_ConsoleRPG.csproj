@@ -70,6 +70,7 @@
     <None Include="App.config" />
     <None Include="ItemInfos.json" />
     <None Include="packages.config" />
+    <None Include="QuestInfo.json" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
