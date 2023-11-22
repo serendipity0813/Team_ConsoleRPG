@@ -13,7 +13,8 @@ namespace ConsoleRPG
 
         public static void Main(string[] args)
         {
-            string filePath = "C:\\Users\\gunho\\Desktop\\music\\bgm.mp3"; // MP3 파일 경로를 지정하세요.
+            
+            string filePath = DataManager.GetProjectPath() + "Music\\bgm.mp3"; // MP3 파일 경로를 지정하세요.
 
             using (var mp3Reader = new Mp3FileReader(filePath))
             {
