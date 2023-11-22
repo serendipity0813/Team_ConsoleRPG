@@ -11,7 +11,14 @@ namespace ConsoleRPG
     {
         public static void ShowReward(bool win)
         {
+            bool End = false;
+
             Console.Clear();
+
+            if (DataManager.monsters[0].Name == DataManager.Company[30].Name)
+            {
+                End = true;
+            }
 
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.Magenta;
@@ -58,6 +65,13 @@ namespace ConsoleRPG
                     Player.GetInst.Attack += 5;
                     Player.GetInst.Defend += 5;
                     Player.GetInst.Health += 50;
+                }
+
+                if (End)
+                {
+                    Console.WriteLine(" 보스 몬스터를 처치하였습니다!");
+                    Console.ReadKey();
+                    Ending.EndingScene();
                 }
 
                 Console.WriteLine("Enter키를 누르면 집으로 돌아갑니다.");
