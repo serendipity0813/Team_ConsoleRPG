@@ -135,8 +135,8 @@ namespace ConsoleRPG
 
             Console.WriteLine("어느 인벤토리를 들어갈지 선택하시오");
             Console.WriteLine("1. 장비");
-            Console.WriteLine("2.소모품");
-            Console.WriteLine("3.재료");
+            Console.WriteLine("2. 소모품");
+            Console.WriteLine("3. 재료");
             Console.WriteLine();
             Console.WriteLine("0. 돌아가기");
             int input = CheckInput(0, 3);
