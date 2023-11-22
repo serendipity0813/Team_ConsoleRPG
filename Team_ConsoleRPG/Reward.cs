@@ -82,6 +82,7 @@ namespace ConsoleRPG
 
                 Console.WriteLine("Player Defeat...");
                 Console.WriteLine();
+                Console.ResetColor();
                 Console.WriteLine();
                 Console.WriteLine("Monster가 전투에서 승리하였습니다.");
                 Console.WriteLine();
