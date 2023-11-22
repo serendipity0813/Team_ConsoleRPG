@@ -143,7 +143,7 @@ namespace ConsoleRPG
                     }
                 }
             } else if (input == 4) {
-                GameManager.DisplayInventory();
+                GameManager.DisplayBattleinventory();
 
             } else if (input == 5) {
                 Console.WriteLine("진행중인 전투를 포기하고 돌아갑니다");

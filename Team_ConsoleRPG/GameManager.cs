@@ -528,17 +528,23 @@ namespace ConsoleRPG
 
             Console.WriteLine("===|| 이 름 ||==========|| 상 품 명||=========|| 가 격||=========|| 옵 션 ||========");
             List<Item> inven = Player.GetInst.inventory;
-
+            int itemnumber = 0;
             inven.Sort((x, y) => x.Type.CompareTo(y.Type));
             for (int i = 0; i < inven.Count; i++)
             {
                 if (inven[i].Type == ItemType.activeitem)
                 {
                     if (i >= 10)
-                        Console.Write($"{i + 1}. ");
+                    {
+                        Console.Write($"{itemnumber + 1}. ");
+                        itemnumber++;
+                    }
                     else
-                        Console.Write($" {i + 1}. ");
-                    inven[i].PrintItemData();
+                    {
+                        Console.Write($" {itemnumber + 1}. ");
+                        itemnumber++;
+                    }
+                        inven[i].PrintItemData();
                 }
             }
 
@@ -548,15 +554,18 @@ namespace ConsoleRPG
             Console.WriteLine();
 
             int input = CheckInput(0, inven.Count);
-            input += 31;
 
-            for (int i = 0; i < inven.Count; i++)
+            if (input != 0)
             {
-                if (inven[i].Type == ItemType.activeitem)
+                input += 31;
+                for (int i = 0; i < inven.Count; i++)
                 {
-                    if (inven[i].ID == input)
+                    if (inven[i].Type == ItemType.activeitem)
                     {
-                        inven[i].UseactiveItem();
+                        if (inven[i].ID == input)
+                        {
+                            inven[i].UseactiveItem();
+                        }
                     }
                 }
             }
