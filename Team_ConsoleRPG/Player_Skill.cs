@@ -14,6 +14,7 @@ namespace ConsoleRPG
             Console.ResetColor();
 
             int damage = Player.GetInst.Attack;
+            int Cridamage = (int)(damage*1.6);
 
             Random random = new Random();
             int dodgechance = random.Next(1, 101);
@@ -28,9 +29,9 @@ namespace ConsoleRPG
                 if (CriticalAtk()) // 기본공격 크리티컬
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine($"크리티컬! [데미지 : {damage}]");
-                    Console.ResetColor();
-                    damage = (int)(damage * 1.6);
+                    Console.WriteLine($"크리티컬! [데미지 : {Cridamage}]");
+                    DataManager.monsters[input].Health -= Cridamage;
+                    Console.ResetColor();                   
                 }
                 else
                 {

@@ -45,8 +45,9 @@ namespace ConsoleRPG
 
                 if (Critical == Player.GetInst.Defend || Critical < Player.GetInst.Defend)
                 {
-                    Console.WriteLine("방어력이 데미지보다 높아 데미지가 들어오지 않았습니다.");
-                    Player.GetInst.Health -= 0;
+                    Console.WriteLine("플레이어의 방어력이 몬스터 데미지보다 높아 공격을 방어하여 1의 데미지만 받습니다.");
+                    Console.WriteLine($"방어 성공! 플레이어 체력 : {Player.GetInst.Health} - 1 .");
+                    Player.GetInst.Health -= 1;
                 }
                 else
                 {
@@ -63,8 +64,9 @@ namespace ConsoleRPG
             {
                 if (damage == Player.GetInst.Defend || damage < Player.GetInst.Defend)
                 {
-                    Console.WriteLine("방어력이 데미지보다 높아 데미지가 들어오지 않았습니다.");
-                    Player.GetInst.Health -= 0;
+                    Console.WriteLine("플레이어의 방어력이 몬스터 데미지보다 높아 공격을 방어하여 1의 데미지만 받습니다.");
+                    Console.WriteLine($"방어 성공! 플레이어 체력 : {Player.GetInst.Health} - 1 .");
+                    Player.GetInst.Health -= 1;
                 }
                 else
                 {
@@ -88,8 +90,9 @@ namespace ConsoleRPG
 
             if (Player.GetInst.Health / 10 == Player.GetInst.Defend || Player.GetInst.Health / 10 < Player.GetInst.Defend)
             {
-                Console.WriteLine("방어력이 데미지보다 높아 데미지가 들어오지 않았습니다.");
-                Player.GetInst.Health -= 0;
+                Console.WriteLine("플레이어의 방어력이 몬스터 데미지보다 높아 공격을 방어하여 1의 데미지만 받습니다.");
+                Console.WriteLine($"방어 성공! 플레이어 체력 : {Player.GetInst.Health} - 1 .");
+                Player.GetInst.Health -= 1;
             }
             else
             {
@@ -103,8 +106,9 @@ namespace ConsoleRPG
         {
             if (damage*2 == Player.GetInst.Defend || damage*2 < Player.GetInst.Defend)
             {
-                Console.WriteLine("방어력이 데미지보다 높아 데미지가 들어오지 않았습니다.");
-                Player.GetInst.Health -= 0;
+                Console.WriteLine("플레이어의 방어력이 몬스터 데미지보다 높아 공격을 방어하여 1의 데미지만 받습니다.");
+                Console.WriteLine($"방어 성공! 플레이어 체력 : {Player.GetInst.Health} - 1 .");
+                Player.GetInst.Health -= 1;
             }
             else
             {
@@ -119,8 +123,9 @@ namespace ConsoleRPG
         {
             if (Player.GetInst.Attack == Player.GetInst.Defend || Player.GetInst.Attack < Player.GetInst.Defend)
             {
-                Console.WriteLine("방어력이 데미지보다 높아 데미지가 들어오지 않았습니다.");
-                Player.GetInst.Health -= 0;
+                Console.WriteLine("플레이어의 방어력이 몬스터 데미지보다 높아 공격을 방어하여 1의 데미지만 받습니다.");
+                Console.WriteLine($"방어 성공! 플레이어 체력 : {Player.GetInst.Health} - 1 .");
+                Player.GetInst.Health -= 1;
             }
             else
             {
@@ -134,8 +139,9 @@ namespace ConsoleRPG
         {
             if (Player.GetInst.Health / 10 + Player.GetInst.Attack == Player.GetInst.Defend || Player.GetInst.Health / 10 + Player.GetInst.Attack < Player.GetInst.Defend)
             {
-                Console.WriteLine("방어력이 데미지보다 높아 데미지가 들어오지 않았습니다.");
-                Player.GetInst.Health -= 0;
+                Console.WriteLine("플레이어의 방어력이 몬스터 데미지보다 높아 공격을 방어하여 1의 데미지만 받습니다.");
+                Console.WriteLine($"방어 성공! 플레이어 체력 : {Player.GetInst.Health} - 1 .");
+                Player.GetInst.Health -= 1;
             }
             else
             {
