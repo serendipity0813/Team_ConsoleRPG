@@ -103,11 +103,11 @@ namespace ConsoleRPG
             Console.WriteLine($"{Player.GetInst.Name}의 턴!");
             Console.ResetColor();
             Console.WriteLine();
-            Console.WriteLine("1. 기본 공격");
+            Console.WriteLine($"1. 기본 공격 : {(int)(Player.GetInst.Attack)}데미지, 크리티컬 : {(int)(Player.GetInst.Attack*1.6)}");
             Console.WriteLine();
-            Console.WriteLine("2. 스킬1 사용");
+            Console.WriteLine($"2. 스킬1 사용 : {(int)(Player.GetInst.Attack*1.2)}데미지, 크리티컬 : {(int)(Player.GetInst.Attack*1.2 * 1.6)}");
             Console.WriteLine();
-            Console.WriteLine("3. 스킬2 사용");
+            Console.WriteLine($"3. 스킬2 사용 : {(int)(Player.GetInst.Attack*1.8)}데미지, 크리티컬 : {(int)(Player.GetInst.Attack*1.8 * 1.6)}");
             Console.WriteLine();
             Console.WriteLine("4. 가방 열기");
             Console.WriteLine();

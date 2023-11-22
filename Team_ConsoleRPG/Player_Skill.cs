@@ -63,21 +63,22 @@ namespace ConsoleRPG
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine($"{Player.GetInst.Name}의 달팽이 세마리! - 마나 소모 5");
                 Console.ResetColor();
-                Player.GetInst.MP = -5;
-                int damage = (int)(Player.GetInst.Attack * 1.2);
-
+                Player.GetInst.MP -= 5;
+                int Skill1damage = (int)(Player.GetInst.Attack * 1.2);
+                int Skill1Cridamage = (int)(Skill1damage * 1.6);
 
                 if (CriticalAtk())
                 {
                     Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine($"크리티컬! [데미지 : {damage}]");
+                    Console.WriteLine($"크리티컬! [데미지 : {Skill1Cridamage}]");
                     Console.ResetColor();
-                    damage = (int)(damage * 1.6);
+                    Skill1Cridamage = (int)(Skill1damage * 1.6);
+                    DataManager.monsters[input].Health -= Skill1Cridamage;
                 }
                 else
                 {
-                    Console.WriteLine($"[데미지 : {damage}]");
-                    DataManager.monsters[input].Health -= damage;
+                    Console.WriteLine($"[데미지 : {Skill1damage}]");
+                    DataManager.monsters[input].Health -= Skill1damage;
                 }
 
 
@@ -98,7 +99,7 @@ namespace ConsoleRPG
             else
             {
                 Console.ForegroundColor = ConsoleColor.Magenta;
-                Console.WriteLine("마나가 부족하여 스킬을 사용할 수 없습니다.");
+                Console.WriteLine("마나가 부족하여 스킬을 사용할 수 없습니다.");               
                 Console.ResetColor();
             }
 
@@ -110,22 +111,25 @@ namespace ConsoleRPG
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine($"{Player.GetInst.Name}의 파워 스트라이크! - 마나 소모 15");
                 Console.ResetColor();
-                Player.GetInst.MP = -15;
-                int damage = (int)(Player.GetInst.Attack * 1.5);
+                Player.GetInst.MP -= 15;
+                int Skill2damage = (int)(Player.GetInst.Attack * 1.8);
+                int Skill2Cridamage = (int)(Skill2damage * 1.6);
 
 
                 if (CriticalAtk())
                 {
                     Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine($"크리티컬! [데미지 : {damage}]");
+                    Console.WriteLine($"크리티컬! [데미지 : {Skill2Cridamage}]");
                     Console.ResetColor();
-                    damage = (int)(damage * 1.6);
+                    Skill2Cridamage = (int)(Skill2damage * 1.6);
+                    DataManager.monsters[input].Health -= Skill2Cridamage;
                 }
                 else
                 {
-                    Console.WriteLine($"[데미지 : {damage}]");
+                    Console.WriteLine($"[데미지 : {Skill2damage}]");
+                    DataManager.monsters[input].Health -= Skill2damage;
                 }
-                DataManager.monsters[input].Health -= damage;
+                
 
 
                 if (DataManager.monsters[input].IsDead)
