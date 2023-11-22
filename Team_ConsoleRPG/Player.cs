@@ -29,6 +29,8 @@ namespace ConsoleRPG
         public List<Item> equipItems;
         public List<Item> inventory { get; private set; }
 
+        public List<Quest> questList { get; private set; }
+
         public void PlayerDataSetting(string name, Jop job, int level, int health, int mp, int attack, int defend, int money)
         {
             Name = name;
@@ -47,6 +49,7 @@ namespace ConsoleRPG
             }
 
             inventory = new List<Item>();
+            questList = new List<Quest> ();
         }
 
         public override void TakeDamage(int damage)      //던전 진행시 몬스터에게 데미지를 받는 메소드
@@ -196,6 +199,7 @@ namespace ConsoleRPG
             else
             {
                 Player.GetInst.inventory.Add(item);
+                item.Have = true;
             }
         }
 
@@ -252,6 +256,12 @@ namespace ConsoleRPG
             Level++;
             exp = 0;
             Console.WriteLine($"{Name}이(가) {Level} 레벨로 올라갔습니다");
+        }
+
+        public void UpdateQuest(List<Monster> mon) {
+            for(int i = 0; i < questList.Count; ++i) {
+                questList[i].UpdateQuest( mon );
+            }
         }
 
         private static Player instance;

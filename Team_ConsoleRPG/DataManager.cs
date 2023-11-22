@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using Team_ConsoleRPG;
 
 namespace ConsoleRPG 
 {
@@ -11,10 +12,12 @@ namespace ConsoleRPG
         public static readonly string ITEM = "ItemInfos";
         public static readonly string MONSTER = "MonsterInfo";
         public static readonly string PLAYER = "PlayerInfo";
+        public static readonly string QUEST = "QuestInfo";
 
         public static List<Item> Items { get; private set; }
         public static List<Monster> Company { get; private set; }
         public static List<Monster> monsters { get; private set; }
+        public static List<Quest> QuestList { get; private set; }
 
         public static string GetProjectPath() 
         {
@@ -61,7 +64,12 @@ namespace ConsoleRPG
             //SaveData(Companys, MONSTER);
 
             Items = LoadData<List<Item>>(ITEM);
+
             //Company = LoadData<List<Monster>>(MONSTER);
+
+            //QuestSetting();
+            //SaveData(QuestList, QUEST);
+            QuestList = LoadData<List<Quest>>(QUEST);
         }
 
         public static void ItemSetting() 
@@ -139,6 +147,29 @@ namespace ConsoleRPG
             Company.Add(new Monster(7, "BOSS : 스파르타코딩클럽", 1500, 250, 100, 231030));
 
 
+        }
+
+        private static void QuestSetting() {
+            List<string> test = new List<string> {
+                "이봐! 마을 근처에 미니언들이 너무 많아졌다고 생각하지 않나?",
+                "마을주민들의 안전을 위해서라도 저것들 수를 좀 줄여야 한다고!",
+                "자네가 좀 처치해주게!"
+            };
+
+            List<int> test2 = new List<int>();
+            test2.Add(9);
+
+            List<string> monsters = new List<string>();
+            monsters.Add(Company[1].Name);
+            monsters.Add(Company[2].Name);
+
+            List<int> ints = new List<int>();
+            ints.Add(2);
+            ints.Add(1);
+
+            QuestList = new List<Quest>();
+            QuestList.Add(new Quest("마을을 위협하는 미니언 처치", test, test2, 1000, monsters, ints));
+            QuestList.Add(new Quest("마을을 위협하는 미니언 처치", test, new List<int>(), 1000, monsters, ints));
         }
     }
 }

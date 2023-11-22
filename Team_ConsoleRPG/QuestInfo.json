@@ -1,0 +1,64 @@
+[
+  {
+    "questName": "악마 죽이기 1",
+    "description": [
+      "세계 3대 악마의 게임을 아나요?",
+      "세계의 많은 사람들의 시간을 지키기 위해",
+      "문명을 삭제 시켜주세요!"
+    ],
+    "clear": false,
+    "RewardItemID": [
+      9
+    ],
+    "RewardGold": 1000,
+    "targetMonsters": [
+      "문명[2k games]"
+    ],
+    "MaxtargetCout": [
+      2
+    ],
+    "CurCout": [
+      0
+    ]
+  },
+  {
+    "questName": "악마 죽이기 2",
+    "description": [
+      "세계 3대 악마의 게임을 아나요?",
+      "세계의 많은 사람들의 시간을 지키기 위해",
+      "풋볼매니저를 삭제 시켜주세요!"
+    ],
+    "clear": false,
+    "RewardItemID": [],
+    "RewardGold": 1000,
+    "targetMonsters": [
+      "풋볼매니저[세가사미]"
+    ],
+    "MaxtargetCout": [
+      3
+    ],
+    "CurCout": [
+      0
+    ]
+  },
+  {
+    "questName": "추억 보존",
+    "description": [
+      "어릴적 라그나로크를 정말 재밌게 즐겼었다.",
+      "하지만 지금의 그라비티는 라그나로크 ip로 양산 모바일게임을 만들고있다",
+      "내부 부터 부셔서 내 추억을 보존하여야 한다 ...."
+    ],
+    "clear": false,
+    "RewardItemID": [],
+    "RewardGold": 1000,
+    "targetMonsters": [
+      "라그라로크온라인[그라비티]"
+    ],
+    "MaxtargetCout": [
+      2
+    ],
+    "CurCout": [
+      0
+    ]
+  }
+]

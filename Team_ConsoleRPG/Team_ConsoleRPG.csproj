@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Battle.cs" />
     <Compile Include="cheat.cs" />
+    <Compile Include="KillQuest.cs" />
     <Compile Include="Quest.cs" />
     <Compile Include="Reward.cs" />
     <Compile Include="DataManager.cs" />
@@ -69,6 +70,7 @@
     <None Include="App.config" />
     <None Include="ItemInfos.json" />
     <None Include="packages.config" />
+    <None Include="QuestInfo.json" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

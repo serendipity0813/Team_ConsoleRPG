@@ -13,13 +13,14 @@ namespace ConsoleRPG
         {
             Console.Clear();
 
+            
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.Magenta;
             Console.Write(" [전투결과] : ");
 
-
             if (win == true)
             {
+                Player.GetInst.UpdateQuest(DataManager.monsters);
                 DataManager.monsters.Clear();
 
                 int exp = 0;
