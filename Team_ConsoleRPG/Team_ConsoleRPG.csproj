@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Battle.cs" />
     <Compile Include="cheat.cs" />
+    <Compile Include="Ending.cs" />
     <Compile Include="Quest.cs" />
     <Compile Include="Reward.cs" />
     <Compile Include="DataManager.cs" />

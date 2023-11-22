@@ -77,6 +77,7 @@ namespace ConsoleRPG
             Console.ResetColor();
             Console.WriteLine();
             Console.WriteLine("           [ Stage를 선택하세요 ]          ");
+            Console.WriteLine();
 
 
             int input = GameManager.CheckInput(0, 7);

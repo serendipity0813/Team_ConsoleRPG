@@ -35,7 +35,6 @@ namespace ConsoleRPG
                 Console.WriteLine();
                 Thread.Sleep(1000);     //잠시 멈추는 시간
 
-
                 if (winpoint == DataManager.monsters.Count) {
                     Player.GetInst.Health = Pmaxhp;
                     Player.GetInst.MP = Pmaxmp;
