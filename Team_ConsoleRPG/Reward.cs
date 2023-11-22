@@ -29,18 +29,18 @@ namespace ConsoleRPG
             {
                 DataManager.monsters.Clear();
 
-                int exp = 0;
-                int money = 0;
+                int totalexp = 0;
+                int totalmoney = 0;
                 Battle.winpoint = 0;
 
                 for (int i = 0; i < DataManager.monsters.Count; i++)
                 {
-                    exp += DataManager.monsters[i].Level;
-                    money += DataManager.monsters[i].Money;
+                    totalexp += DataManager.monsters[i].Level;
+                    totalmoney += DataManager.monsters[i].Money;
                 }
 
-                Player.GetInst.exp += exp;
-                Player.GetInst.Money += money;
+                Player.GetInst.exp += totalexp;
+                Player.GetInst.Money += totalmoney;
 
                 Console.WriteLine("Player Win!");
                 Console.ResetColor();
@@ -49,8 +49,8 @@ namespace ConsoleRPG
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine($"{Player.GetInst.Name}가 전투에서 승리하였습니다!");
                 Console.WriteLine();
-                Console.WriteLine($"{exp}만큼 경험치를 획득합니다.");
-                Console.WriteLine($"{money}만큼 돈을 획득합니다.");
+                Console.WriteLine($"{totalexp}만큼 경험치를 획득합니다.");
+                Console.WriteLine($"{totalmoney}만큼 돈을 획득합니다.");
                 Console.ResetColor();
                 Console.WriteLine();
 
