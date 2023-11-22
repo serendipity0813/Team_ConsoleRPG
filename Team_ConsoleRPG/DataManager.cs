@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using Team_ConsoleRPG;
 
 namespace ConsoleRPG 
 {
@@ -11,10 +12,12 @@ namespace ConsoleRPG
         public static readonly string ITEM = "ItemInfos";
         public static readonly string MONSTER = "MonsterInfo";
         public static readonly string PLAYER = "PlayerInfo";
+        public static readonly string QUEST = "QuestInfo";
 
         public static List<Item> Items { get; private set; }
         public static List<Monster> Company { get; private set; }
         public static List<Monster> monsters { get; private set; }
+        public static List<Quest> QuestList { get; private set; }
 
         public static string GetProjectPath() 
         {
@@ -62,6 +65,7 @@ namespace ConsoleRPG
 
             Items = LoadData<List<Item>>(ITEM);
             //Company = LoadData<List<Monster>>(MONSTER);
+            QuestList = LoadData<List<Quest>>(QUEST);
         }
 
         public static void ItemSetting() 

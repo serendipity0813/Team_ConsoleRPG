@@ -62,10 +62,11 @@ namespace ConsoleRPG
             Console.WriteLine("3. 인터넷 쇼핑");
             Console.WriteLine("4. 지인 만나기");
             Console.WriteLine("5. 회사로 출근");
-            Console.WriteLine("6. 저장하고 종료");
+            Console.WriteLine("6. 업무 확인");
+            Console.WriteLine("7. 저장하고 종료");
             Console.WriteLine();
 
-            int input = CheckInput(1, 6);       //입력하는 숫자에 따라 화면 출력
+            int input = CheckInput(1, 7);       //입력하는 숫자에 따라 화면 출력
 
             switch (input)
             {
@@ -85,6 +86,9 @@ namespace ConsoleRPG
                     Stage.DisplayStage();
                     break;
                 case 6:
+                    DisplayQuest();
+                    break;
+                case 7:
                     Player.GetInst.Save();
                     break;
                 default:
@@ -737,6 +741,31 @@ namespace ConsoleRPG
                 Player.GetInst.inventory.Add(DataManager.Items[num]); //아이템 추가
                 DataManager.Items[num].Have = true;
                 Player.GetInst.EquipItem(DataManager.Items[num]);
+            }
+        }
+
+        public static void DisplayQuest() {
+            Console.Clear();
+            Console.WriteLine("업무!!");
+            Console.WriteLine();
+            List<Quest> questlist = DataManager.QuestList;
+            for(int i = 0; i < questlist.Count; ++i) {
+                Console.WriteLine($"{i + 1}. " + questlist[i].questName);
+            }
+            Console.WriteLine();
+            Console.WriteLine("0. 돌아가기");
+            Console.WriteLine();
+            Console.WriteLine("원하시는 퀘스트를 선택해주세요");
+            Console.Write(">> ");
+            int input = CheckInput(0, questlist.Count);       //입력하는 숫자에 따라 화면 출력
+
+            switch (input) {
+                case 0:
+                    DisplayHome();
+                    break;
+                default:
+                    questlist[input - 1].DisplayQuestBoard();
+                    break;
             }
         }
 
