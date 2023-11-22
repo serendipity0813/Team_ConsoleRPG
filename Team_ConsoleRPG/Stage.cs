@@ -9,17 +9,75 @@ namespace ConsoleRPG
         public static void DisplayStage()     //난이도 선택 화면 출력
         {
             Console.Clear();
-            Console.WriteLine("Stage를 선택하세요.");
-            Console.WriteLine("1단계");      
-            Console.WriteLine("2단계");      
-            Console.WriteLine("3단계");      
-            Console.WriteLine("4단계");
-            Console.WriteLine("5단계");
-            Console.WriteLine("6단계");
-            Console.WriteLine("7단계");
-
+            if (Player.GetInst.Level >= 7)
+                Console.ForegroundColor = ConsoleColor.Green;
+            else
+                Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.WriteLine(" ----    ---    ---    ---    ---    ---- ");
+            Console.WriteLine("|    |  |   |  |   |  |   |  |   |  |    |");
+            Console.WriteLine("|    |  |   |  |   |  |   |  |   |  |    |");
+            Console.WriteLine(" ----------------------------------------");
+            Console.WriteLine("|                                        |");
+            Console.WriteLine("|                 Stage 7                |");
+            Console.WriteLine("|                                        |");
+            if (Player.GetInst.Level >= 6)
+                Console.ForegroundColor = ConsoleColor.Green;
+            else
+                Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.WriteLine(" ----------------------------------------");
+            Console.WriteLine("|                                        |");
+            Console.WriteLine("|                 Stage 6                |");
+            Console.WriteLine("|                                        |");
+            if (Player.GetInst.Level >= 5)
+                Console.ForegroundColor = ConsoleColor.Green;
+            else
+                Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.WriteLine(" ----------------------------------------");
+            Console.WriteLine("|                                        |");
+            Console.WriteLine("|                 Stage 5                |");
+            Console.WriteLine("|                                        |");
+            if (Player.GetInst.Level >= 4)
+                Console.ForegroundColor = ConsoleColor.Green;
+            else
+                Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.WriteLine(" ----------------------------------------");
+            Console.WriteLine("|                                        |");
+            Console.WriteLine("|                 Stage 4                |");
+            Console.WriteLine("|                                        |");
+            if (Player.GetInst.Level >= 3)
+                Console.ForegroundColor = ConsoleColor.Green;
+            else
+                Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.WriteLine(" ----------------------------------------");
+            Console.WriteLine("|                                        |");
+            Console.WriteLine("|                 Stage 3                |");
+            Console.WriteLine("|                                        |");
+            if (Player.GetInst.Level >= 2)
+                Console.ForegroundColor = ConsoleColor.Green;
+            else
+                Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.WriteLine(" ----------------------------------------");
+            Console.WriteLine("|                                        |");
+            Console.WriteLine("|                 Stage 2                |");
+            Console.WriteLine("|                                        |");
+            if (Player.GetInst.Level >= 1)
+                Console.ForegroundColor = ConsoleColor.Green;
+            else
+                Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.WriteLine(" ----------------------------------------");
+            Console.WriteLine("|                                        |");
+            Console.WriteLine("|                 Stage 1                |");
+            Console.WriteLine("|                                        |");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine(" ----------------------------------------");
+            Console.WriteLine("|                                        |");
+            Console.WriteLine("|                 Home  0                |");
+            Console.WriteLine("|                                        |");
+            Console.WriteLine(" ----------------------------------------");
+            Console.ResetColor();
             Console.WriteLine();
-            Console.WriteLine("0. 오늘은 집에서 쉬도록 하자!");
+            Console.WriteLine("           [ Stage를 선택하세요 ]          ");
+
 
             int input = GameManager.CheckInput(0, 7);
 
@@ -48,7 +106,7 @@ namespace ConsoleRPG
 
         }
 
-       
+
 
     }
 }
