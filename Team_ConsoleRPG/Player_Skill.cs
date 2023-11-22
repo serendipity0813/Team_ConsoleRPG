@@ -42,7 +42,7 @@ namespace ConsoleRPG
             if (DataManager.monsters[input].Health <= 0) // 몬스터 체력0, 사망
             {
                 Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine($"{DataManager.monsters} 처치!");
+                Console.WriteLine($"{DataManager.monsters[input].Name} 처치!");
                 Console.ResetColor();
                 Battle.winpoint++;
             }
@@ -83,7 +83,7 @@ namespace ConsoleRPG
                 if (DataManager.monsters[input].Health <= 0)
                 {
                     Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine($"{DataManager.monsters} 처치!");
+                    Console.WriteLine($"{DataManager.monsters[input].Name} 처치!");
                     Console.ResetColor();
                     Battle.winpoint++;
                 }
@@ -130,7 +130,7 @@ namespace ConsoleRPG
                 if (DataManager.monsters[input].Health <= 0)
                 {
                     Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine($"{DataManager.monsters} 처치 !");
+                    Console.WriteLine($"{DataManager.monsters[input].Name} 처치 !");
                     Console.ResetColor();
                     Battle.winpoint++;
                 }

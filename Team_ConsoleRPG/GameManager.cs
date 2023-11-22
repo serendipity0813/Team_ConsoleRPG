@@ -39,7 +39,7 @@ namespace ConsoleRPG
             Console.WriteLine("관리자 모드에 진입하셨습니다.");
 
             //모든 능력치 99999로, 보유골드 99999999로 설정
-            Player.GetInst.PlayerDataSetting("비둘기", Jop.Programmer, 99999, 99999, 100, 99999, 99999, 99999999);
+            Player.GetInst.PlayerDataSetting("비둘기", Jop.프로그래머, 99999, 99999, 100, 99999, 99999, 99999999);
 
             Console.WriteLine("비둘기님의 능력치와 보유 골드가 최대치로 설정되었습니다.");
             Console.WriteLine();
@@ -48,6 +48,7 @@ namespace ConsoleRPG
 
         public static void DisplayHome()        //메인 로비화면 출력
         {
+            Console.ResetColor();
             Console.Clear();    //콘솔창 정리 후 집에 도착했다는 문구와 함께 선택지 출력
 
             Console.WriteLine("삑 삑 삐삐삑...  띠로리~");

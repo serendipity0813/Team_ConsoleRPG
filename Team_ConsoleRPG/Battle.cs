@@ -129,51 +129,27 @@ namespace ConsoleRPG
 
             int input = GameManager.CheckInput(1, 5);
 
-
             if (0 < input && input < 4)
             {
-                Console.Clear();
-                Console.WriteLine("----------------------------------------------------");
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine($"{Player.GetInst.Name}의 턴!");
-                Console.ResetColor();
-                Console.WriteLine();
-                Console.WriteLine("공격할 대상을 지정해 주세요");
-                Console.WriteLine();
-                for(int i = 0; i < count; i++)
-                {
-                    Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine($"{i+1}번 : LV.{DataManager.monsters[i].Level} {DataManager.monsters[i].Name} 공격!");
-                    Console.ResetColor();
-                    Console.WriteLine();
+                int tagetIndex = TargetSelect(count);
+
+                if(tagetIndex == 0) {
+                    BattleInfo(count);
+                } else {
+                    switch (input) {
+                        case 1:
+                            PlayerSkill.BasicAttack(tagetIndex - 1);
+                            break;
+
+                        case 2:
+                            PlayerSkill.Skill1(tagetIndex - 1);
+                            break;
+
+                        case 3:
+                            PlayerSkill.Skill2(tagetIndex - 1);
+                            break;
+                    }
                 }
-                Console.WriteLine("0. 이전으로 돌아가기");
-                Console.WriteLine();
-                Console.WriteLine("----------------------------------------------------");
-   
-
-                int userinput = GameManager.CheckInput(0, 3);
-
-                switch (input)
-                {
-                    case 0:
-                        BattleInfo(count);
-                        break;
-                    case 1:
-                        PlayerSkill.BasicAttack(userinput-1);
-                        break;
-
-                    case 2:
-                        PlayerSkill.Skill1(userinput-1);
-                        break;
-
-                    case 3:
-                        PlayerSkill.Skill2(userinput-1);
-                        break;
-
-                }
-
-
             }
 
             else if (input == 4)
@@ -184,6 +160,7 @@ namespace ConsoleRPG
             else if (input == 5) 
             {
                 Console.WriteLine("진행중인 전투를 포기하고 돌아갑니다");
+                DataManager.monsters.Clear();
                 Stage.DisplayStage();
             }
                     
@@ -201,7 +178,7 @@ namespace ConsoleRPG
 
             if(stage == 7)
             {
-                DataManager.monsters.Add(DataManager.Company[31]);
+                DataManager.monsters.Add(DataManager.Company[30]);
             }
             else
             {
@@ -210,8 +187,46 @@ namespace ConsoleRPG
                     DataManager.monsters.Add(new Monster(DataManager.Company[random2.Next(start, end)]));
                 }
             }
-          
+        }
 
+        public static int TargetSelect(int count) 
+        {
+            Console.Clear();
+            Console.WriteLine("----------------------------------------------------");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine($"{Player.GetInst.Name}의 턴!");
+            Console.ResetColor();
+            Console.WriteLine();
+            Console.WriteLine("공격할 대상을 지정해 주세요");
+            Console.WriteLine();
+            for (int i = 0; i < count; i++) {
+                if (DataManager.monsters[i].IsDead) {
+                    Console.ForegroundColor = ConsoleColor.DarkGray;
+                    Console.WriteLine($"{i + 1}번 : LV.{DataManager.monsters[i].Level} {DataManager.monsters[i].Name} 으앙 주금.");
+                } else {
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine($"{i + 1}번 : LV.{DataManager.monsters[i].Level} {DataManager.monsters[i].Name} 공격!");
+                }
+                Console.ResetColor();
+                Console.WriteLine();
+            }
+            Console.WriteLine("0. 이전으로 돌아가기");
+            Console.WriteLine();
+            Console.WriteLine("----------------------------------------------------");
+
+            int tagetIndex = 0;
+            while (true) {
+                tagetIndex = GameManager.CheckInput(0, count);
+
+                if( tagetIndex == 0) {
+                    break;
+                } else if (!DataManager.monsters[tagetIndex - 1].IsDead) {
+                    break;
+                }
+
+                Console.WriteLine("올바른 대상을 선택해 주세요.");
+            }
+            return tagetIndex;
         }
     }
 }
