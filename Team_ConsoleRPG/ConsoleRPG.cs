@@ -16,7 +16,7 @@ namespace ConsoleRPG
             DataManager.DataSetting();
 
             if(!Player.GetInst.Load())
-                GameManager.StartMain();
+                StartScene.StartMain();
             
             GameManager.DisplayHome();      //게임메니저 호출하여 메인로비 호출
         }
