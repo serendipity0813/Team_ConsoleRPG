@@ -16,10 +16,10 @@
     "Have": false,
     "Name": "PC방에서 가져온 키보드",
     "Type": 0,
-    "Attack": 20,
+    "Attack": 10,
     "Defend": 0,
     "Health": 0,
-    "Price": 10
+    "Price": 100
   },
   {
     "ID": 2,
@@ -27,10 +27,10 @@
     "Have": false,
     "Name": "다나와에서구한 삼성보급키보드",
     "Type": 0,
-    "Attack": 40,
+    "Attack": 30,
     "Defend": 0,
     "Health": 0,
-    "Price": 50
+    "Price": 500
   },
   {
     "ID": 3,
@@ -38,10 +38,10 @@
     "Have": false,
     "Name": "Keykron 적축 키보드",
     "Type": 0,
-    "Attack": 60,
+    "Attack": 50,
     "Defend": 0,
     "Health": 0,
-    "Price": 250
+    "Price": 1000
   },
   {
     "ID": 4,
@@ -49,10 +49,10 @@
     "Have": false,
     "Name": "감성풍만 Razer 키보드",
     "Type": 0,
-    "Attack": 80,
+    "Attack": 100,
     "Defend": 0,
     "Health": 0,
-    "Price": 1250
+    "Price": 2000
   },
   {
     "ID": 5,
@@ -60,10 +60,10 @@
     "Have": false,
     "Name": "나만의 맞춤형 커스텀 키보드",
     "Type": 0,
-    "Attack": 100,
+    "Attack": 200,
     "Defend": 0,
     "Health": 0,
-    "Price": 6250
+    "Price": 5050
   },
   {
     "ID": 6,
@@ -71,10 +71,10 @@
     "Have": false,
     "Name": "00년대식 볼마우스",
     "Type": 1,
-    "Attack": 10,
+    "Attack": 5,
     "Defend": 5,
     "Health": 0,
-    "Price": 10
+    "Price": 100
   },
   {
     "ID": 7,
@@ -82,10 +82,10 @@
     "Have": false,
     "Name": "삼성 보급 마우스",
     "Type": 1,
-    "Attack": 20,
+    "Attack": 10,
     "Defend": 10,
     "Health": 0,
-    "Price": 50
+    "Price": 500
   },
   {
     "ID": 8,
@@ -93,10 +93,10 @@
     "Have": false,
     "Name": "로지텍 버티컬 마우스",
     "Type": 1,
-    "Attack": 30,
+    "Attack": 15,
     "Defend": 15,
     "Health": 0,
-    "Price": 250
+    "Price": 1000
   },
   {
     "ID": 9,
@@ -104,10 +104,10 @@
     "Have": false,
     "Name": "Razer 데스에더 프로 마우스",
     "Type": 1,
-    "Attack": 40,
-    "Defend": 20,
+    "Attack": 30,
+    "Defend": 30,
     "Health": 0,
-    "Price": 1250
+    "Price": 2500
   },
   {
     "ID": 10,
@@ -118,7 +118,7 @@
     "Attack": 50,
     "Defend": 25,
     "Health": 0,
-    "Price": 6250
+    "Price": 5000
   },
   {
     "ID": 11,
@@ -129,7 +129,7 @@
     "Attack": 0,
     "Defend": 0,
     "Health": 100,
-    "Price": 10
+    "Price": 100
   },
   {
     "ID": 12,
@@ -140,7 +140,7 @@
     "Attack": 0,
     "Defend": 0,
     "Health": 200,
-    "Price": 50
+    "Price": 500
   },
   {
     "ID": 13,
@@ -151,7 +151,7 @@
     "Attack": 0,
     "Defend": 0,
     "Health": 300,
-    "Price": 250
+    "Price": 1000
   },
   {
     "ID": 14,
@@ -161,8 +161,8 @@
     "Type": 2,
     "Attack": 0,
     "Defend": 0,
-    "Health": 400,
-    "Price": 1250
+    "Health": 500,
+    "Price": 5000
   },
   {
     "ID": 15,
@@ -172,8 +172,8 @@
     "Type": 2,
     "Attack": 0,
     "Defend": 0,
-    "Health": 500,
-    "Price": 6250
+    "Health": 1000,
+    "Price": 10000
   },
   {
     "ID": 16,
@@ -182,7 +182,7 @@
     "Name": "예비군때 받아온 이어플러그",
     "Type": 3,
     "Attack": 0,
-    "Defend": 8,
+    "Defend": 5,
     "Health": 0,
     "Price": 10
   },
@@ -193,9 +193,9 @@
     "Name": "다이소 5000원 이어폰",
     "Type": 3,
     "Attack": 0,
-    "Defend": 16,
+    "Defend": 10,
     "Health": 0,
-    "Price": 50
+    "Price": 500
   },
   {
     "ID": 18,
@@ -204,9 +204,9 @@
     "Name": "갤럭시 버즈",
     "Type": 3,
     "Attack": 0,
-    "Defend": 24,
+    "Defend": 25,
     "Health": 0,
-    "Price": 250
+    "Price": 2500
   },
   {
     "ID": 19,
@@ -215,9 +215,9 @@
     "Name": "에어팟",
     "Type": 3,
     "Attack": 0,
-    "Defend": 32,
+    "Defend": 40,
     "Health": 0,
-    "Price": 1250
+    "Price": 5000
   },
   {
     "ID": 20,
@@ -226,9 +226,9 @@
     "Name": "아크티스 노바 프로 무선 X",
     "Type": 3,
     "Attack": 0,
-    "Defend": 40,
+    "Defend": 60,
     "Health": 0,
-    "Price": 6250
+    "Price": 7000
   },
   {
     "ID": 21,
@@ -422,40 +422,40 @@
     "ID": 38,
     "Equip": false,
     "Have": false,
-    "Name": "재료1",
+    "Name": "못생긴르탄이 띠부씰",
     "Type": 7,
     "Attack": 0,
     "Defend": 0,
     "Health": 200,
-    "Price": 500
+    "Price": 1
   },
   {
     "ID": 39,
     "Equip": false,
     "Have": false,
-    "Name": "재료2",
+    "Name": "덜못생긴 르탄이 띠부씰",
     "Type": 7,
     "Attack": 0,
     "Defend": 0,
     "Health": 200,
-    "Price": 500
+    "Price": 10
   },
   {
     "ID": 40,
     "Equip": false,
     "Have": false,
-    "Name": "재료3",
+    "Name": "평범한 르탄이 띠부씰",
     "Type": 7,
     "Attack": 0,
     "Defend": 0,
     "Health": 200,
-    "Price": 500
+    "Price": 100
   },
   {
     "ID": 41,
     "Equip": false,
     "Have": false,
-    "Name": "재료4",
+    "Name": "잘생긴척 하는 르탄이 띠부씰",
     "Type": 7,
     "Attack": 0,
     "Defend": 0,
@@ -466,11 +466,11 @@
     "ID": 42,
     "Equip": false,
     "Have": false,
-    "Name": "재료5",
+    "Name": "레오나르도 르탄이 띠부씰",
     "Type": 7,
     "Attack": 0,
     "Defend": 0,
     "Health": 200,
-    "Price": 500
+    "Price": 1000
   }
 ]

@@ -19,6 +19,7 @@ namespace ConsoleRPG
         Accessory,
         Energy,
         activeitem,
+        ingredient,
         MaxEquipItem,
         Max
     }
@@ -63,7 +64,7 @@ namespace ConsoleRPG
             Equip = equip;
             Have = have;
         }
-
+       
         public void PrintItemData()     //아이템 데이터 출력 함수 
         {
             int maxNameLength = 30; //글자수제한
@@ -85,6 +86,10 @@ namespace ConsoleRPG
                 else
                     Console.Write("   ");                   //아이템 이름, 가격 등 출력 후 아이템 효과중 0이 아닌 효과 출력
             }
+
+
+
+
             int padLen = maxNameLength - Encoding.Default.GetBytes(Name).Length;
             string itemName = Name + new string(' ', padLen);
             Console.Write($"이름|| {itemName}");
@@ -97,15 +102,16 @@ namespace ConsoleRPG
             if (Attack != 0) Console.Write($"Atk {(Attack >= 0 ? "+" : "")}{Attack} ");
             if (Defend != 0) Console.Write($"Def {(Defend >= 0 ? "+" : "")}{Defend} ");
             if (Health != 0) Console.Write($"Hp {(Health >= 0 ? "+" : "")}{Health}");
-            if (Type == ItemType.activeitem) Console.WriteLine($"수량 : {(ItemCnt >= 0 ? "+" : "")}{ItemCnt}");
+            if (Type == ItemType.activeitem) Console.Write($"수량 : {(ItemCnt >= 0 ? "+" : "")}{ItemCnt}");
             Console.WriteLine();
+            Console.WriteLine("====================================================================================");
 
         }
 
         
         public void UseactiveItem() //아이템 사용 구현 임시구현
         {
-            if (Type != ItemType.activeitem)
+            if (Type == ItemType.activeitem)
             {
                 Console.WriteLine($"{Name}을 사용하였습니다.");
                 Console.WriteLine($"{Health} 만큼 회복하였습니다.");
