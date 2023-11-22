@@ -51,9 +51,18 @@ namespace ConsoleRPG
 
         public override void TakeDamage(int damage)      //던전 진행시 몬스터에게 데미지를 받는 메소드
         {
-            Health -= (damage - Defend);     //몬스터 공격력 - 플레이어 방어력 만큼 체력 감소
-            if (IsDead) Console.WriteLine($"{Name}이(가) 죽었습니다.");
-            else Console.WriteLine($"{Name}이(가) {damage - Defend}의 데미지를 받았습니다. 남은 체력: {Health}");
+           
+            if (Defend < damage) 
+            {
+                Health -= (damage - Defend);     //몬스터 공격력 - 플레이어 방어력 만큼 체력 감소
+                if (IsDead) Console.WriteLine($"{Name}이(가) 죽었습니다.");
+                else Console.WriteLine($"{Name}이(가) {damage - Defend}의 데미지를 받았습니다. 남은 체력: {Health}");
+            }
+            else if (Defend == damage || Defend > damage)
+            {
+                Health -= 0;
+                Console.WriteLine("방어력이 데미지보다 높아 데미지가 들어오지 않았습니다.");
+            }            
         }
 
         public int GetBonusAttack()      //현재 장착한 아이템 공격력 합 만큼 반환 
