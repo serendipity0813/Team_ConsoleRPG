@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Team_ConsoleRPG;
 using static ConsoleRPG.ConsoleRPG;
 
@@ -121,18 +122,18 @@ namespace ConsoleRPG
                     break;
             }
         }
-
+        
         public static void DisplayInventory()       //아이템 인벤토리 출력
         {
-            int itemnumber = 0;
             Console.Clear();
 
             Console.WriteLine("어느 인벤토리를 들어갈지 선택하시오");
             Console.WriteLine("1. 장비");
             Console.WriteLine("2.소모품");
+            Console.WriteLine("3.재료");
             Console.WriteLine();
             Console.WriteLine("0. 돌아가기");
-            int input = CheckInput(0, 2);
+            int input = CheckInput(0, 3);
             List<Item> inven = Player.GetInst.inventory;
             switch (input)
             {
@@ -154,21 +155,18 @@ namespace ConsoleRPG
                     //    }
                     //}
 
-
-                    itemnumber = 0;
+                    inven.Sort((x, y) => x.Type.CompareTo(y.Type)); //정렬식
                     Console.WriteLine("|| 장 비 ||");
                     Console.WriteLine("===|| 이 름 ||==========|| 상 품 명||=========|| 가 격||=========|| 옵 션 ||========");
                     for (int i = 0; i < inven.Count; i++)
                     {
-                        if (inven[i].Type != ItemType.activeitem)
+                        if (inven[i].Type != ItemType.activeitem && inven[i].Type != ItemType.ingredient)
                         {
-                            
                             if (i >= 10)
-                                Console.Write($" {itemnumber + 1}||");
+                                Console.Write($" {i + 1}||");
                             else
-                                Console.Write($" {itemnumber + 1} ||");
+                                Console.Write($" {i + 1} ||");
                             inven[i].PrintItemData();
-                            itemnumber++;
                         }
                     }
                     /* //월래 작성된 구간
@@ -219,7 +217,7 @@ namespace ConsoleRPG
                     Console.WriteLine("|| 소모품 ||");
                     Console.WriteLine("===|| 이 름 ||==========|| 상 품 명||=========|| 가 격||=========|| 옵 션 ||========");
 
-
+                    inven.Sort((x, y) => x.Type.CompareTo(y.Type));
                     for (int i = 0; i < inven.Count; i++)
                     {
                         if (inven[i].Type == ItemType.activeitem)
@@ -269,6 +267,65 @@ namespace ConsoleRPG
 
                     Console.Clear();
                     break;
+                case 3:
+                    {
+                        Console.Clear();
+                        Console.WriteLine("[아이템 목록]");
+                        Console.WriteLine();
+                        Console.WriteLine("|| 재료 ||");
+                        Console.WriteLine("===|| 이 름 ||==========|| 상 품 명||=========|| 가 격||=========|| 옵 션 ||========");
+
+                        inven.Sort((x, y) => x.Type.CompareTo(y.Type));
+                        for (int i = 0; i < inven.Count; i++)
+                        {
+                            if (inven[i].Type == ItemType.ingredient)
+                            {
+
+                                if (i >= 10)
+                                    Console.Write($"{i + 1}. ");
+                                else
+                                    Console.Write($" {i + 1}. ");
+                                inven[i].PrintItemData();
+                            }
+                        }
+
+                        /* //월래 작성된 구간
+                        for (int i = 0; i < inven.Count; i++)
+                        {
+                            if (inven[i].Type == ItemType.activeitem)
+                            {
+                                if (i >= 10)
+                                    Console.Write($"{i + 1}. ");
+                                else
+                                    Console.Write($" {i + 1}. ");
+                                inven[i].PrintItemData();
+                            }
+                        }
+                        */
+                        Console.WriteLine(" ");             //추가로 진행할 수 있는 기능 출력
+
+                        Console.WriteLine("0. 나가기");
+                        Console.WriteLine("1. 당근마켓에 아이템 팔기");
+                        Console.WriteLine(" ");
+                        Console.WriteLine("원하시는 행동을 입력하시오");
+                        Console.WriteLine();
+
+                        input = CheckInput(0, 1);
+
+                        switch (input)
+                        {
+                            case 0:
+                                DisplayHome();
+                                break;
+                            case 1:
+                                DisplayItemSell();
+                                break;
+
+                        }
+
+                        Console.Clear();
+                        break;
+                    }
 
             }
 
@@ -405,7 +462,6 @@ namespace ConsoleRPG
                 Console.Write("{0}.  ", i + 1);
                 items[i].PrintItemData();
             }
- 
             Console.WriteLine("0. 다음을 기약하며 핸드폰을 끈다.");
             Console.WriteLine();
             Console.WriteLine("구매를 원하는 이어폰의 번호를 입력하세요.");
@@ -470,6 +526,8 @@ namespace ConsoleRPG
 
             Console.WriteLine("===|| 이 름 ||==========|| 상 품 명||=========|| 가 격||=========|| 옵 션 ||========");
             List<Item> inven = Player.GetInst.inventory;
+
+            inven.Sort((x, y) => x.Type.CompareTo(y.Type));
             for (int i = 0; i < inven.Count; i++)
             {
                 if (inven[i].Type == ItemType.activeitem)

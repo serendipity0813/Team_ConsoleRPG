@@ -422,40 +422,40 @@
     "ID": 38,
     "Equip": false,
     "Have": false,
-    "Name": "재료1",
+    "Name": "못생긴르탄이 띠부씰",
     "Type": 7,
     "Attack": 0,
     "Defend": 0,
     "Health": 200,
-    "Price": 500
+    "Price": 1
   },
   {
     "ID": 39,
     "Equip": false,
     "Have": false,
-    "Name": "재료2",
+    "Name": "덜못생긴 르탄이 띠부씰",
     "Type": 7,
     "Attack": 0,
     "Defend": 0,
     "Health": 200,
-    "Price": 500
+    "Price": 10
   },
   {
     "ID": 40,
     "Equip": false,
     "Have": false,
-    "Name": "재료3",
+    "Name": "평범한 르탄이 띠부씰",
     "Type": 7,
     "Attack": 0,
     "Defend": 0,
     "Health": 200,
-    "Price": 500
+    "Price": 100
   },
   {
     "ID": 41,
     "Equip": false,
     "Have": false,
-    "Name": "재료4",
+    "Name": "잘생긴척 하는 르탄이 띠부씰",
     "Type": 7,
     "Attack": 0,
     "Defend": 0,
@@ -466,11 +466,11 @@
     "ID": 42,
     "Equip": false,
     "Have": false,
-    "Name": "재료5",
+    "Name": "레오나르도 르탄이 띠부씰",
     "Type": 7,
     "Attack": 0,
     "Defend": 0,
     "Health": 200,
-    "Price": 500
+    "Price": 1000
   }
 ]

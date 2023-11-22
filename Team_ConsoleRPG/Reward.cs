@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Team_ConsoleRPG;
 
 namespace ConsoleRPG
 {
@@ -23,12 +25,14 @@ namespace ConsoleRPG
                 int exp = 0;
                 int money = 0;
                 Battle.winpoint = 0;
+                MonsterDropTable Dropmonster = new MonsterDropTable();
 
                 for (int i = 0; i < DataManager.monsters.Count; i++)
                 {
                     exp += DataManager.monsters[i].Level;
                     money += DataManager.monsters[i].Money;
                 }
+
 
                 Player.GetInst.exp += exp;
                 Player.GetInst.Money += money;
@@ -42,6 +46,8 @@ namespace ConsoleRPG
                 Console.WriteLine();
                 Console.WriteLine($"{exp}만큼 경험치를 획득합니다.");
                 Console.WriteLine($"{money}만큼 돈을 획득합니다.");
+                Dropmonster.Droptable(); //드랍 테이블
+                
                 Console.ResetColor();
                 Console.WriteLine();
 

@@ -19,6 +19,7 @@ namespace ConsoleRPG
         Accessory,
         Energy,
         activeitem,
+        ingredient,
         MaxEquipItem,
         Max
     }
@@ -63,7 +64,7 @@ namespace ConsoleRPG
             Equip = equip;
             Have = have;
         }
-
+       
         public void PrintItemData()     //아이템 데이터 출력 함수 
         {
             int maxNameLength = 30; //글자수제한
@@ -110,7 +111,7 @@ namespace ConsoleRPG
         
         public void UseactiveItem() //아이템 사용 구현 임시구현
         {
-            if (Type != ItemType.activeitem)
+            if (Type == ItemType.activeitem)
             {
                 Console.WriteLine($"{Name}을 사용하였습니다.");
                 Console.WriteLine($"{Health} 만큼 회복하였습니다.");
