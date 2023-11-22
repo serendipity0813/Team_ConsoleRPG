@@ -8,6 +8,7 @@ namespace ConsoleRPG
     {
         public static void BasicAttack(int input) // 플레이어 기본 공격
         {
+
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine($"{Player.GetInst.Name}의 기본공격!");
             Console.ResetColor();
@@ -39,10 +40,10 @@ namespace ConsoleRPG
             }
 
 
-            if (DataManager.monsters[input].Health <= 0) // 몬스터 체력0, 사망
+            if (DataManager.monsters[input].IsDead) // 몬스터 체력0, 사망
             {
                 Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine($"{DataManager.monsters} 처치!");
+                Console.WriteLine($"{DataManager.monsters[input].Name} 처치!");
                 Console.ResetColor();
                 Battle.winpoint++;
             }
@@ -62,7 +63,7 @@ namespace ConsoleRPG
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine($"{Player.GetInst.Name}의 달팽이 세마리! - 마나 소모 5");
                 Console.ResetColor();
-                Player.GetInst.MP -= 5;
+                Player.GetInst.MP = -5;
                 int damage = (int)(Player.GetInst.Attack * 1.2);
 
 
@@ -80,17 +81,17 @@ namespace ConsoleRPG
                 }
 
 
-                if (DataManager.monsters[input].Health <= 0)
+                if (DataManager.monsters[input].IsDead)
                 {
                     Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine($"{DataManager.monsters} 처치!");
+                    Console.WriteLine($"{DataManager.monsters[input].Name} 처치!");
                     Console.ResetColor();
                     Battle.winpoint++;
                 }
                 else
                 {
                     Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine($"{DataManager.monsters}의 남은 체력: {DataManager.monsters[input].Health}");
+                    Console.WriteLine($"{DataManager.monsters[input].Name}의 남은 체력: {DataManager.monsters[input].Health}");
                     Console.ResetColor();
                 }
             }
@@ -99,8 +100,8 @@ namespace ConsoleRPG
                 Console.ForegroundColor = ConsoleColor.Magenta;
                 Console.WriteLine("마나가 부족하여 스킬을 사용할 수 없습니다.");
                 Console.ResetColor();
-            }           
-           
+            }
+
         }
         public static void Skill2(int input) // 스킬2
         {
@@ -109,11 +110,11 @@ namespace ConsoleRPG
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine($"{Player.GetInst.Name}의 파워 스트라이크! - 마나 소모 15");
                 Console.ResetColor();
-                Player.GetInst.MP -= 15;
+                Player.GetInst.MP = -15;
                 int damage = (int)(Player.GetInst.Attack * 1.5);
 
 
-                if (CriticalAtk()) 
+                if (CriticalAtk())
                 {
                     Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.WriteLine($"크리티컬! [데미지 : {damage}]");
@@ -127,17 +128,17 @@ namespace ConsoleRPG
                 DataManager.monsters[input].Health -= damage;
 
 
-                if (DataManager.monsters[input].Health <= 0)
+                if (DataManager.monsters[input].IsDead)
                 {
                     Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine($"{DataManager.monsters} 처치 !");
+                    Console.WriteLine($"{DataManager.monsters[input].Name} 처치 !");
                     Console.ResetColor();
                     Battle.winpoint++;
                 }
                 else
                 {
                     Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine($"{DataManager.monsters}의 남은 체력: {DataManager.monsters[input].Health}");
+                    Console.WriteLine($"{DataManager.monsters[input].Name}의 남은 체력: {DataManager.monsters[input].Health}");
                     Console.ResetColor();
                 }
             }
@@ -171,7 +172,8 @@ namespace ConsoleRPG
         {
             throw new NotImplementedException();
         }
+
+
+
     }
-
-
 }
