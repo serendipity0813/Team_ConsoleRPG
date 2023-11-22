@@ -20,6 +20,8 @@ namespace ConsoleRPG
 
             if (win == true)
             {
+                DataManager.monsters.Clear();
+
                 int exp = 0;
                 int money = 0;
                 Battle.winpoint = 0;
@@ -58,27 +60,16 @@ namespace ConsoleRPG
                     Player.GetInst.Health += 50;
                 }
 
-
-                for (int i = 0; i < DataManager.monsters.Count; i++)
-                {
-                    DataManager.monsters.RemoveAt(i);
-                }
-
                 Console.WriteLine("Enter키를 누르면 집으로 돌아갑니다.");
                 Console.ReadKey();
                 GameManager.DisplayHome();
-
-
             }
 
             else if (win == false)
             {
-                Battle.winpoint = 0;
+                DataManager.monsters.Clear();
 
-                for (int i = 0; i < DataManager.monsters.Count; i++)
-                {
-                    DataManager.monsters.RemoveAt(i);
-                }
+                Battle.winpoint = 0;
 
                 Console.WriteLine("Player Defeat...");
                 Console.WriteLine();
@@ -91,7 +82,6 @@ namespace ConsoleRPG
                 GameManager.DisplayHome();
 
             }
-
 
         }
 
