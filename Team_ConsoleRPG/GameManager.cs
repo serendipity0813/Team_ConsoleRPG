@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using Team_ConsoleRPG;
 using static ConsoleRPG.ConsoleRPG;
 
@@ -615,20 +616,37 @@ namespace ConsoleRPG
         {
             while (true)
             {
+
                 string input = Console.ReadLine();      //입력받은 값을 input에 문자로 저장
 
-                bool parseSuccess = int.TryParse(input, out var select);        //예외처리 진행하며 입력받은 값 int 변환
-
-                if (parseSuccess)   //변수 입력이 제대로 되었을 때
-                {
-                    if (select >= min && select <= max)     //입력값이 선택창의 최소, 최대 범위안에 속할 때
-                        return select;
-                    else
-                        Console.WriteLine("입력값이 잘못되었습니다. 올바른 범위의 숫자를 입력해주세요!");
-                }
+                if (input == "attack")
+                    Cheat.Attack();
+                else if (input == "defend")
+                    Cheat.Defend();
+                else if (input == "health")
+                    Cheat.Health();
+                else if (input == "level")
+                    Cheat.Level();
+                else if (input == "money")
+                    Cheat.Level();
                 else
-                    Console.WriteLine("입력값이 잘못되었습니다. 다시 입력해주세요!");  //아니라면 오류문구 출력
+                {
+                    bool parseSuccess = int.TryParse(input, out var select);        //예외처리 진행하며 입력받은 값 int 변환
 
+                    if (parseSuccess)   //변수 입력이 제대로 되었을 때
+                    {
+                        if (select >= min && select <= max)     //입력값이 선택창의 최소, 최대 범위안에 속할 때
+                            return select;
+                        else
+                            Console.WriteLine("입력값이 잘못되었습니다. 올바른 범위의 숫자를 입력해주세요!");
+                    }
+                    else
+                        Console.WriteLine("입력값이 잘못되었습니다. 다시 입력해주세요!");  //아니라면 오류문구 출력
+
+                }
+
+
+              
             }
 
 
