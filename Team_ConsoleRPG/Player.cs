@@ -226,6 +226,24 @@ namespace ConsoleRPG
                 }
             }
         }
+        public void GainExperience(int amount)
+        {
+            exp += amount;
+
+            if (exp >= Level * 15)
+            {
+                Levelup();
+            }
+        }
+
+
+
+        private void Levelup()
+        {
+            Level++;
+            exp = 0;
+            Console.WriteLine($"{Name}이(가) {Level} 레벨로 올라갔습니다");
+        }
 
         private static Player instance;
 
