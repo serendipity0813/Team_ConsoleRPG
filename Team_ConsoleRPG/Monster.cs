@@ -31,7 +31,7 @@ namespace ConsoleRPG {
 
         public override void TakeDamage(int damage)      //전투 진행시 몬스터가 데미지를 받는 메소드
         {
-            Health -= (damage - Defend);          //플레이어 데이지 계산과 동일하게 적용
+            Health -=  (damage - Defend);          //플레이어 데이지 계산과 동일하게 적용
             if (IsDead) Console.WriteLine($"{Name}이(가) 죽었습니다.");
             else Console.WriteLine($"{Name}이(가) {damage - Defend}의 데미지를 받았습니다. 남은 체력: {Health}");
         }

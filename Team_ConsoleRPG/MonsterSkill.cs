@@ -41,8 +41,15 @@ namespace ConsoleRPG
             if (percent <= 20)                       // 15이하 숫자인 경우(15% 확률)
             {
                 float Critical = damage * (float)1.6;                              //공격력의 1.6배 적용
-                Player.GetInst.Health -= (int)Critical - Player.GetInst.Defend;      //플레이어 방어력 수치 제외하고 공격
-                Console.WriteLine($"몬스터의 크리티컬 공격! - 데미지 : {(int)Critical - Player.GetInst.Defend}");
+                if(Player.GetInst.Defend < (int)Critical)
+                {
+                    Player.GetInst.Health -= (int)Critical - Player.GetInst.Defend;      //플레이어 방어력 수치 제외하고 공격            
+                    Console.WriteLine($"몬스터의 크리티컬 공격! - 데미지 : {(int)Critical - Player.GetInst.Defend}");
+                }
+                else
+                {
+                    Console.WriteLine($"몬스터의 공격이 플레이어의 방어를 뚫지 못하였습니다.");
+                }
 
             }
             else if (percent > 80)                   // 90초과 숫자인 경우(10% 확률)
@@ -51,8 +58,16 @@ namespace ConsoleRPG
             }
             else
             {
-                Player.GetInst.Health -= damage - Player.GetInst.Defend;          //기본 공격 연산 적용
-                Console.WriteLine($"몬스터가 공격합니다! - 데미지 : {damage - Player.GetInst.Defend}");
+                if (Player.GetInst.Defend < damage)
+                {
+                    Player.GetInst.Health -= damage - Player.GetInst.Defend;          //기본 공격 연산 적용
+                    Console.WriteLine($"몬스터가 공격합니다! - 데미지 : {damage - Player.GetInst.Defend}");
+                }
+                else
+                {
+                    Console.WriteLine($"몬스터의 공격이 플레이어의 방어를 뚫지 못하였습니다.");
+                }
+
             }
 
         }
