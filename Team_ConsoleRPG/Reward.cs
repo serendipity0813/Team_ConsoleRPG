@@ -51,9 +51,11 @@ namespace ConsoleRPG
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine($"{Player.GetInst.Name}가 전투에서 승리하였습니다!");
                 Console.WriteLine();
-
-                Console.WriteLine($"{totalexp}만큼 경험치를 획득합니다.");
-                Console.WriteLine($"{totalmoney}만큼 돈을 획득합니다.");
+                Console.WriteLine(" -------------------------------------");
+                Console.WriteLine($"| {totalexp}만큼 경험치를 획득합니다. |");
+                Console.WriteLine("                                      ");
+                Console.WriteLine($"| {totalmoney}만큼 돈을 획득합니다.   |");
+                Console.WriteLine(" -------------------------------------");
                 Dropmonster.Droptable(); //드랍 테이블
 
                 Console.ResetColor();
