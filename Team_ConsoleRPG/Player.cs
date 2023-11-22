@@ -14,7 +14,7 @@ namespace ConsoleRPG
         GameDirector,
         QATester,
         GameProducer,
-        StroyWriter
+        StoryWriter
     }
 
     public class Player : Character      //플레이어 캐릭터 클래스
@@ -225,6 +225,24 @@ namespace ConsoleRPG
                     DataManager.Items[instance.inventory[i].ID].Have = true;
                 }
             }
+        }
+        public void GainExperience(int amount)
+        {
+            exp += amount;
+
+            if (exp >= Level * 15)
+            {
+                Levelup();
+            }
+        }
+
+
+
+        private void Levelup()
+        {
+            Level++;
+            exp = 0;
+            Console.WriteLine($"{Name}이(가) {Level} 레벨로 올라갔습니다");
         }
 
         private static Player instance;
