@@ -28,7 +28,6 @@ namespace ConsoleRPG
             if (win == true)
             {
                 Player.GetInst.UpdateQuest(DataManager.monsters);
-                DataManager.monsters.Clear();
 
                 int totalexp = 0;
                 int totalmoney = 0;
@@ -77,6 +76,8 @@ namespace ConsoleRPG
                     Player.GetInst.Defend += 5;
                     Player.GetInst.Health += 50;
                 }
+
+                DataManager.monsters.Clear();
 
                 if (End)
                 {

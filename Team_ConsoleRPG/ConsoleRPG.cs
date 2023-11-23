@@ -36,10 +36,6 @@ namespace ConsoleRPG
                         StartScene.StartMain();
 
                     GameManager.DisplayHome();      //게임메니저 호출하여 메인로비 호출
-
-                    Console.WriteLine("음악 재생 중... (Press Enter to stop)");
-                    Console.ReadLine();
-
                     waveOut.Stop();
                 }
             }
