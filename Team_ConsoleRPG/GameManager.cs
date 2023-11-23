@@ -483,6 +483,7 @@ namespace ConsoleRPG
             List<Item> items = DataManager.GetItemsByType(ItemType.Weapon);
             for (int i = 0; i < items.Count; i++)     //아이템 고유번호 1~5번까지 아이템 데이터 출력
             {
+                Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.Write("{0}.  ", i + 1);
                 items[i].PrintItemData();
             }
@@ -509,6 +510,7 @@ namespace ConsoleRPG
             List<Item> items = DataManager.GetItemsByType(ItemType.SubWeapon);
             for (int i = 0; i < items.Count; i++)                //보조무기 아이템 데이터 출력
             {
+                Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.Write("{0}.  ", i + 1);
                 items[i].PrintItemData();
             }
@@ -535,6 +537,7 @@ namespace ConsoleRPG
             List<Item> items = DataManager.GetItemsByType(ItemType.Armor);
             for (int i = 0; i < items.Count; i++)
             {
+                Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.Write("{0}.  ", i + 1);
                 items[i].PrintItemData();
             }
@@ -561,6 +564,7 @@ namespace ConsoleRPG
             List<Item> items = DataManager.GetItemsByType(ItemType.Shield);
             for (int i = 0; i < items.Count; i++)
             {
+                Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.Write("{0}.  ", i + 1);
                 items[i].PrintItemData();
             }
@@ -587,6 +591,7 @@ namespace ConsoleRPG
             List<Item> items = DataManager.GetItemsByType(ItemType.Accessory);
             for (int i = 0; i < items.Count; i++)
             {
+                Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.Write("{0}.  ", i + 1);
                 items[i].PrintItemData();
             }
@@ -613,6 +618,7 @@ namespace ConsoleRPG
             List<Item> items = DataManager.GetItemsByType(ItemType.activeitem);
             for (int i = 0; i < items.Count; i++)
             {
+                Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.Write("{0}.  ", i + 1);
                 items[i].PrintItemData();
             }
