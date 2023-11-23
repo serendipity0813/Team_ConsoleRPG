@@ -106,6 +106,7 @@ namespace ConsoleRPG
                     break;
                 case 7:
                     Player.GetInst.Save();
+                    Environment.Exit(0);
                     break;
                 default:
                     Console.WriteLine("잘못된 입력입니다.");
