@@ -48,38 +48,24 @@ namespace Team_ConsoleRPG
         public void DisplayQuestBoard() 
         {
             Console.Clear();
+            Console.WriteLine(questName);
             Console.WriteLine();
-            Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine(" ----------------------------------------------------------------");
-            Console.WriteLine(" ----------------------------------------------------------------");
-            Console.WriteLine($"    {questName}");
             for (int i = 0; i < description.Count; ++i) 
             {
-                Console.WriteLine("                                                                ");
-                Console.WriteLine($"   {description[i]}");
-                Console.WriteLine("                                                                ");
+                Console.WriteLine(description[i]);
             }
-            Console.WriteLine(" ----------------------------------------------------------------");
-            Console.WriteLine(" ----------------------------------------------------------------");
-            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine();
             for (int i = 0; i < targetMonsters.Count; i++) {
                 Console.WriteLine($"- {targetMonsters[i]} {MaxtargetCout[i]}마리 처리 ({CurCout[i]}/{MaxtargetCout[i]})");
             }
 
             Console.WriteLine();
-            Console.WriteLine(" ||----------------------------------------------------------------||");
-            Console.WriteLine();
-            Console.WriteLine("       - 보상 -");
+            Console.WriteLine("- 보상 -");
             for (int i = 0; i < RewardItemID.Count; i++) {
-                Console.WriteLine($"       {DataManager.Items[RewardItemID[i]].Name}");
+                Console.WriteLine($"{DataManager.Items[RewardItemID[i]].Name}");
             }
+            Console.WriteLine($"{RewardGold}G");
             Console.WriteLine();
-            Console.WriteLine($"       {RewardGold}G");
-            Console.WriteLine();
-            Console.WriteLine(" ||----------------------------------------------------------------||");
-            Console.WriteLine();
-            Console.ResetColor();
 
             if (clear) {
                 Completed();

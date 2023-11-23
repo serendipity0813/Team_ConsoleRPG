@@ -15,47 +15,64 @@ namespace ConsoleRPG
                 Console.ForegroundColor = ConsoleColor.DarkGray;
             Console.WriteLine(" ----    ---    ---    ---    ---    ---- ");
             Console.WriteLine("|    |  |   |  |   |  |   |  |   |  |    |");
+            Console.WriteLine("|    |  |   |  |   |  |   |  |   |  |    |");
             Console.WriteLine(" ----------------------------------------");
+            Console.WriteLine("|                                        |");
             Console.WriteLine("|                 Stage 7                |");
+            Console.WriteLine("|                                        |");
             if (Player.GetInst.Level >= 6)
                 Console.ForegroundColor = ConsoleColor.Green;
             else
                 Console.ForegroundColor = ConsoleColor.DarkGray;
             Console.WriteLine(" ----------------------------------------");
+            Console.WriteLine("|                                        |");
             Console.WriteLine("|                 Stage 6                |");
+            Console.WriteLine("|                                        |");
             if (Player.GetInst.Level >= 5)
                 Console.ForegroundColor = ConsoleColor.Green;
             else
                 Console.ForegroundColor = ConsoleColor.DarkGray;
             Console.WriteLine(" ----------------------------------------");
+            Console.WriteLine("|                                        |");
             Console.WriteLine("|                 Stage 5                |");
+            Console.WriteLine("|                                        |");
             if (Player.GetInst.Level >= 4)
                 Console.ForegroundColor = ConsoleColor.Green;
             else
                 Console.ForegroundColor = ConsoleColor.DarkGray;
             Console.WriteLine(" ----------------------------------------");
+            Console.WriteLine("|                                        |");
             Console.WriteLine("|                 Stage 4                |");
+            Console.WriteLine("|                                        |");
             if (Player.GetInst.Level >= 3)
                 Console.ForegroundColor = ConsoleColor.Green;
             else
                 Console.ForegroundColor = ConsoleColor.DarkGray;
             Console.WriteLine(" ----------------------------------------");
+            Console.WriteLine("|                                        |");
             Console.WriteLine("|                 Stage 3                |");
+            Console.WriteLine("|                                        |");
             if (Player.GetInst.Level >= 2)
                 Console.ForegroundColor = ConsoleColor.Green;
             else
                 Console.ForegroundColor = ConsoleColor.DarkGray;
             Console.WriteLine(" ----------------------------------------");
+            Console.WriteLine("|                                        |");
             Console.WriteLine("|                 Stage 2                |");
+            Console.WriteLine("|                                        |");
             if (Player.GetInst.Level >= 1)
                 Console.ForegroundColor = ConsoleColor.Green;
             else
                 Console.ForegroundColor = ConsoleColor.DarkGray;
             Console.WriteLine(" ----------------------------------------");
+            Console.WriteLine("|                                        |");
             Console.WriteLine("|                 Stage 1                |");
+            Console.WriteLine("|                                        |");
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine(" ----------------------------------------");
+            Console.WriteLine("|                                        |");
             Console.WriteLine("|                 Home  0                |");
+            Console.WriteLine("|                                        |");
             Console.WriteLine(" ----------------------------------------");
             Console.ResetColor();
             Console.WriteLine();

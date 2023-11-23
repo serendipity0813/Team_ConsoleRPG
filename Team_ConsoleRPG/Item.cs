@@ -89,7 +89,7 @@ namespace ConsoleRPG
 
 
 
-            Console.ForegroundColor = ConsoleColor.Yellow;
+
             int padLen = maxNameLength - Encoding.Default.GetBytes(Name).Length;
             string itemName = Name + new string(' ', padLen);
             Console.Write($"이름|| {itemName}");
@@ -105,7 +105,6 @@ namespace ConsoleRPG
             if (Type == ItemType.activeitem) Console.Write($"수량 : {(ItemCnt >= 0 ? "+" : "")}{ItemCnt}");
             Console.WriteLine();
             Console.WriteLine("====================================================================================");
-            Console.ResetColor();
 
         }
 
