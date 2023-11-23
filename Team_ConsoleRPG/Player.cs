@@ -24,7 +24,7 @@ namespace ConsoleRPG
         public int Level { get; set; }      //지속적으로 변경되어 프로퍼티 - get, set
         public int MP { get; set; }         //플레이어 마나
         public int exp = 0;                 //플레이어 경험치 - 일정수치 이상 획득시 레벨업
-        public int ticket = 0;              //던전 진행시 얻는 아이템
+        public static int ticket = 5;              //던전 진행시 얻는 아이템
 
         public List<Item> equipItems;
         public List<Item> inventory { get; private set; }
