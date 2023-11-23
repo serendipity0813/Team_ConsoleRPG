@@ -81,7 +81,7 @@ namespace ConsoleRPG
             Console.ResetColor();
 
 
-            Player.GetInst.PlayerDataSetting(playerName, (Jop)jobChoice, 1, 100, 100, 10, 5, 1000);
+            Player.GetInst.PlayerDataSetting(playerName, (Jop)jobChoice - 1, 7, 1000, 100, 800, 50, 1000);
             Console.ReadKey();
         }
 
