@@ -50,9 +50,11 @@ namespace ConsoleRPG
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine($"{Player.GetInst.Name}가 전투에서 승리하였습니다!");
                 Console.WriteLine();
-
-                Console.WriteLine($"{totalexp}만큼 경험치를 획득합니다.");
-                Console.WriteLine($"{totalmoney}만큼 돈을 획득합니다.");
+                Console.WriteLine(" -------------------------------------");
+                Console.WriteLine($"| {totalexp}만큼 경험치를 획득합니다. |");
+                Console.WriteLine("                                      ");
+                Console.WriteLine($"| {totalmoney}만큼 돈을 획득합니다.   |");
+                Console.WriteLine(" -------------------------------------");
                 Dropmonster.Droptable(); //드랍 테이블
 
                 Console.ResetColor();
@@ -62,14 +64,13 @@ namespace ConsoleRPG
                 {
                     Console.WriteLine();
                     Console.ForegroundColor = ConsoleColor.Red;
-
-                    Console.WriteLine(" LEVEL UP! - 공격력, 방어력, 체력이 일정수치 상승합니다! ");
+                    Console.WriteLine("LEVEL UP! - 공격력, 방어력, 체력이 일정수치 상승합니다.");
                     Console.WriteLine();
-                    Console.WriteLine(" 직장에서 업무 성과를 인정받아 휴가 티켓을 1개 획득합니다! ");
+                    Console.WriteLine(" 직장에서 업무 성과를 인정받아 휴가 티켓을 1개 획득합니다!");
                     Console.WriteLine();
-
                     Console.ResetColor();
-                    Player.GetInst.exp -= Player.GetInst.Level * 5;      //경험치를 줄이고 레벨이 상승하며 모든 스텟 상승
+                    Player.GetInst.exp -= Player.GetInst.Level * Player.GetInst.Level * 5;      //경험치를 줄이고 레벨이 상승하며 모든 스텟 상승
+                    Player.ticket++;
                     Player.GetInst.Level++;
                     Player.GetInst.Attack += 5;
                     Player.GetInst.Defend += 5;

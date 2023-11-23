@@ -1,4 +1,5 @@
 ﻿using System;
+using NAudio.Wave;
 using System.Collections.Generic;
 using System.IO;
 using Team_ConsoleRPG;
@@ -12,6 +13,7 @@ namespace ConsoleRPG
 
         public static void Main(string[] args)
         {
+            
             string filePath = DataManager.GetProjectPath() + "Music\\bgm.mp3"; // MP3 파일 경로를 지정하세요.
 
             using (var mp3Reader = new Mp3FileReader(filePath))

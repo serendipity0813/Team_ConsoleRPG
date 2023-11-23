@@ -11,11 +11,11 @@ namespace ConsoleRPG
         public static void StartMain()
         {
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("------------------[ W e l c o m e ]---------------------");
-            Console.WriteLine();
-            Console.WriteLine("--------스파르타 던전에 오신 여러분 환영합니다.---------");
-            Console.WriteLine();
-            Console.WriteLine("------------------[ W e l c o m e ]---------------------");
+            Console.WriteLine("┌------------------[ W e l c o m e ]---------------------┐");
+            Console.WriteLine("|                                                        |");
+            Console.WriteLine("|       스파르타 던전에 오신 여러분 환영합니다           |");
+            Console.WriteLine("|                                                        |");
+            Console.WriteLine("└------------------[ W e l c o m e ]---------------------┘");
             Console.WriteLine();
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -33,11 +33,11 @@ namespace ConsoleRPG
             }
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("------------------[ W e l c o m e ]---------------------");
-            Console.WriteLine();
-            Console.WriteLine("--------스파르타 던전에 오신 여러분 환영합니다.---------");
-            Console.WriteLine();
-            Console.WriteLine("------------------[ W e l c o m e ]---------------------");
+            Console.WriteLine("┌------------------[ W e l c o m e ]---------------------┐");
+            Console.WriteLine("|                                                        |");
+            Console.WriteLine("|       스파르타 던전에 오신 여러분 환영합니다           |");
+            Console.WriteLine("|                                                        |");
+            Console.WriteLine("└------------------[ W e l c o m e ]---------------------┘");
             Console.WriteLine();
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -77,7 +77,7 @@ namespace ConsoleRPG
             Console.WriteLine();
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine($"    [ I n s e r t    C o i n ]      ");
+            Console.Write($"    [ I n s e r t    C o i n ]      ");
             Console.ResetColor();
 
 
