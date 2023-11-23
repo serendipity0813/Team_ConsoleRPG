@@ -10,11 +10,11 @@ namespace ConsoleRPG
 {
     public enum Jop
     {
-        프로그래머,
-        게임디렉터,
-        QA테스터,
-        게임프로듀서,
-        스토리라이터
+        Programmer,
+        GameDirector,
+        QAtester,
+        GameProducer,
+        StoryWriter
     }
 
     public class Player : Character      //플레이어 캐릭터 클래스
