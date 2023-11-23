@@ -66,19 +66,22 @@ namespace ConsoleRPG
             Console.WriteLine(" ----------------------------------------");
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine();
-            Console.WriteLine("1. 현재상태 확인");
             Console.WriteLine();
-            Console.WriteLine("2. 인벤토리 확인");
-            Console.WriteLine();
-            Console.WriteLine("3. 인터넷 쇼핑");
-            Console.WriteLine();
-            Console.WriteLine("4. 지인 만나기");
-            Console.WriteLine();
-            Console.WriteLine("5. 회사로 출근");
-            Console.WriteLine();
-            Console.WriteLine("6. 업무 확인");
-            Console.WriteLine();
-            Console.WriteLine("7. 저장하고 종료");
+            Console.WriteLine(" ----------------------------------------");
+            Console.WriteLine("  1. 현재상태 확인");
+            Console.WriteLine(" ----------------------------------------");
+            Console.WriteLine("  2. 인벤토리 확인");
+            Console.WriteLine(" ----------------------------------------");
+            Console.WriteLine("  3. 인터넷 쇼핑");
+            Console.WriteLine(" ----------------------------------------");
+            Console.WriteLine("  4. 휴가 떠나기");
+            Console.WriteLine(" ----------------------------------------");
+            Console.WriteLine("  5. 회사로 출근");
+            Console.WriteLine(" ----------------------------------------");
+            Console.WriteLine("  6. 업무 확인");
+            Console.WriteLine(" ----------------------------------------");
+            Console.WriteLine("  7. 저장하고 종료");
+            Console.WriteLine(" ----------------------------------------");
             Console.ResetColor();
             Console.WriteLine();
 
@@ -96,7 +99,7 @@ namespace ConsoleRPG
                     DisplayShop();
                     break;
                 case 4:
-                    DisplayCommunity();
+                    DisplayVacation();
                     break;
                 case 5:
                     Stage.DisplayStage();
@@ -152,6 +155,7 @@ namespace ConsoleRPG
             Console.WriteLine(" ----------------------------------------");
             Console.ResetColor();
             Console.WriteLine();
+            Console.WriteLine();
             Console.WriteLine("나가기 : 0");
 
             int input = CheckInput(0, 0);
@@ -184,6 +188,7 @@ namespace ConsoleRPG
             Console.WriteLine("|                3. 재료                  |");
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine(" ----------------------------------------");
+            Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine("0. 돌아가기");
             int input = CheckInput(0, 3);
@@ -242,15 +247,13 @@ namespace ConsoleRPG
                    */
                     Console.WriteLine();
                     Console.WriteLine(" ----------------------------------------");
-                    Console.WriteLine(" ");             //추가로 진행할 수 있는 기능 출력
-                    Console.WriteLine("0. 나가기");
-                    Console.WriteLine();
-                    Console.WriteLine("1. 장착관리");
-                    Console.WriteLine();
-                    Console.WriteLine("2. 당근마켓에 아이템 팔기");
-                    Console.WriteLine();
-                    Console.WriteLine(" ");
+                    Console.WriteLine("  0. 나가기");
                     Console.WriteLine(" ----------------------------------------");
+                    Console.WriteLine("  1. 장착관리");
+                    Console.WriteLine(" ----------------------------------------");
+                    Console.WriteLine("  2. 당근마켓에 아이템 팔기");
+                    Console.WriteLine(" ----------------------------------------");
+                    Console.WriteLine();
                     Console.WriteLine();
                     Console.WriteLine("원하시는 행동을 입력하시오");
                     Console.WriteLine();
@@ -312,16 +315,15 @@ namespace ConsoleRPG
                     }
                     */
                     Console.WriteLine();
+                    Console.WriteLine();
                     Console.WriteLine(" ----------------------------------------");
-                    Console.WriteLine(" ");             //추가로 진행할 수 있는 기능 출력
-                    Console.WriteLine("0. 나가기");
-                    Console.WriteLine();
-                    Console.WriteLine("1. 당근마켓에 아이템 팔기");
-                    Console.WriteLine();
-                    Console.WriteLine(" ");
+                    Console.WriteLine("  0. 나가기");
+                    Console.WriteLine(" ----------------------------------------");
+                    Console.WriteLine("  1. 당근마켓에 아이템 팔기");
                     Console.WriteLine(" ----------------------------------------");
                     Console.WriteLine();
-                    Console.WriteLine("원하시는 행동을 입력하시오");
+                    Console.WriteLine();
+                    Console.WriteLine("  원하시는 행동을 입력하시오");
                     Console.WriteLine();
                     input = CheckInput(0, 1);
 
@@ -378,16 +380,14 @@ namespace ConsoleRPG
                         }
                         */
                         Console.WriteLine();
+                        Console.WriteLine();
                         Console.WriteLine(" ----------------------------------------");
-                        Console.WriteLine(" ");             //추가로 진행할 수 있는 기능 출력
-                        Console.WriteLine("0. 나가기");
-                        Console.WriteLine();
-                        Console.WriteLine("1. 당근마켓에 아이템 팔기");
-                        Console.WriteLine();
-                        Console.WriteLine(" ");
+                        Console.WriteLine("  0. 나가기");
+                        Console.WriteLine(" ----------------------------------------");
+                        Console.WriteLine("  1. 당근마켓에 아이템 팔기");
                         Console.WriteLine(" ----------------------------------------");
                         Console.WriteLine();
-                        Console.WriteLine("원하시는 행동을 입력하시오");
+                        Console.WriteLine("  원하시는 행동을 입력하시오");
                         Console.WriteLine();
 
                         input = CheckInput(0, 1);
@@ -415,8 +415,10 @@ namespace ConsoleRPG
         {
             Console.Clear();
 
-            Console.WriteLine($"현재 보유금액 : {Player.GetInst.Money}");
+            Console.WriteLine();
             Console.WriteLine("필요한 물품을 사기 위해 핸드폰을 킨다. 어떤 사이트에 들어갈까?");
+            Console.WriteLine();
+            Console.WriteLine($"현재 보유금액 : {Player.GetInst.Money}");
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine();
             Console.WriteLine(" ----------------------------------------------------------------");
@@ -432,8 +434,8 @@ namespace ConsoleRPG
             Console.WriteLine(" ----------------------------------------------------------------");
             Console.WriteLine("|  6. GS25에 들어가서 소모품을 구입한다.");
             Console.WriteLine(" ----------------------------------------------------------------");
-            Console.WriteLine();
-            Console.WriteLine("0. 다음을 기약하며 핸드폰을 끈다.");
+            Console.WriteLine("|  0. 다음을 기약하며 핸드폰을 끈다.");
+            Console.WriteLine(" ----------------------------------------------------------------");
             Console.ResetColor();
 
             int input = CheckInput(0, 6);
@@ -484,9 +486,10 @@ namespace ConsoleRPG
                 Console.Write("{0}.  ", i + 1);
                 items[i].PrintItemData();
             }
-
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("0.     다음을 기약하며 핸드폰을 끈다.");
+            Console.WriteLine("====================================================================================");
             Console.ResetColor();
-            Console.WriteLine("0. 다음을 기약하며 핸드폰을 끈다.");
             Console.WriteLine();
             Console.WriteLine("구매를 원하는 키보드의 번호를 입력하세요.");
 
@@ -509,8 +512,10 @@ namespace ConsoleRPG
                 Console.Write("{0}.  ", i + 1);
                 items[i].PrintItemData();
             }
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("0.     다음을 기약하며 핸드폰을 끈다.");
+            Console.WriteLine("====================================================================================");
             Console.ResetColor();
-            Console.WriteLine("0. 다음을 기약하며 핸드폰을 끈다.");
             Console.WriteLine();
             Console.WriteLine("구매를 원하는 마우스의 번호를 입력하세요.");
 
@@ -533,8 +538,10 @@ namespace ConsoleRPG
                 Console.Write("{0}.  ", i + 1);
                 items[i].PrintItemData();
             }
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("0.     다음을 기약하며 핸드폰을 끈다.");
+            Console.WriteLine("====================================================================================");
             Console.ResetColor();
-            Console.WriteLine("0. 다음을 기약하며 핸드폰을 끈다.");
             Console.WriteLine();
             Console.WriteLine("구매를 원하는 옷의 번호를 입력하세요.");
 
@@ -557,8 +564,10 @@ namespace ConsoleRPG
                 Console.Write("{0}.  ", i + 1);
                 items[i].PrintItemData();
             }
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("0.     다음을 기약하며 핸드폰을 끈다.");
+            Console.WriteLine("====================================================================================");
             Console.ResetColor();
-            Console.WriteLine("0. 다음을 기약하며 핸드폰을 끈다.");
             Console.WriteLine();
             Console.WriteLine("구매를 원하는 이어폰의 번호를 입력하세요.");
 
@@ -581,8 +590,10 @@ namespace ConsoleRPG
                 Console.Write("{0}.  ", i + 1);
                 items[i].PrintItemData();
             }
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("0.     다음을 기약하며 핸드폰을 끈다.");
+            Console.WriteLine("====================================================================================");
             Console.ResetColor();
-            Console.WriteLine("0. 다음을 기약하며 핸드폰을 끈다.");
             Console.WriteLine();
             Console.WriteLine("구매를 원하는 꿀템의 번호를 입력하세요.");
 
@@ -605,8 +616,10 @@ namespace ConsoleRPG
                 Console.Write("{0}.  ", i + 1);
                 items[i].PrintItemData();
             }
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("0.     다음을 기약하며 핸드폰을 끈다.");
+            Console.WriteLine("====================================================================================");
             Console.ResetColor();
-            Console.WriteLine("0. 다음을 기약하며 핸드폰을 끈다.");
             Console.WriteLine();
             Console.WriteLine("구매를 원하는 꿀템의 번호를 입력하세요.");
 
@@ -745,35 +758,66 @@ namespace ConsoleRPG
 
 
 
-        public static void DisplayCommunity()       //커뮤니티 화면 출력
+        public static void DisplayVacation()       //커뮤니티 화면 출력
         {
             Console.Clear();
-            Console.WriteLine("만나고자 하는 지인을 선택하세요");
 
+            if (Player.ticket == 0)
+            {
                 Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("-------------------------------------------------");
                 Console.WriteLine();
-                Console.WriteLine("1. 부모님");
+                Console.WriteLine("휴가도, 연차도 없이 어딜 가려고....?  빨리 출근준비 해.야.지?!");
                 Console.WriteLine();
-                Console.WriteLine("2. 학창시절 친구");
+                Console.WriteLine("휴가도, 연차도 없이 어딜 가려고....?  빨리 출근준비 해.야.지?!");
                 Console.WriteLine();
-                Console.WriteLine("3. 직장 동료");
+                Console.WriteLine("휴가도, 연차도 없이 어딜 가려고....?  빨리 출근준비 해.야.지?!");
                 Console.WriteLine();
-                Console.WriteLine("4. 대학교 동기");
+                Console.WriteLine("휴가도, 연차도 없이 어딜 가려고....?  빨리 출근준비 해.야.지?!");
                 Console.WriteLine();
-                Console.WriteLine("5. 랜덤채팅");
+                Console.WriteLine("휴가도, 연차도 없이 어딜 가려고....?  빨리 출근준비 해.야.지?!");
                 Console.WriteLine();
-                Console.WriteLine("0. 오늘은 집에서 쉬도록 하자!");
+                Console.ResetColor();
+                Console.ReadKey();
+                GameManager.DisplayHome();
+            }
+            else
+            {
+                Console.WriteLine($"                 휴가 여행지 선택                남은 티켓 : {Player.ticket} 개   ");
                 Console.WriteLine();
-                Console.WriteLine("-------------------------------------------------");
+     
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("-----------------------------------------------------------");
+                Console.WriteLine();
+                Console.WriteLine("1. 부모님과 함께 떠나는 제주도 여행 ^^ ");
+                Console.WriteLine();
+                Console.WriteLine("-----------------------------------------------------------");
+                Console.WriteLine();
+                Console.WriteLine("2. 버킷리스트인 하와이 와이키키 해변으로 알로하~ 알로하~ ");
+                Console.WriteLine();
+                Console.WriteLine("-----------------------------------------------------------");
+                Console.WriteLine();
+                Console.WriteLine("3. 집 밖은 위험해.... 휴가 기간동안 집콕하면서 쉬자!");
+                Console.WriteLine();
+                Console.WriteLine("-----------------------------------------------------------");
+                Console.WriteLine();
+                Console.WriteLine("4. 친구들과 일본으로 꿀잼팟 여행 긔긔!!");
+                Console.WriteLine();
+                Console.WriteLine("-----------------------------------------------------------");
+                Console.WriteLine();
+                Console.WriteLine("5. 나 홀로 미국으로 여행을 떠난다..! ");
+                Console.WriteLine();
+                Console.WriteLine("-----------------------------------------------------------");
+                Console.WriteLine();
+                Console.WriteLine("0. 나중을 위해 휴가를 아껴 두고 집에서 쉬도록 하자!");
+                Console.WriteLine();
+                Console.WriteLine("-----------------------------------------------------------");
                 Console.ResetColor();
 
 
                 int input = CheckInput(0, 5);
                 int num = input + 25;       //커뮤니티 진행시 획득하는 아이템 고유번호가 26~30이므로 
                 Random random = new Random();
-                int Randomcout = random.Next(1,3);
-
+                int Randomcout = random.Next(1, 3);
 
                 switch (input)
                 {
@@ -781,40 +825,106 @@ namespace ConsoleRPG
                         DisplayHome();
                         break;
                     case 1:      //티켓을 소비하고 아이템 획득 및 자동장착
-                        Console.WriteLine("사랑하는 부모님과 식사를 하며 응원과 지지를 받습니다.");
-                        Console.WriteLine("황금 르탄이 포인트키캡 획득 - 모든 스텟 +10");
+                        Console.Clear();
+                        Console.ForegroundColor = ConsoleColor.Cyan;
+                        Console.WriteLine();
+                        Console.WriteLine();
+                        Console.WriteLine(" ┌-----------------------------------------------------┐");
+                        Console.WriteLine(" |                                                     |");
+                        Console.WriteLine(" |   부모님과의 제주도 여행으로 추억을 만들고 옵니다   |");
+                        Console.WriteLine(" |                                                     |");
+                        Console.WriteLine(" |   황금 르탄이 포인트키캡 획득 - 모든 스텟 +10       |");
+                        Console.WriteLine(" |                                                     |");
+                        Console.WriteLine(" └-----------------------------------------------------┘");
+                        Console.WriteLine();
+                        Console.ResetColor();
+                        Player.ticket--;
                         Console.ReadKey();
                         DisplayHome();
                         break;
                     case 2:
-                        Console.WriteLine("학창시절 친구와 술 한잔 하며 좋은 기운을 받습니다.");
-                        Console.WriteLine("힘자랑하는 르탄이 포인트키캡 획득 - 공격력 +10");
+                        Console.Clear();
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.WriteLine();
+                        Console.WriteLine();
+                        Console.WriteLine(" ┌-----------------------------------------------------┐");
+                        Console.WriteLine(" |                                                     |");
+                        Console.WriteLine(" |    하와이에서 우연히 김계란을 만나 같이 운동합니다  |");
+                        Console.WriteLine(" |                                                     |");
+                        Console.WriteLine(" |    힘자랑하는 르탄이 포인트키캡 획득 - 공격력 +10   |");
+                        Console.WriteLine(" |                                                     |");
+                        Console.WriteLine(" └-----------------------------------------------------┘");
+                        Player.ticket--;
                         Console.ReadKey();
                         DisplayHome();
                         break;
                     case 3:
-                        Console.WriteLine("직장 동료와 만나 친해지며 사이가 돈독해집니다.");
-                        Console.WriteLine("잠자는 르탄이 포인트키캡 획득 - 방어 +10");
+                        Console.Clear();
+                        Console.ForegroundColor = ConsoleColor.Blue;
+                        Console.WriteLine();
+                        Console.WriteLine();
+                        Console.WriteLine(" ┌-----------------------------------------------------┐");
+                        Console.WriteLine(" |                                                     |");
+                        Console.WriteLine(" |   침대에서 넷플 보다가 잠들고, 먹고, 다시 자고...   |");
+                        Console.WriteLine(" |                                                     |");
+                        Console.WriteLine(" |   잠자는 르탄이 포인트키캡 획득 - 방어 +10          |");
+                        Console.WriteLine(" |                                                     |");
+                        Console.WriteLine(" └-----------------------------------------------------┘");
+                        Console.ResetColor();
+                        Player.ticket--;
                         Console.ReadKey();
                         DisplayHome();
                         break;
                     case 4:
-                        Console.WriteLine("대학시절 동기를 만나 최신동향 정보와 꿀팁을 공유합니다.");
-                        Console.WriteLine("달리는 르탄이 포인트키캡 획득 - 체력 +10");
+                        Console.Clear();
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine();
+                        Console.WriteLine();
+                        Console.WriteLine(" ┌-----------------------------------------------------┐");
+                        Console.WriteLine(" |                                                     |");
+                        Console.WriteLine(" |   친구들과 일본 이곳저곳 알차게 여행을 다녀옵니다.  |");
+                        Console.WriteLine(" |                                                     |");
+                        Console.WriteLine(" |   달리는 르탄이 포인트키캡 획득 - 체력 +10          |");
+                        Console.WriteLine(" |                                                     |");
+                        Console.WriteLine(" └-----------------------------------------------------┘");
+                        Console.ResetColor();
+                        Player.ticket--;
                         Console.ReadKey();
                         DisplayHome();
                         break;
                     case 5:
                         if (Randomcout == 1)
                         {
-                            Console.WriteLine("랜덤채팅에서 이상한 사람을 만나 큰일날 뻔 했지만 겨우 도망쳤습니다.");
-                            Console.WriteLine("꼴받는 르탄이 포인트키캡 획득 - 모든 스텟 -10");
+                            Console.Clear();
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine();
+                            Console.WriteLine();
+                            Console.WriteLine(" ┌-----------------------------------------------------┐");
+                            Console.WriteLine(" |                                                     |");
+                            Console.WriteLine(" |   미국에서 짐을 도둑맞고 위험했지만 겨우 생환합니다.  |");
+                            Console.WriteLine(" |                                                     |");
+                            Console.WriteLine(" |   꼴받는 르탄이 포인트키캡 획득 - 모든 스텟 -10      |");
+                            Console.WriteLine(" |                                                     |");
+                            Console.WriteLine(" └-----------------------------------------------------┘");
+                            Console.ResetColor();
+                            Player.ticket--;
                             Console.ReadKey();
                         }
                         else if (Randomcout == 2)
                         {
-                            Console.WriteLine("랜덤채팅에서 과거의 전설적인 디렉터를 만났습니다.");
-                            Console.WriteLine("외계인안경쓴 르탄이 포인트키캡 획득 - 모든 스텟 +20");
+                            Console.Clear();
+                            Console.ForegroundColor = ConsoleColor.Yellow;
+                            Console.WriteLine();
+                            Console.WriteLine();
+                            Console.WriteLine(" ┌-----------------------------------------------------┐");
+                            Console.WriteLine(" |                                                     |");
+                            Console.WriteLine(" |   미국에서 과거의 전설적인 디렉터를 만났습니다.     |");
+                            Console.WriteLine(" |                                                     |");
+                            Console.WriteLine(" |   외계인안경 르탄 포인트키캡 획득-모든 스텟 +20     |");
+                            Console.WriteLine(" |                                                     |");
+                            Console.WriteLine(" └-----------------------------------------------------┘");
+                            Console.ResetColor();
+                            Player.ticket--;
                             num = 31;
                             Console.ReadKey();
                         }
@@ -829,6 +939,9 @@ namespace ConsoleRPG
                 Player.GetInst.inventory.Add(DataManager.Items[num]); //아이템 추가
                 DataManager.Items[num].Have = true;
                 Player.GetInst.EquipItem(DataManager.Items[num]);
+
+            }
+            
             
         }
 
